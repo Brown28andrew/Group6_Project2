@@ -1,0 +1,6 @@
+9/9, 7:30pm - 8:45
+  -Attendees: Rudro, Anna, Michael, Nifemi, Yuri
+  -Discussed Project 1, began writing code to print board and game to terminal.
+  -Decided to make an executive class, a class to handle outputs, and define the boards using 2-D arrays.
+  -Discussed splitting into pairs to work on class definitions.
+  -Attempted to collaborate using Visual Studio Code Live Share.
