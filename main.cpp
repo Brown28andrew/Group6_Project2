@@ -1,12 +1,12 @@
 #include <iostream>
-#include <math.h>
+//#include <math.h>
 
 using namespace std;
 
-CONST int rows = 9;
-CONST int columns = 10;
+const int rows = 9;
+const int columns = 10;
 
-int array_grid[rows][cols];
+int array_grid[rows][columns];
 
 char ships = 'S';
 char hit_ship = 'H';
@@ -21,11 +21,11 @@ void func_legend()
 }
 
 //function to print the empty grid with no ships placed on it
-void grid_show()
+void grid_make()
 {
     for (int i = 0; i < rows; i++)
     {
-        for (int j = 0; j <= col; j++)
+        for (int j = 0; j <= columns; j++)
         {
             array_grid[i][j] = 'O';
         }
@@ -33,29 +33,39 @@ void grid_show()
 }
 
 //function to ask for placement on the grid
-int user_pos_grid()
+void user_pos_grid()
 {
     int row_input;
     int col_input;
     int ship_number;
+    int make_number;
 
-    cout << "How many ships do you want to place? " << endl;
+    cout << "How many ships do you want to place? (1-6): ";
     cin >> ship_number;
 
-    if (ship_number > 6)
+    while (ship_number > 6 || ship_number < 0)
     {
-        cout << "Not possible. Sorry." << endl;
+        cout << "Invalid number. How many ships do you want to place? (1-6) " << endl;
+        cin >> ship_number;
     }
-
-    while (ship_number <= 6)
+    
+    for (int i = 1; i <= ship_number; i++)
     {
-        for (int i = 0; i < 6; i++)
-        {
-            cout << "Input the row number for the placement of ship: " << i << endl;
-            cin >> row_input;
+        cout << "Input the row number for the placement of ship: " << i << endl;
+        cin >> row_input;
 
-            cout << "Input the column number for the placement of ship: " << i << endl;
-            cin >> col_input;
-        }
+        cout << "Input the column number for the placement of ship: " << i << endl;
+        cin >> col_input;
     }
+    
+}
+
+
+
+
+int main() {
+    func_legend();
+    grid_make();
+    user_pos_grid();
+    return(0);
 }
