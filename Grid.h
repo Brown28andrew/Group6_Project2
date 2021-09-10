@@ -16,7 +16,18 @@ class Grid {
 		*/
         ~Grid();
 		
-
+		/**
+		* @pre: Player inputs represent a valid location on the board.
+		* @post: 'S' assigned to P1_array_grid[tRow][tCol] to denote 1x1 ship location
+		* @return: true if 'S' assigned successfully, false otherwise.
+		*/
+		bool setShip(int tRow, int tCol);
+		
+		/**
+		* @pre: passed inputs represent valid location on the board.
+		* @return: value at P1_array_grid[tRow][tCol]
+		*/
+		char getValue(int tRow, int tCol);
 
     private:
         char** P1_array_grid; 
