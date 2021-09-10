@@ -29,6 +29,18 @@ class Grid {
 		*/
 		char getValue(int tRow, int tCol);
 
+		/**
+		* @pre: passed int tRow and int tCol
+		* @return: true or false 
+		*/
+		bool checkForValidPlacedCoordinates(int tRow, int tCol);
+
+		/**
+		* @pre: array, user input row and input col
+		* @return: print the grid with the ships
+		*/
+		void printUserGrid(char** P1_array_grid,int tRow, int tCol);
+
     private:
         char** P1_array_grid; 
         //char** P2_array_grid;

@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Grid.h"
 //#include <math.h>
 
 using namespace std;
@@ -12,12 +13,20 @@ char ships = 'S';
 char hit_ship = 'H';
 char miss_ship = 'M';
 
+//method for opening the game
+void gameIntro()
+{
+    cout << "----------------------------------------------------------" << endl;
+    cout << "WELCOME TO THE BATTLESHIP GAME BY TEAM-18" << endl;
+    cout << "----------------------------------------------------------" << endl;
+    cout << "Below are the some symbols which will be used during the game." << endl;
+}
 //function to print the legends for the users
 void func_legend()
 {
-    cout << "The symbol for ships " << ships << endl;
-    cout << "The symbol for when ships are hit " << hit_ship << endl;
-    cout << "The symbol for when shots are missed " << miss_ship << endl;
+    cout << "The symbol for ships: " << ships << endl;
+    cout << "The symbol for when ships are hit: " << hit_ship << endl;
+    cout << "The symbol for when shots are missed: " << miss_ship << endl;
 }
 
 //function to print the empty grid with no ships placed on it
@@ -48,24 +57,25 @@ void user_pos_grid()
         cout << "Invalid number. How many ships do you want to place? (1-6) " << endl;
         cin >> ship_number;
     }
-    
+
     for (int i = 1; i <= ship_number; i++)
     {
-        cout << "Input the row number for the placement of ship: " << i << endl;
+        cout << "Input the row number for the placement of ship " << i << endl;
         cin >> row_input;
 
-        cout << "Input the column number for the placement of ship: " << i << endl;
+        cout << "Input the column number for the placement of ship " << i << endl;
         cin >> col_input;
     }
-    
 }
 
-
-
-
-int main() {
+int main()
+{
+    gameIntro();
     func_legend();
     grid_make();
     user_pos_grid();
-    return(0);
+    checkForValidPlacedCoordinates();
+    printUserGrid();
+
+    return (0);
 }
