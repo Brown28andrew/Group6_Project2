@@ -38,7 +38,7 @@ Grid::~Grid()
 * @pre: Player inputs represent a valid location on the board.
 * @post: 'S' assigned to P1_array_grid[tRow][tCol] to denote ship location
 */
-bool Grid::setShip(int tRow, int tCol)
+bool Grid::setShip(int tRow, int tCol) //removed the first argument variable since P1_array_grid is already a member variable. -Yuri
 {
 	bool isPlaced = false;
 
@@ -68,9 +68,9 @@ void Grid::printUserGrid(int tRow, int tCol)
 	cout << "Here is your grid: "<<endl;
 	for(int i = 0; i < rows; i++)
     {
-        for(int j = 0; j < columns; j++)
+        for(int j = 0; j < columns; j++) //changed cols to columns to match member variable. -Yuri
         {
-            cout<<setw(3)<<P1_array_grid[i][j];     //show row in one line
+            cout<<setw(3)<<P1_array_grid[i][j];     //show row in one line (changed grid[][] to P1_array_grid to match the member variable. -Yuri)
         }
         cout<<endl;
     }
@@ -79,16 +79,16 @@ void Grid::printUserGrid(int tRow, int tCol)
 bool Grid::checkForValidPlacedCoordinates(int tRow, int tCol)
 {
 
-	if (tRow >= rows || tRow <= 0 || tCol >= columns || tCol <= 0)
+	if (tRow >= rows || tRow <= 0 || tCol >= columns || tCol <= 0) //changed cols to columns to match member variable. -Yuri
 	{
-		std::cout << "Oops, the placement not in battlezone. Try again: " << std::endl;
+		cout << "Oops, the placement not in battlezone. Try again: " << endl;
 
 		return 0;
 	}
 
 	else 
 	{
-		setShip(tRow, tCol);
+		setShip(tRow, tCol); //added tRow and tCol since this function expects two passed arguments. -Yuri
 	}
 
 	return true;
