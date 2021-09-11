@@ -4,3 +4,6 @@
   -Decided to make an executive class, a class to handle outputs, and define the boards using 2-D arrays.
   -Discussed splitting into pairs to work on class definitions.
   -Attempted to collaborate using Visual Studio Code Live Share.
+  
+  
+  blah blah blah
