@@ -47,7 +47,9 @@ void user_pos_grid()
     int row_input;
     int col_input;
     int ship_number;
-    int make_number;
+	
+	//made make_number declaration into a comment because it didn't have a use yet. -Yuri
+    //int make_number;
 
     cout << "How many ships do you want to place? (1-6): ";
     cin >> ship_number;
