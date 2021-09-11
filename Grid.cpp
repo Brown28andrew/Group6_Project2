@@ -1,4 +1,9 @@
+#include <iomanip>
+#include <iostream>
+
 #include "Grid.h"
+
+using namespace std;
 
 /**
 * @pre: none
@@ -33,11 +38,11 @@ Grid::~Grid()
 * @pre: Player inputs represent a valid location on the board.
 * @post: 'S' assigned to P1_array_grid[tRow][tCol] to denote ship location
 */
-bool Grid::setShip(char** P1_array_grid,int tRow, int tCol)
+bool Grid::setShip(int tRow, int tCol)
 {
 	bool isPlaced = false;
 
-	checKForValidPlacedCoordinates();
+	checkForValidPlacedCoordinates(tRow, tCol);
 
 	if (P1_array_grid[tRow][tCol] == 'O')
 	{
@@ -58,23 +63,23 @@ char Grid::getValue(int tRow, int tCol)
 }
 
 //////////////////////////////////////////////////////////
-void Grid::printUserGrid(,int tRow, int tCol)
+void Grid::printUserGrid(int tRow, int tCol)
 {
 	cout << "Here is your grid: "<<endl;
-	for(i = 0; i < rows; i++)
+	for(int i = 0; i < rows; i++)
     {
-        for(j = 0; j < cols; j++)
+        for(int j = 0; j < columns; j++)
         {
-            cout<<setw(3)<<grid[i][j];     //show row in one line
+            cout<<setw(3)<<P1_array_grid[i][j];     //show row in one line
         }
         cout<<endl;
     }
 }
 
-bool checKForValidPlacedCoordinates(int tRow, int tCol)
+bool Grid::checkForValidPlacedCoordinates(int tRow, int tCol)
 {
 
-	if (tRow >= rows || tRow <= 0 || tCol >= cols || tCol <= 0)
+	if (tRow >= rows || tRow <= 0 || tCol >= columns || tCol <= 0)
 	{
 		std::cout << "Oops, the placement not in battlezone. Try again: " << std::endl;
 
@@ -83,7 +88,7 @@ bool checKForValidPlacedCoordinates(int tRow, int tCol)
 
 	else 
 	{
-		setShip();
+		setShip(tRow, tCol);
 	}
 
 	return true;

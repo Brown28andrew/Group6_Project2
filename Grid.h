@@ -20,26 +20,30 @@ class Grid {
 		* @pre: Player inputs represent a valid location on the board.
 		* @post: 'S' assigned to P1_array_grid[tRow][tCol] to denote 1x1 ship location
 		* @return: true if 'S' assigned successfully, false otherwise.
+		* @param: tRow and tCol, target row and column respectively
 		*/
 		bool setShip(int tRow, int tCol);
 		
 		/**
 		* @pre: passed inputs represent valid location on the board.
 		* @return: value at P1_array_grid[tRow][tCol]
+		* @param: tRow and tCol, target row and column respectively
 		*/
 		char getValue(int tRow, int tCol);
 
 		/**
 		* @pre: passed int tRow and int tCol
 		* @return: true or false 
+		* @param: tRow and tCol, target row and column respectively
 		*/
 		bool checkForValidPlacedCoordinates(int tRow, int tCol);
 
 		/**
 		* @pre: array, user input row and input col
 		* @return: print the grid with the ships
+		* @param: tRow and tCol, target row and column respectively
 		*/
-		void printUserGrid(char** P1_array_grid,int tRow, int tCol);
+		void printUserGrid(int tRow, int tCol);
 
     private:
         char** P1_array_grid; 

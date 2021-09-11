@@ -74,8 +74,8 @@ int main()
     func_legend();
     grid_make();
     user_pos_grid();
-    checkForValidPlacedCoordinates();
-    printUserGrid();
+    //checkForValidPlacedCoordinates();
+    //printUserGrid();
 
     return (0);
 }
