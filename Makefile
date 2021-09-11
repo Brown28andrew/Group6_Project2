@@ -7,8 +7,8 @@ main.o: main.cpp
 Grid.o: Grid.h Grid.cpp
 	g++ -std=c++11 -g -Wall -c Grid.cpp
 
-Output.o: Output.h Output.cpp
-	g++ -std=c++11 -g -Wall -c Output.cpp
+Game.o: Game.h Game.cpp
+	g++ -std=c++11 -g -Wall -c Game.cpp
 
 clean: 
 	rm *.o prog
