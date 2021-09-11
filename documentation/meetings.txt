@@ -1,9 +1,16 @@
-9/9, 7:30pm - 8:45
+Sep-8, 7:30pm - 8:45pm
   -Attendees: Rudro, Anna, Michael, Nifemi, Yuri
   -Discussed Project 1, began writing code to print board and game to terminal.
   -Decided to make an executive class, a class to handle outputs, and define the boards using 2-D arrays.
   -Discussed splitting into pairs to work on class definitions.
   -Attempted to collaborate using Visual Studio Code Live Share.
   
-  
-  blah blah blah
+Sep-9, 1:15pm - 3:50pm
+  -Attendees: Nifemi, Anna, Rudro, Michael (after 1:30pm), Yuri (after 2:20pm)
+  -Continued to discuss how to define the game boards, including symbols to denote spaces and storage of the boards information (decided to define a Grid class).
+  -Next meeting set for Saturday Sep-11 at 12:00pm.
+  -GOAL BEFORE NEXT MEETING: print a single player board to the terminal, with one ship populating the board.
+  -TASKS:
+    -Rudro: define a method to check player input validity and a method to print the board.
+	-Yuri: define a method to set a 1X1 ship onto the board and a method to retrieve values from the board stored in a Grid class object.
+	-Michael: begin to brainstorm a list of stress tests for the program in general.
