@@ -1,5 +1,5 @@
-prog: main.o Grid.o Output.o
-	g++ -std=c++11 -g -Wall main.o Grid.o Output.o -o prog
+prog: main.o Grid.o Game.o
+	g++ -std=c++11 -g -Wall main.o Grid.o Game.o -o prog
 
 main.o: main.cpp
 	g++ -std=c++11 -g -Wall -c main.cpp
