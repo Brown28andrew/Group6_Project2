@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// changed to 10 and 11
 const int rows = 9;
 const int columns = 10;
 
@@ -14,6 +15,9 @@ char hit_ship = 'H';
 char miss_ship = 'M';
 
 //method for opening the game
+
+{
+    // embedded in Executive -Nifemi
 void gameIntro()
 {
     cout << "----------------------------------------------------------" << endl;
@@ -28,8 +32,9 @@ void func_legend()
     cout << "The symbol for when ships are hit: " << hit_ship << endl;
     cout << "The symbol for when shots are missed: " << miss_ship << endl;
 }
-
+}
 //function to print the empty grid with no ships placed on it
+// Embedded in grid constructor
 void grid_make()
 {
     for (int i = 0; i < rows; i++)
@@ -42,6 +47,8 @@ void grid_make()
 }
 
 //function to ask for placement on the grid
+{
+    // embedded in executive - Nifemi
 void user_pos_grid()
 {
     int row_input;
@@ -68,6 +75,7 @@ void user_pos_grid()
         cout << "Input the column number for the placement of ship " << i << endl;
         cin >> col_input;
     }
+}
 }
 
 int main()
