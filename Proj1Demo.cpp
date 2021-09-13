@@ -2,6 +2,8 @@
 #include <fstream>
 //#include <string>
 
+{
+    // Just variables that aren't really needed and the same type are created accros the 3 classes. 
 int main()
 {
     const int ship1Spaces = 1;
@@ -17,10 +19,9 @@ int main()
     char rowNum = '1'; //char to increment row indicator
     char colLetter = 'A'; //char to increment column indicator
     char grid[rows][cols]; //creates the grid
-
-
-    
-    
+}  
+{
+    // This is now all managed by the constructor of grid class - Nifemi
 
     for (int i = 0; i < rows; i++) // loop to fill grid with row/col indicator and unused positions
     {
@@ -47,10 +48,13 @@ int main()
         }
 
     }
+}
 
+{
+    // this should be managed by constructor I believe - Nifemi
     std::cout << "Original Board\n";
 
-    for (int i = 0; i < rows; i++) //loop to print baord with no ships
+    for (int i = 0; i < rows; i++) //loop to print board with no ships
     {
         for (int j = 0; j < cols; j++)
         {
@@ -59,8 +63,9 @@ int main()
         }
         std::cout << "\n";
     }
-
-
+} 
+{
+    // this is managed by new game in executive -Nifemi
     std::cout << "How many ships would you like to have in the game?\nNumber of ships (1-6): ";
     std::cin >> numShips;
 
@@ -75,7 +80,7 @@ int main()
         direction = ' ';
         originCol = 0;
         colLetter = 'A';
-        std::cout << "Where would you like to place the origin of ship 3?\nColumn (A-J): ";
+        std::cout << "Where would you like to place the origin of ship "<< i+1 << "?\nColumn (A-J): ";
         std::cin >> col;
         while (colLetter <= col)//loop to turn letter for column into integer to place ship on grid
         {
@@ -84,38 +89,41 @@ int main()
         }
         std::cout << "Row (1-9): ";
         std::cin >> originRow;
-        std::cout << "Ship 3 will take up 3 spaces, which direction would you like to orient the ship? (U, D, L, R)\nDirection: ";
+        std::cout << "Ship " << i+1 << " will take up " << i+1 << " spaces, which direction would you like to orient the ship? (U, D, L, R)\nDirection: ";
         std::cin >> direction;
 
         if (direction == 'U')//conditionals to place ship in correct direction
         {
-            grid[originRow][originCol] = '|';
-            grid[originRow - 1][originCol] = '|';
-            grid[originRow - 2][originCol] = '|';
+            for(int j=0; j < i+1; j++){
+                grid[originRow-j][originCol] = '|'; 
+            }
         }
 
         if (direction == 'D')
         {
-            grid[originRow][originCol] = '|';
-            grid[originRow + 1][originCol] = '|';
-            grid[originRow + 2][originCol] = '|';
+            for(int j=0; j < i+1; j++){
+                grid[originRow+j][originCol] = '|'; 
+            }
         }
 
         if (direction == 'L')
         {
-            grid[originRow][originCol] = '-';
-            grid[originRow][originCol - 1] = '-';
-            grid[originRow][originCol - 2] = '-';
+            for(int j=0; j < i+1; j++){
+                grid[originRow][originCol-j] = '-'; 
+            }
         }
 
         if (direction == 'R')
         {
-            grid[originRow][originCol] = '-';
-            grid[originRow][originCol + 1] = '-';
-            grid[originRow][originCol + 2] = '-';
+            for(int j=0; j < i+1; j++){
+                grid[originRow][originCol+j] = '-'; 
+            }
         }
 
         std::cout << "\nUpdated Board\n";
+}
+{
+    // This is managed by print user grid in grid.cpp - Nifemi
 
         for (int j = 0; j < rows; j++)//loop to print updated board
         {
