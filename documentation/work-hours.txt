@@ -1,0 +1,25 @@
+Estimate of Work Hours: 25
+  -For this first project, we predicted that a good portion of our time would be spent organizing
+   ourselves as a group, including making decisions on documentation, how we'll communicate, and setting
+   up and using Visual Studio Code Live Share. We also decided to record hours spent during meetings
+   as a collective rather than multiplying the number of hours by the number of people attending,
+   to be added with the hours spent separately or in smaller groups. Thus, we predict 15 hours of
+   time spent on research and organization, plus 10 hours of coding.
+  
+--------------------------------------------------------------------------------------------------------
+WORK HOURS: (format: hr:min)
+
+Sep-8
+  -Yuri:         0:34
+  -Team Meeting: 1:15
+  
+Sep-9
+  -Yuri:         3:02
+  -Team Meeting: 2:35
+  
+Sep-10
+  -Yuri:		 3:46
+  
+Sep-10
+  -Team Meeting: 3:00
+  -Yuri:         0:46
