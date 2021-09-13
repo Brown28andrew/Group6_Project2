@@ -1,0 +1,31 @@
+Notes for project 1
+Pre-game:
+	•	Can increment letters for columns
+	•	First space has to be empty
+	•	Can ships be placed side by side?
+	•	Array will have to be 10x11 to account for column/row indicator
+During Game:
+	•	Display when a ship has been sunk?
+
+Grid Class:
+	•	Valid coordinates
+	•	Valid ship placement
+	•	Two separate boards for each player
+	•	One to show player’s ships and opponents shots
+	•	One to show players shots
+	•	Show both boards before each player’s turn?
+
+Game Class:
+	•	Variable for number of hits for each player
+	•	Formula for hits needed to win is (n(n+1))/2
+	•	Display updated boards on each turn
+	•	Win by number of hits being equal to total number of spaces taken up by ships
+	•	Valid coordinates for shots
+	•	Can’t be same space as a previous shot
+
+Executive:
+	•	Display message or hit or miss
+	•	Allow user to input each coordinate for ships or just origin and direction
+	•	Handle inputs and outputs
+
+
