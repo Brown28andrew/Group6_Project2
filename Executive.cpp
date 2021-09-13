@@ -13,7 +13,7 @@ Executive::~Executive()
 {
 
 }
-*/
+
 void Executive::BeginGame()
 {
 std::cout << "----------------------------------------------------------\n";
@@ -50,3 +50,4 @@ for (int i = 0; i < numShips; i++)//loop to place ships on board
 std::cout << "\nUpdated Board\n";
 setter.printUserGrid();
 }
+*/

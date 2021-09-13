@@ -16,7 +16,7 @@ char miss_ship = 'M';
 
 //method for opening the game
 
-{
+
     // embedded in Executive -Nifemi
 void gameIntro()
 {
@@ -32,7 +32,7 @@ void func_legend()
     cout << "The symbol for when ships are hit: " << hit_ship << endl;
     cout << "The symbol for when shots are missed: " << miss_ship << endl;
 }
-}
+
 //function to print the empty grid with no ships placed on it
 // Embedded in grid constructor
 void grid_make()
@@ -47,7 +47,7 @@ void grid_make()
 }
 
 //function to ask for placement on the grid
-{
+
     // embedded in executive - Nifemi
 void user_pos_grid()
 {
@@ -76,7 +76,7 @@ void user_pos_grid()
         cin >> col_input;
     }
 }
-}
+
 
 int main()
 {

@@ -36,17 +36,17 @@ class Grid {
 		* @return: true or false 
 		* @param: tRow and tCol, target row and column respectively
 		*/
-		bool checkForValidPlacedCoordinates(int tRow, int tCol,int size);
+		bool checkForValidPlacedCoordinates(int tRow, int tCol, int size);
 
 		/**
 		* @pre: array, user input row and input col
 		* @return: print the grid with the ships
 		* @param: tRow and tCol, target row and column respectively
 		*/
-		void printUserGrid(int tRow, int tCol);
+		void printUserGrid();
 
     private:
-        char** grid;
+        char** m_grid;
 		const int rows = 10;
         const int cols = 11;
         // char ships = 'S'; - i dont think it's needed anymore -Nifemi.

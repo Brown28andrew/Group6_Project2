@@ -13,7 +13,7 @@ class Executive {
     char direction;
     int shipsize;
     int originCol = 0;
-    char colLetter = A;
+    char colLetter = 'A';
 
 
 };
