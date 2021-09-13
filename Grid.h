@@ -22,7 +22,7 @@ class Grid {
 		* @return: true if 'S' assigned successfully, false otherwise.
 		* @param: tRow and tCol, target row and column respectively
 		*/
-		bool setShip(int tRow, int tCol);
+		bool setShip(int tRow, int tCol, char dir, int size);
 		
 		/**
 		* @pre: passed inputs represent valid location on the board.
@@ -36,7 +36,7 @@ class Grid {
 		* @return: true or false 
 		* @param: tRow and tCol, target row and column respectively
 		*/
-		bool checkForValidPlacedCoordinates(int tRow, int tCol);
+		bool checkForValidPlacedCoordinates(int tRow, int tCol,int size);
 
 		/**
 		* @pre: array, user input row and input col
@@ -46,12 +46,12 @@ class Grid {
 		void printUserGrid(int tRow, int tCol);
 
     private:
-        char** P1_array_grid; 
-        //char** P2_array_grid;
-		const int rows = 9;
-        const int columns = 10;
-        char ships = 'S';
+        char** grid;
+		const int rows = 10;
+        const int cols = 11;
+        // char ships = 'S'; - i dont think it's needed anymore -Nifemi.
         char hit_ship = 'H';
         char miss_ship = 'M';
+		int size; 
 };
 #endif
