@@ -84,13 +84,14 @@ Grid::~Grid()
 bool Grid::setShip(int tRow, int tCol, char dir, int size) 
 {
 	bool isPlaced = false;
-	if (checkForValidPlacedCoordinates(tRow, tCol, size) && m_grid[tRow][tCol] == '*') // ensures that the position is valid.
+	//if (checkForValidPlacedCoordinates(tRow, tCol, size) && m_grid[tRow][tCol] == '*') // ensures that the position is valid.
+	if (m_grid[tRow][tCol] == '*')
 	{
 		for ( int i = 0; i < size ; i++) // iterates to put the ship of the right size into the m_grid
 		{
 			if (dir == 'U')//conditionals to place ship in correct direction
         	{
-			m_grid[tRow][tCol] = '|';
+			//m_grid[tRow][tCol] = '|';
             	for(int j=0; j < i+1; j++)
 				{
                 m_grid[tRow-j][tCol] = '|'; 
@@ -99,11 +100,12 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 
 			if (dir == 'D')
         	{
-			m_grid[tRow][tCol] = '|';
+			//m_grid[tRow][tCol] = '|';
             	for(int j=0; j < i+1; j++)
 				{
                 m_grid[tRow+j][tCol] = '|'; 
             	}
+				cout << "direction D";
        		}
 
         	if (dir == 'L')
@@ -125,6 +127,8 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 	isPlaced = true;
 	}
 
+	cout << "if statement\n";
+
 	return (isPlaced);
 }
 
@@ -144,9 +148,9 @@ char Grid::getValue(int tRow, int tCol)
 void Grid::printUserGrid()
 {
 	cout << "Here is your m_grid: "<<endl;
-	for(int i = 0; i < rows-1; i++)
+	for(int i = 0; i < rows; i++)
     {
-        for(int j = 0; j < cols-1; j++) //changed cols to columns to match member variable. -Yuri
+        for(int j = 0; j < cols; j++) //changed cols to columns to match member variable. -Yuri
         {
             //cout<<setw(3)<<m_grid[i][j];     //show row in one line (changed m_grid[][] to P1_array_m_grid to match the member variable. -Yuri)
 			cout<<m_grid[i][j];

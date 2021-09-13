@@ -1,12 +1,13 @@
 #include <iostream>
 #include "Grid.h"
+#include "Executive.h"
 //#include <math.h>
 
 using namespace std;
 
 // changed to 10 and 11
-const int rows = 9;
-const int columns = 10;
+const int rows = 10;
+const int columns = 11;
 
 int array_grid[rows][columns];
 
@@ -80,12 +81,17 @@ void user_pos_grid()
 
 int main()
 {
-    gameIntro();
-    func_legend();
-    grid_make();
-    user_pos_grid();
+    //gameIntro();
+    //func_legend();
+    //grid_make();
+    //user_pos_grid();
     //checkForValidPlacedCoordinates();
     //printUserGrid();
+    Executive myExec;
+    myExec.BeginGame();
+    //Grid myGrid;
+    //myGrid.setShip(5,5,'U',1);
+    //myGrid.printUserGrid();
 
     return (0);
 }

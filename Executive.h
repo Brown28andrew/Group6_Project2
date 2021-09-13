@@ -12,8 +12,9 @@ class Executive {
     int originRow;
     char direction;
     int shipsize;
-    int originCol = 0;
+    int originCol = 1;
     char colLetter = 'A';
+    int numShips;
 
 
 };
