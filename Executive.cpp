@@ -7,17 +7,17 @@ using namespace std;
 
 Executive::Executive()
 {
-
+	player1 = new Grid;
 }
 
 Executive::~Executive()
 {
-
+	delete player1;
 }
 
 void Executive::BeginGame()
 {
-    player1 = new Grid;
+    
     cout << "----------------------------------------------------------\n";
     cout << "WELCOME TO THE BATTLESHIP GAME BY TEAM-18\n";
     cout << "----------------------------------------------------------\n";
@@ -34,14 +34,14 @@ void Executive::BeginGame()
         }
         
     player1->printUserGrid();
-    placeShips(numShips, player1, 0);
+    placeShips(numShips, player1);
 
 }
 
-void Executive::placeShips(int numShips, Grid* playerGrid, int num) {
+void Executive::placeShips(int numShips, Grid* playerGrid) {
 	bool isPlaced = false;
 	
-    for (int i = num; i < numShips; i++)//loop to place ships on board
+    for (int i = 0; i < numShips; i++)//loop to place ships on board
     {
 		isPlaced = false;
 		
@@ -74,6 +74,5 @@ void Executive::placeShips(int numShips, Grid* playerGrid, int num) {
 
         std::cout << "\nUpdated Board\n";
         playerGrid->printUserGrid();  
-        num++; 
     }
 }
