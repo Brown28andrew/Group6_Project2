@@ -94,11 +94,11 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 				if(checkUp(tRow, tCol, size) == true) {
 					//m_grid[tRow][tCol] = '|';
 					for ( int i = 0; i < size ; i++) {
-					for(int j=0; j < i+1; j++)
-					{
-						m_grid[tRow-j][tCol] = '|'; 
-					}
-					}
+						for(int j=0; j < i+1; j++) {
+							m_grid[tRow-j][tCol] = '|'; 
+							}
+						}
+					isPlaced = true;
 				}
         	}
 
@@ -107,23 +107,27 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 				if(checkDown(tRow, tCol, size) == true) {
 					//m_grid[tRow][tCol] = '|';
 					for ( int i = 0; i < size ; i++) {
-					for(int j=0; j < i+1; j++)
-					{
-						m_grid[tRow+j][tCol] = '|'; 
-					}
-       			}}
+						for(int j=0; j < i+1; j++) {
+							m_grid[tRow+j][tCol] = '|'; 
+							}
+						}
+					isPlaced = true;
+				}
 			}
 			
 
         	if (dir == 'L')
         	{
 				if(checkLeft(tRow, tCol, size) == true) {
-					for ( int i = 0; i < size ; i++) {
-					for(int j=0; j < i+1; j++)
+					for ( int i = 0; i < size ; i++) 
 					{
-                		m_grid[tRow][tCol-j] = '-'; 
-            		}
-				}}
+					for(int j=0; j < i+1; j++)
+						{
+							m_grid[tRow][tCol-j] = '-'; 
+						}
+					}
+				isPlaced = true;
+				}
         	}
 
         	if (dir == 'R')
@@ -134,14 +138,11 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 					{
                 		m_grid[tRow][tCol+j] = '-'; 
             		}	
-				}}
+				}
+				isPlaced = true;
+				}
             	
        		}
-		
-	isPlaced = true;
-	}
-	else {
-		cout << "Invalid placement. Try again. \n";
 	}
 
 	return (isPlaced);
@@ -192,12 +193,7 @@ bool Grid::checkForValidPlacedCoordinates(int tRow, int tCol, int size)
 	{
 		cout << "Oops, the placement not in battlezone. Try again: " << endl;
 
-		return 0;
-	}
-
-	else 
-	{
-		//setShip(tRow, tCol); //added tRow and tCol since this function expects two passed arguments. -Yuri
+		return false;
 	}
 
 	return true;

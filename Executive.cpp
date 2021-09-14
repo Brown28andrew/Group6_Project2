@@ -39,8 +39,12 @@ void Executive::BeginGame()
 }
 
 void Executive::placeShips(int numShips, Grid* playerGrid, int num) {
+	bool isPlaced = false;
+	
     for (int i = num; i < numShips; i++)//loop to place ships on board
     {
+		isPlaced = false;
+		
         do {
         originCol = 1;
         colLetter = 'A';
@@ -58,8 +62,12 @@ void Executive::placeShips(int numShips, Grid* playerGrid, int num) {
         cout << "Ship " << i+1 << " will take up " << i+1 << " spaces, which direction would you like to orient the ship? (U, D, L, R)\nDirection: ";
         cin >> direction;
         shipsize = i+1;
-        
-        }while (playerGrid->setShip(originRow,originCol,direction,shipsize) == false);
+		
+		isPlaced = playerGrid->setShip(originRow,originCol,direction,shipsize);
+		if (isPlaced == false)
+			cout << "\nInvalid placement! please try again.\n";
+		
+        }while (isPlaced == false);
            // cout << "Invalid location. Try again:\n";
             //placeShips(numShips, playerGrid, i);
         
