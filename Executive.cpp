@@ -41,6 +41,7 @@ void Executive::BeginGame()
 void Executive::placeShips(int numShips, Grid* playerGrid, int num) {
     for (int i = num; i < numShips; i++)//loop to place ships on board
     {
+        do {
         originCol = 1;
         colLetter = 'A';
         
@@ -58,10 +59,10 @@ void Executive::placeShips(int numShips, Grid* playerGrid, int num) {
         cin >> direction;
         shipsize = i+1;
         
-        if (playerGrid->setShip(originRow,originCol,direction,shipsize) == false){
-            cout << "Invalid location. Try again:\n";
-            placeShips(numShips, playerGrid, i);
-        } 
+        }while (playerGrid->setShip(originRow,originCol,direction,shipsize) == false);
+           // cout << "Invalid location. Try again:\n";
+            //placeShips(numShips, playerGrid, i);
+        
 
         std::cout << "\nUpdated Board\n";
         playerGrid->printUserGrid();  

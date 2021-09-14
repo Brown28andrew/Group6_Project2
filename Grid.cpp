@@ -140,6 +140,9 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 		
 	isPlaced = true;
 	}
+	else {
+		cout << "Invalid placement. Try again. \n";
+	}
 
 	return (isPlaced);
 }
