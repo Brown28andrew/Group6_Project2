@@ -41,9 +41,10 @@ for (int i = 0; i < numShips; i++)//loop to place ships on board
     col = ' ';
     originRow = 0;
     direction = ' ';
-    originCol = 0;
-    colLetter = 'A';
     */
+    originCol = 1;
+    colLetter = 'A';
+    
     cout << "Where would you like to place the origin of ship "<< i+1 << "?\nColumn (A-J): ";
     cin >> col;
         while (colLetter < col)//loop to turn letter for column into integer to place ship on grid
