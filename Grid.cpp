@@ -178,7 +178,7 @@ void Grid::printUserGrid()
         for(int j = 0; j < cols; j++) //changed cols to columns to match member variable. -Yuri
         {
             //cout<<setw(3)<<m_grid[i][j];     //show row in one line (changed m_grid[][] to P1_array_m_grid to match the member variable. -Yuri)
-			cout<<m_grid[i][j];
+			cout << m_grid[i][j] << ' ';
         }
         cout<<endl;
     }
