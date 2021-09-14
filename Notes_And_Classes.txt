@@ -18,7 +18,6 @@ Grid Class:
 Game Class:
 	•	Variable for number of hits for each player
 	•	Formula for hits needed to win is (n(n+1))/2
-	•	Display updated boards on each turn
 	•	Win by number of hits being equal to total number of spaces taken up by ships
 	•	Valid coordinates for shots
 	•	Can’t be same space as a previous shot
@@ -27,5 +26,5 @@ Executive:
 	•	Display message or hit or miss
 	•	Allow user to input each coordinate for ships or just origin and direction
 	•	Handle inputs and outputs
-
+    Display updated boards on each turn
 
