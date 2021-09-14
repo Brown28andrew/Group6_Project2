@@ -6,8 +6,8 @@ class Game {
     public:
 	
 	/**
-	* @brief: calls for getValue() at grid[tRow][tCol], verifies if it's a hit or a miss,
-	*         updates value at that location, and updates hitsLeft and endGame if needed.
+	* @pre: tRow and tCol are within the boundaries of the game board.
+	* @post: tGrid's m_grid[tRow][tCol] is updated to H if hit, M if miss, and hitsLeft is decremented if hit.
 	* @return: true if hit, false if miss
 	*/
 	bool isHit(int tRow, int tCol, Grid tGrid);
