@@ -132,6 +132,15 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 	return (isPlaced);
 }
 
+void Grid::setValue(int tRow, int tCol, bool hitOrMiss)
+{
+	if (hitOrMiss == true)
+		m_grid[tRow][tCol] = hit_ship;
+	
+	else
+		m_grid[tRow][tCol] = miss_ship;
+}
+
 /**
 * @pre: none
 * @return: value at P1_array_m_grid[tRow][tCol]

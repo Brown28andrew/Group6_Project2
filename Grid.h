@@ -25,6 +25,12 @@ class Grid {
 		bool setShip(int tRow, int tCol, char dir, int size);
 		
 		/**
+		* @brief: during player turns, updates target locations on the board with either
+		*         hit or miss
+		*/
+		void setValue(int tRow, int tCol, bool hitOrMiss);
+		
+		/**
 		* @pre: passed inputs represent valid location on the board.
 		* @return: value at P1_array_grid[tRow][tCol]
 		* @param: tRow and tCol, target row and column respectively
