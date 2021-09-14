@@ -51,6 +51,11 @@ class Grid {
 		*/
 		void printUserGrid();
 
+		bool checkUp(int tRow, int tCol, int size);
+		bool checkDown(int tRow, int tCol, int size);
+		bool checkRight(int tRow, int tCol, int size);
+		bool checkLeft(int tRow, int tCol, int size);
+
     private:
         char** m_grid;
 		const int rows = 10;

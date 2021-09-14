@@ -84,50 +84,62 @@ Grid::~Grid()
 bool Grid::setShip(int tRow, int tCol, char dir, int size) 
 {
 	bool isPlaced = false;
-	//if (checkForValidPlacedCoordinates(tRow, tCol, size) && m_grid[tRow][tCol] == '*') // ensures that the position is valid.
-	if (m_grid[tRow][tCol] == '*')
+	if (checkForValidPlacedCoordinates(tRow, tCol, size) && m_grid[tRow][tCol] == '*') // ensures that the position is valid.
 	{
-		for ( int i = 0; i < size ; i++) // iterates to put the ship of the right size into the m_grid
-		{
+		 // iterates to put the ship of the right size into the m_grid
+		
 			if (dir == 'U')//conditionals to place ship in correct direction
         	{
-			//m_grid[tRow][tCol] = '|';
-            	for(int j=0; j < i+1; j++)
-				{
-                m_grid[tRow-j][tCol] = '|'; 
-            	}
+				
+				if(checkUp(tRow, tCol, size) == true) {
+					//m_grid[tRow][tCol] = '|';
+					for ( int i = 0; i < size ; i++) {
+					for(int j=0; j < i+1; j++)
+					{
+						m_grid[tRow-j][tCol] = '|'; 
+					}
+					}
+				}
         	}
 
 			if (dir == 'D')
         	{
-			//m_grid[tRow][tCol] = '|';
-            	for(int j=0; j < i+1; j++)
-				{
-                m_grid[tRow+j][tCol] = '|'; 
-            	}
-				cout << "direction D";
-       		}
+				if(checkDown(tRow, tCol, size) == true) {
+					//m_grid[tRow][tCol] = '|';
+					for ( int i = 0; i < size ; i++) {
+					for(int j=0; j < i+1; j++)
+					{
+						m_grid[tRow+j][tCol] = '|'; 
+					}
+       			}}
+			}
+			
 
         	if (dir == 'L')
         	{
-            	for(int j=0; j < i+1; j++)
-				{
-                m_grid[tRow][tCol-j] = '-'; 
-            	}
+				if(checkLeft(tRow, tCol, size) == true) {
+					for ( int i = 0; i < size ; i++) {
+					for(int j=0; j < i+1; j++)
+					{
+                		m_grid[tRow][tCol-j] = '-'; 
+            		}
+				}}
         	}
 
         	if (dir == 'R')
         	{
-            	for(int j=0; j < i+1; j++)
-				{
-                m_grid[tRow][tCol+j] = '-'; 
-            	}
+				if(checkRight(tRow, tCol, size) == true) {
+					for ( int i = 0; i < size ; i++) {
+					for(int j=0; j < i+1; j++)
+					{
+                		m_grid[tRow][tCol+j] = '-'; 
+            		}	
+				}}
+            	
        		}
-		}
+		
 	isPlaced = true;
 	}
-
-	cout << "if statement\n";
 
 	return (isPlaced);
 }
@@ -186,6 +198,50 @@ bool Grid::checkForValidPlacedCoordinates(int tRow, int tCol, int size)
 	}
 
 	return true;
+}
+
+bool Grid::checkUp(int tRow, int tCol, int size)
+{
+	for (int i=0; i<size; i++)
+	{
+		if (m_grid[tRow-i][tCol] != '*' || (tRow-i) <= 0) {
+			return(false);
+		}
+	}
+	return(true);
+}
+
+bool Grid::checkDown(int tRow, int tCol, int size)
+{
+	for (int i=0; i<size; i++)
+	{
+		if ((tRow+i) >= 10 || m_grid[tRow+i][tCol] != '*') {
+			return(false);
+		}
+	}
+	return(true);
+}
+
+bool Grid::checkRight(int tRow, int tCol, int size)
+{
+	for (int i=0; i<size; i++)
+	{
+		if ((tCol+i) >= 11 || m_grid[tRow][tCol+i] != '*') {
+			return(false);
+		}
+	}
+	return(true);
+}
+
+bool Grid::checkLeft(int tRow, int tCol, int size)
+{
+	for (int i=0; i<size; i++)
+	{
+		if ((tCol-i) < 0 || m_grid[tRow][tCol-i] != '*') {
+			return(false);
+		}
+	}
+	return(true);
 }
 
 ///////////////////////////////////////////////////////////
