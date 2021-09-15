@@ -7,6 +7,7 @@ class Executive {
     Executive();
     ~Executive();
     void BeginGame();
+    void playGame();
     void placeShips (int numShips, Grid* playerGrid);
 
     private:
