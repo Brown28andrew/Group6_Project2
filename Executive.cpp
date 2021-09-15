@@ -76,3 +76,40 @@ void Executive::placeShips(int numShips, Grid* playerGrid) {
         playerGrid->printUserGrid();  
     }
 }
+
+void Executive::playGame()
+{
+    bool gameEnd = false;
+    int turnCounter = 0;
+    while (!gameEnd)
+    {
+        if (turnCounter % 2 == 0)
+        {
+            //print player ones shot grid
+            //print player ones ship grid
+            cout << "Where would you like to take your shot?\nColumn (A-J):"; //get shot from player one
+            char shotColumn;
+            cin >> shotColumn;
+            cout << "Row (1-9): ";
+            int shotRow;
+            cin >> shotRow;
+            
+            //check if hit or miss
+            //update board
+            //check if game end
+            turnCounter++;
+        }
+        else
+        {
+            //print player twos shot grid
+            //print player twos ship grid
+            //get shot from player two
+            //check if hit or miss
+            //update board
+            //check if game end
+            turnCounter++;
+        }
+    }
+
+
+}
