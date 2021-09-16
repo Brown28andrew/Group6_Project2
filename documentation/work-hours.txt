@@ -32,6 +32,13 @@ Sep-12
 Sep-13
   -Yuri:         2:31
   -Michael:      5:00
+  -Meeting:      2:00
 
 Sep-14
   -Michael:      1:00
+  
+Sep-15
+  -Meeting:      3:00
+  
+Sep-16
+  -Yuri:         1:08
