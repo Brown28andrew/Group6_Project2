@@ -10,6 +10,7 @@ class Executive {
     void BeginGame();
     void playGame(Grid* P1, Grid* P2);
     void placeShips (int numShips, Grid* playerGrid);
+	void clearScreen();
 
     private:
     char col;
