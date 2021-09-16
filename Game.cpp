@@ -28,13 +28,8 @@ bool Game::isHit(int tRow, int tCol, Grid* tGrid)
 	} while(validShot == false);
 	
 	if (tGrid->getValue(tRow, tCol) == '|' || tGrid->getValue(tRow, tCol) == '-')
-	{
-		tGrid->setValue(tRow, tCol, true);
-		hitsLeft--;
 		return true;
-	}
-		
-	tGrid->setValue(tRow, tCol, false);
+
 	return false;
 }
 
