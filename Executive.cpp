@@ -33,7 +33,7 @@ cin >> numShips;
     }
     
 Grid setter;
-setter.printUserGrid();
+setter.print_ships_Grid();
 
 for (int i = 0; i < numShips; i++)//loop to place ships on board
 {
@@ -62,6 +62,6 @@ for (int i = 0; i < numShips; i++)//loop to place ships on board
     
     setter.setShip(originRow,originCol,direction,shipsize);  
     std::cout << "\nUpdated Board\n";
-    setter.printUserGrid();   
+    setter.print_ships_Grid();   
 }
 }
