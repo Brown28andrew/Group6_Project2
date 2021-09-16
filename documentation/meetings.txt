@@ -42,7 +42,7 @@ Sep-11, 10:20am - 1:20pm
 	-Yuri: generate required documents as per rubric (work hours, estimate of work hours, works 
 	 cited), brainstorm/declare methods for the classes as per Michael's responsibilities list.
 	 
-Sep-13, 8:30pm - 10:00pm
+Sep-13, 8:30pm - 10:30pm
   -ATTENDEES: Yuri, Nifemi, Anna, Rudro, Michael
   -DECISIONS:
     -Use 1 board per player instead of 2 by printing the opponent's untouched ships as '*'
@@ -53,3 +53,13 @@ Sep-13, 8:30pm - 10:00pm
 	-Nifemi: begin to reorganize the Grid class's setShip and checkValidLocation's for loops.
 	-Rudro and Anna: debug ship placement onto board.
 	-Yuri: finish defining isHit function in the Game class.
+	
+Sep-15, 7:30pm - 
+  -ATTENDEES: Rudro, Ann, Michael, Nifemi, Yuri(left at 8:42)
+  -Worked on incorporating the 2nd player into the program, defining the playGame method,
+   and writing doxygen comments in the header files.
+  -DECISIONS:
+    -Each player will be represented by one Grid object.
+	-Use newlines to clear the board, ask the next player when they're ready, then print the player's board.
+	-Pass pointers to the grid objects to the Game class instead of the object itself.
+  -GOAL: full functionality by end of Friday Sep-17.
