@@ -19,6 +19,7 @@ class Executive {
     char colLetter = 'A';
     int numShips;
     Grid* player1;
+    Grid* player2;
 
 
 };
