@@ -193,9 +193,9 @@ void Grid::print_shots_Grid()
 		{
 			if(m_grid[i][j] == '|' || '-')
 			{
-				m_grid[i][j] = '* ';
+				m_grid[i][j] = '*';
 			}
-			cout << m_grid[i][j];
+			cout << m_grid[i][j] << ' ';
 		}
 		cout << endl;
 	}	
