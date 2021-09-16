@@ -11,6 +11,7 @@ WORK HOURS: (format: hr:min)
 
 Sep-8
   -Yuri:         0:34
+  -Michael:      0:30
   -Team Meeting: 1:15
   
 Sep-9
@@ -18,7 +19,8 @@ Sep-9
   -Team Meeting: 2:35
   
 Sep-10
-  -Yuri:		 3:46
+  -Yuri:		     3:46
+  -Michael:      3:00
   
 Sep-11
   -Team Meeting: 3:00
@@ -29,3 +31,7 @@ Sep-12
   
 Sep-13
   -Yuri:         2:31
+  -Michael:      5:00
+
+Sep-14
+  -Michael:      1:00
