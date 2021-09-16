@@ -20,23 +20,36 @@ Sep-9, 1:15pm - 3:50pm
 	-Michael: begin to brainstorm a list of stress tests for the program in general.
 	
 Sep-11, 10:20am - 1:20pm
-  -Attendees: Michael, Rudro, Anna, Yuri, Nifemi
+  -ATTENDEES: Michael, Rudro, Anna, Yuri, Nifemi
   -Discussed documentation of project, including general groundrules for pushing local repos
    once they compile and how to write commit messages.
   -Continued to define methods for printing a board to the terminal, using Michael's prototype
    source code.
-  -Established a list of responsibilities for the Executive, Game, and Grid classes.
-  -Decided to use Doxygen as our document generator.
-  -Decided to include "demo" in any files used for testing or experimentation.
-  -Decided to "clear" the terminal between player turns by using newline '\n'.
-  -Decided to print the two boards per turn vertically to simplify the code required to print.
-  -Initially decided to prevent ships from being placed adjacent to each other, but it would 
-   take 72 out of 90 spaces to place the max number of ships allowed (6). Thus, we decided
-   to allow adjacent placement for greater variety of choices.
-  -Decided to denote empty board spaces with '*' instead of 'O'.
+  -DECISIONS:
+    -Established a list of responsibilities for the Executive, Game, and Grid classes.
+    -Decided to use Doxygen as our document generator.
+    -Decided to include "demo" in any files used for testing or experimentation.
+    -Decided to "clear" the terminal between player turns by using newline '\n'.
+    -Decided to print the two boards per turn vertically to simplify the code required to print.
+    -Initially decided to prevent ships from being placed adjacent to each other, but it would 
+     take 72 out of 90 spaces to place the max number of ships allowed (6). Thus, we decided
+     to allow adjacent placement for greater variety of choices.
+    -Decided to denote empty board spaces with '*' instead of 'O'.
   -TASKS:
     -Nifemi: continue to work on code until it compiles and successfully prints a board.
 	-Michael: add file of class responsibilities to repository.
 	-Rudro: begin to define code to handle direction of ship placement.
 	-Yuri: generate required documents as per rubric (work hours, estimate of work hours, works 
 	 cited), brainstorm/declare methods for the classes as per Michael's responsibilities list.
+	 
+Sep-13, 8:30pm - 10:00pm
+  -ATTENDEES: Yuri, Nifemi, Anna, Rudro, Michael
+  -DECISIONS:
+    -Use 1 board per player instead of 2 by printing the opponent's untouched ships as '*'
+	-Discussed using newlines to clear the terminal again.
+	-We will first write all the code needed for player 1's board to play, then we will incorporate player 2's board at all necessary levels of code.
+  -TASKS:
+    -Michael: begin to define a function that handles player turns.
+	-Nifemi: begin to reorganize the Grid class's setShip and checkValidLocation's for loops.
+	-Rudro and Anna: debug ship placement onto board.
+	-Yuri: finish defining isHit function in the Game class.

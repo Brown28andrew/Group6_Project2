@@ -84,52 +84,77 @@ Grid::~Grid()
 bool Grid::setShip(int tRow, int tCol, char dir, int size) 
 {
 	bool isPlaced = false;
-	//if (checkForValidPlacedCoordinates(tRow, tCol, size) && m_grid[tRow][tCol] == '*') // ensures that the position is valid.
-	if (m_grid[tRow][tCol] == '*')
+	if (checkForValidPlacedCoordinates(tRow, tCol, size) && m_grid[tRow][tCol] == '*') // ensures that the position is valid.
 	{
-		for ( int i = 0; i < size ; i++) // iterates to put the ship of the right size into the m_grid
-		{
+		 // iterates to put the ship of the right size into the m_grid
+		
 			if (dir == 'U')//conditionals to place ship in correct direction
         	{
-			//m_grid[tRow][tCol] = '|';
-            	for(int j=0; j < i+1; j++)
-				{
-                m_grid[tRow-j][tCol] = '|'; 
-            	}
+				
+				if(checkUp(tRow, tCol, size) == true) {
+					//m_grid[tRow][tCol] = '|';
+					for ( int i = 0; i < size ; i++) {
+						for(int j=0; j < i+1; j++) {
+							m_grid[tRow-j][tCol] = '|'; 
+							}
+						}
+					isPlaced = true;
+				}
         	}
 
 			if (dir == 'D')
         	{
-			//m_grid[tRow][tCol] = '|';
-            	for(int j=0; j < i+1; j++)
-				{
-                m_grid[tRow+j][tCol] = '|'; 
-            	}
-				cout << "direction D";
-       		}
+				if(checkDown(tRow, tCol, size) == true) {
+					//m_grid[tRow][tCol] = '|';
+					for ( int i = 0; i < size ; i++) {
+						for(int j=0; j < i+1; j++) {
+							m_grid[tRow+j][tCol] = '|'; 
+							}
+						}
+					isPlaced = true;
+				}
+			}
+			
 
         	if (dir == 'L')
         	{
-            	for(int j=0; j < i+1; j++)
-				{
-                m_grid[tRow][tCol-j] = '-'; 
-            	}
+				if(checkLeft(tRow, tCol, size) == true) {
+					for ( int i = 0; i < size ; i++) 
+					{
+					for(int j=0; j < i+1; j++)
+						{
+							m_grid[tRow][tCol-j] = '-'; 
+						}
+					}
+				isPlaced = true;
+				}
         	}
 
         	if (dir == 'R')
         	{
-            	for(int j=0; j < i+1; j++)
-				{
-                m_grid[tRow][tCol+j] = '-'; 
-            	}
+				if(checkRight(tRow, tCol, size) == true) {
+					for ( int i = 0; i < size ; i++) {
+					for(int j=0; j < i+1; j++)
+					{
+                		m_grid[tRow][tCol+j] = '-'; 
+            		}	
+				}
+				isPlaced = true;
+				}
+            	
        		}
-		}
-	isPlaced = true;
 	}
 
-	cout << "if statement\n";
-
 	return (isPlaced);
+}
+
+void Grid::setValue(int tRow, int tCol, bool hitOrMiss)
+{
+	if (hitOrMiss == true)
+		m_grid[tRow][tCol] = hit_ship;
+	
+	else
+		m_grid[tRow][tCol] = miss_ship;
 }
 
 /**
@@ -153,7 +178,7 @@ void Grid::print_ships_Grid()
         for(int j = 0; j < cols; j++) //changed cols to columns to match member variable. -Yuri
         {
             //cout<<setw(3)<<m_grid[i][j];     //show row in one line (changed m_grid[][] to P1_array_m_grid to match the member variable. -Yuri)
-			cout<<m_grid[i][j];
+			cout << m_grid[i][j] << ' ';
         }
         cout<<endl;
     }
@@ -183,15 +208,54 @@ bool Grid::checkForValidPlacedCoordinates(int tRow, int tCol, int size)
 	{
 		cout << "Oops, the placement not in battlezone. Try again: " << endl;
 
-		return 0;
-	}
-
-	else 
-	{
-		//setShip(tRow, tCol); //added tRow and tCol since this function expects two passed arguments. -Yuri
+		return false;
 	}
 
 	return true;
+}
+
+bool Grid::checkUp(int tRow, int tCol, int size)
+{
+	for (int i=0; i<size; i++)
+	{
+		if (m_grid[tRow-i][tCol] != '*' || (tRow-i) <= 0) {
+			return(false);
+		}
+	}
+	return(true);
+}
+
+bool Grid::checkDown(int tRow, int tCol, int size)
+{
+	for (int i=0; i<size; i++)
+	{
+		if ((tRow+i) >= 10 || m_grid[tRow+i][tCol] != '*') {
+			return(false);
+		}
+	}
+	return(true);
+}
+
+bool Grid::checkRight(int tRow, int tCol, int size)
+{
+	for (int i=0; i<size; i++)
+	{
+		if ((tCol+i) >= 11 || m_grid[tRow][tCol+i] != '*') {
+			return(false);
+		}
+	}
+	return(true);
+}
+
+bool Grid::checkLeft(int tRow, int tCol, int size)
+{
+	for (int i=0; i<size; i++)
+	{
+		if ((tCol-i) < 0 || m_grid[tRow][tCol-i] != '*') {
+			return(false);
+		}
+	}
+	return(true);
 }
 
 ///////////////////////////////////////////////////////////
