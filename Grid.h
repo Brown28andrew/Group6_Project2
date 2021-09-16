@@ -43,7 +43,8 @@ class Grid {
 		* @return: print the grid with the ships
 		* @param: tRow and tCol, target row and column respectively
 		*/
-		void printUserGrid();
+		void print_ships_Grid();
+		void print_shots_Grid();
 
     private:
         char** m_grid;
