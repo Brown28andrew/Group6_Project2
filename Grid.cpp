@@ -88,7 +88,7 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 	{
 		 // iterates to put the ship of the right size into the m_grid
 		
-			if (dir == 'U')//conditionals to place ship in correct direction
+			if (dir == 'U' || dir == 'u')//conditionals to place ship in correct direction
         	{
 				
 				if(checkUp(tRow, tCol, size) == true) {
@@ -102,7 +102,7 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 				}
         	}
 
-			if (dir == 'D')
+			if (dir == 'D' || dir == 'd')
         	{
 				if(checkDown(tRow, tCol, size) == true) {
 					//m_grid[tRow][tCol] = '|';
@@ -116,7 +116,7 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 			}
 			
 
-        	if (dir == 'L')
+        	if (dir == 'L' || dir == 'l')
         	{
 				if(checkLeft(tRow, tCol, size) == true) {
 					for ( int i = 0; i < size ; i++) 
@@ -130,7 +130,7 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 				}
         	}
 
-        	if (dir == 'R')
+        	if (dir == 'R' || dir == 'r')
         	{
 				if(checkRight(tRow, tCol, size) == true) {
 					for ( int i = 0; i < size ; i++) {
