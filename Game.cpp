@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "Grid.h"
+#include <unistd.h>
 
 #include <iostream>
 
@@ -18,8 +19,10 @@ bool Game::isHit(int tRow, int tCol, Grid tGrid)
 		{			
 			cout << "That location has already been fired at!\n\n what row would you like to fire at: ";
 			cin >> tRow;
+            sleep(3);
 			cout << "what column would you like to fire at: ";
 			cin >> tCol;
+            sleep(2);
 		}
 		
 		else

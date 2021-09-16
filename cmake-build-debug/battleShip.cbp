@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="battleShip"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="battleShip">
+				<Option output="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/battleShip.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/."/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 battleShip"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="battleShip/fast">
+				<Option output="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/battleShip.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/."/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 battleShip/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/.idea/.gitignore">
+			<Option target="battleShip"/>
+		</Unit>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/.idea/battleShip.iml">
+			<Option target="battleShip"/>
+		</Unit>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/.idea/modules.xml">
+			<Option target="battleShip"/>
+		</Unit>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/.idea/vcs.xml">
+			<Option target="battleShip"/>
+		</Unit>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/.idea/workspace.xml">
+			<Option target="battleShip"/>
+		</Unit>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/Executive.cpp">
+			<Option target="battleShip"/>
+		</Unit>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/Executive.h">
+			<Option target="battleShip"/>
+		</Unit>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/Game.cpp">
+			<Option target="battleShip"/>
+		</Unit>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/Game.h">
+			<Option target="battleShip"/>
+		</Unit>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/Grid.cpp">
+			<Option target="battleShip"/>
+		</Unit>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/Grid.h">
+			<Option target="battleShip"/>
+		</Unit>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/Makefile">
+			<Option target="battleShip"/>
+		</Unit>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/Notes_And_Classes.txt">
+			<Option target="battleShip"/>
+		</Unit>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/README.md">
+			<Option target="battleShip"/>
+		</Unit>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/documentation/meetings.txt">
+			<Option target="battleShip"/>
+		</Unit>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/documentation/work-hours.txt">
+			<Option target="battleShip"/>
+		</Unit>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/documentation/works-cited.txt">
+			<Option target="battleShip"/>
+		</Unit>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/main.cpp">
+			<Option target="battleShip"/>
+		</Unit>
+		<Unit filename="C:/Users/RUDRO/OneDrive - The University of Kansas/RUDRO/Study Documents/FALL-2021/EECS-448/battleShip/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

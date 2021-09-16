@@ -1,6 +1,7 @@
 #include "Executive.h"
 #include "Grid.h"
 #include "Game.h"
+#include <unistd.h>
 #include <iostream>
 using namespace std;
 
@@ -21,12 +22,14 @@ void Executive::BeginGame()
     cout << "----------------------------------------------------------\n";
     cout << "WELCOME TO THE BATTLESHIP GAME BY TEAM-18\n";
     cout << "----------------------------------------------------------\n";
+    sleep(3);
     cout << "Below are the some symbols which will be used during the game.\n";
     cout << "The symbol for ships: | or -\n";
     cout << "The symbol for when ships are hit: H\n";
     cout << "The symbol for when shots are missed: M\n";
     cout << "How many ships would you like to have in the game?\nNumber of ships (1-6): ";
     cin >> numShips;
+    sleep(3);
         while (numShips > 6 || numShips < 0)
         {
             cout << "Invalid number. How many ships do you want to place? (1-6) \n";
@@ -34,6 +37,7 @@ void Executive::BeginGame()
         }
         
     player1->print_ships_Grid();
+    sleep(3);
     placeShips(numShips, player1);
 
 }
@@ -52,6 +56,8 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
         
         cout << "Where would you like to place the origin of ship "<< i+1 << "?\nColumn (A-J): ";
         cin >> col;
+
+        sleep(3);
             while (colLetter < col)//loop to turn letter for column into integer to place ship on grid
             {
                 colLetter++;
@@ -74,6 +80,7 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
         
 
         std::cout << "\nUpdated Board\n";
+        sleep(3);
         playerGrid->print_ships_Grid();  
     }
 }
@@ -88,7 +95,9 @@ void Executive::playGame()
         {
             
             player1->print_shots_Grid(); //print player ones shot grid
+            sleep(3);
             player1->print_shots_Grid();//print player ones ship grid
+            sleep(3);
 
             cout << "Where would you like to take your shot?\nColumn (A-J):"; //get shot from player one
             char shotColumn;
