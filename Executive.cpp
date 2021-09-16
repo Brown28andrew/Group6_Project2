@@ -33,12 +33,13 @@ void Executive::BeginGame()
             cin >> numShips;
         }
         
-    player1->printUserGrid();
+    player1->print_ships_Grid();
     placeShips(numShips, player1);
 
 }
 
-void Executive::placeShips(int numShips, Grid* playerGrid) {
+void Executive::placeShips(int numShips, Grid* playerGrid) 
+{
 	bool isPlaced = false;
 	
     for (int i = 0; i < numShips; i++)//loop to place ships on board
@@ -73,11 +74,9 @@ void Executive::placeShips(int numShips, Grid* playerGrid) {
         
 
         std::cout << "\nUpdated Board\n";
-        playerGrid->printUserGrid();  
+        playerGrid->print_ships_Grid();  
     }
-    
-Grid setter;
-setter.print_ships_Grid();
+}
 
 void Executive::playGame()
 {
@@ -87,8 +86,10 @@ void Executive::playGame()
     {
         if (turnCounter % 2 == 0)
         {
-            //print player ones shot grid
-            //print player ones ship grid
+            
+            player1->print_shots_Grid(); //print player ones shot grid
+            player1->print_shots_Grid();//print player ones ship grid
+
             cout << "Where would you like to take your shot?\nColumn (A-J):"; //get shot from player one
             char shotColumn;
             cin >> shotColumn;
@@ -111,12 +112,5 @@ void Executive::playGame()
             //check if game end
             turnCounter++;
         }
-    }
-
-
-    
-    setter.setShip(originRow,originCol,direction,shipsize);  
-    std::cout << "\nUpdated Board\n";
-    setter.print_ships_Grid();   
-}
+    } 
 }
