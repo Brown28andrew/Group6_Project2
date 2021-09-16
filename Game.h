@@ -25,8 +25,6 @@ class Game {
 	
 	
     private:
-	
-	//number that decrements with each hit, down to 0.
-	int hitsLeft;
+
 };
 #endif

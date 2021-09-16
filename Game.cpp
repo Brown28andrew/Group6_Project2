@@ -44,5 +44,5 @@ bool Game::getEndGame(int hitsLeft)
 
 int Game::setHitsLeft(int shipNum)
 {
-	return (hitsLeft = (shipNum * (shipNum + 1))/2);
+	return ((shipNum * (shipNum + 1))/2);
 }
