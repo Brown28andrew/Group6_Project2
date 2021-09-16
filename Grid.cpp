@@ -186,17 +186,18 @@ void Grid::print_ships_Grid()
 
 void Grid::print_shots_Grid()
 {
-	cout << "Here's your opponent's grid";
+	cout << "Here's your opponent's grid:\n";
 	for(int i = 0; i < rows; i++)
 	{
 		for(int j = 0; j < cols; j++)
 		{
 			if(m_grid[i][j] == '|' || '-')
 			{
-				m_grid[i][j] = '*';
+				m_grid[i][j] = '* ';
 			}
 			cout << m_grid[i][j];
 		}
+		cout << endl;
 	}	
 }
 // I'm guessing this function would be adapted to no longer call set ship and would now take the size of the ship being checked

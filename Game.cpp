@@ -6,7 +6,7 @@
 using namespace std;
 
 
-bool Game::isHit(int tRow, int tCol, Grid tGrid)
+bool Game::isHit(int tRow, int tCol, Grid* tGrid)
 {
 	bool validShot = false;
 	
@@ -14,7 +14,7 @@ bool Game::isHit(int tRow, int tCol, Grid tGrid)
 	//we'll want to define somthing like getHit_ship and getMiss_ship if we want to use them here.
 	do
 	{
-		if (tGrid.getValue(tRow, tCol) == 'H' || tGrid.getValue(tRow, tCol) == 'M')	
+		if (tGrid->getValue(tRow, tCol) == 'H' || tGrid->getValue(tRow, tCol) == 'M')	
 		{			
 			cout << "That location has already been fired at!\n\n what row would you like to fire at: ";
 			cin >> tRow;
@@ -27,18 +27,18 @@ bool Game::isHit(int tRow, int tCol, Grid tGrid)
 		
 	} while(validShot == false);
 	
-	if (tGrid.getValue(tRow, tCol) == '|' || tGrid.getValue(tRow, tCol) == '-')
+	if (tGrid->getValue(tRow, tCol) == '|' || tGrid->getValue(tRow, tCol) == '-')
 	{
-		tGrid.setValue(tRow, tCol, true);
+		tGrid->setValue(tRow, tCol, true);
 		hitsLeft--;
 		return true;
 	}
 		
-	tGrid.setValue(tRow, tCol, false);
+	tGrid->setValue(tRow, tCol, false);
 	return false;
 }
 
-bool Game::getEndGame()
+bool Game::getEndGame(int hitsLeft)
 {
 	if (hitsLeft == 0)
 		return true;
@@ -47,7 +47,7 @@ bool Game::getEndGame()
 		return false;
 }
 
-void Game::setHitsLeft(int shipNum)
+int Game::setHitsLeft(int shipNum)
 {
-	hitsLeft = (shipNum * (shipNum + 1))/2;
+	return (hitsLeft = (shipNum * (shipNum + 1))/2);
 }
