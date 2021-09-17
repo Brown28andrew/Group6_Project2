@@ -169,10 +169,23 @@ void Executive::playGame(Grid* P1, Grid* P2)
                 p2HitsLeft--;
             }
             P1->setValue(shotRow, originCol, is_Hit);//update board
-            gameEnd = game->getEndGame(p1HitsLeft);//check if game end
+            gameEnd = game->getEndGame(p2HitsLeft);//check if game end
             turnCounter++;
         }
-    } 
+    }
+	
+	endTheGame();
+}
+
+void Executive::endTheGame()
+{
+	if (p1HitsLeft == 0)
+		cout << "\n\nPlayer 1 wins!";
+	
+	else if (p2HitsLeft == 0)
+		cout << "\n\nPlayer 2 wins!";
+	
+	cout << "Thank you for playing our game. Goodbye!\n\n";
 }
 
 void Executive::clearScreen()

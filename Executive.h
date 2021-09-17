@@ -11,6 +11,12 @@ class Executive {
     void playGame(Grid* P1, Grid* P2);
     void placeShips (int numShips, Grid* playerGrid);
 	void clearScreen();
+	
+	/**
+	* @pre: p1HitsLeft or p2HitsLeft = 0
+	* @post: game's winner printed to terminal, program ends.
+	*/
+	void endTheGame();
 
     private:
     char col;
