@@ -19,7 +19,7 @@ Sep-9
   -Team Meeting: 2:35
   
 Sep-10
-  -Yuri:		     3:46
+  -Yuri:		 3:46
   -Michael:      3:00
   
 Sep-11
@@ -32,15 +32,19 @@ Sep-12
 Sep-13
   -Yuri:         2:31
   -Michael:      5:00
-  -Anna:	 3:00
-  -Meeting:      2:00
+  -Anna:	     3:00
+  -Team Meeting: 2:00
 
 Sep-14
   -Michael:      1:00
   
 Sep-15
-  -Meeting:      3:00
+  -Team Meeting: 3:00
   
 Sep-16
   -Yuri:         1:08
-  -Anna:	 1:30
+  -Anna:	     1:30
+  
+Sep-17
+  -Yuri:         2:33
+  

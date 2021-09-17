@@ -2,6 +2,7 @@
 #include "Grid.h"
 #include "Game.h"
 #include <iostream>
+//#include <ctype.h>
 using namespace std;
 
 
@@ -16,6 +17,7 @@ Executive::~Executive()
 {
 	delete player1;
     delete player2;
+	delete game;
 }
 
 void Executive::BeginGame()
@@ -28,19 +30,30 @@ void Executive::BeginGame()
     cout << "The symbol for ships: | or -\n";
     cout << "The symbol for when ships are hit: H\n";
     cout << "The symbol for when shots are missed: M\n";
-    cout << "\nHow many ships would you like to have in the game Player 1?\nNumber of ships (1-6): ";
-    cin >> numShips;
-        while (numShips > 6 || numShips < 0)
+    cout << "\nHow many ships would you like to have in the game?\nNumber of ships (1-6): ";
+        cin >> numShips;
+        while (cin.fail() || numShips > 6 || numShips <= 0)
         {
-            cout << "Invalid number. How many ships do you want to place? (1-6) \n";
+            cout << "Invalid number of ships. Please try again. Number of ships (1-6): " ;
+            cin.clear();
+            cin.ignore(256,'\n');
             cin >> numShips;
         }
+        
+
+     
+		
     p1HitsLeft = game->setHitsLeft(numShips);
-    p2HitsLeft = game->setHitsLeft(numShips);    
-    char readiness;     
+    p2HitsLeft = game->setHitsLeft(numShips);   
+
+    char readiness; 
+
+	cout << "\nPlayer 1 places their ships first.";
     player1->print_ships_Grid();
     placeShips(numShips, player1);
-    cout << "\nThanks Player1!\n";
+	
+	clearScreen();
+    cout << "\nAll ships placed for player 1!\n";
 	
 	do
 	{
@@ -50,13 +63,22 @@ void Executive::BeginGame()
 		if (readiness != 'Y')
 			cout << "\nInvalid input!\n\n";
 	}while (readiness != 'Y');
-
-	clearScreen();
-	
-    cout << "Player 2, its your turn to place your " << numShips << " ship(s)!\n";
         
     player2->print_ships_Grid();
     placeShips(numShips, player2);
+	
+	clearScreen();
+	cout << "\nAll ships placed for player 2!\n";
+	
+	do
+	{
+		cout << "\nPlayer 1, Are you ready to start the game? (enter Y to continue)\n";
+		cin >> readiness; 
+		
+		if (readiness != 'Y')
+			cout << "\nInvalid input!\n\n";
+	}while (readiness != 'Y');
+	
     playGame(player1, player2);
 }
 
@@ -95,6 +117,10 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
         shipsize = i+1;
 		
 		isPlaced = playerGrid->setShip(originRow,originCol,direction,shipsize);
+        
+        if(isdigit(col)==true) {
+            isPlaced = false;
+        }
 		if (isPlaced == false)
 			cout << "\nInvalid placement! please try again.\n";
 		
@@ -109,7 +135,6 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
 void Executive::playGame(Grid* P1, Grid* P2)
 {
     bool gameEnd = false;
-    int turnCounter = 0;
     bool is_Hit = false;
     while (!gameEnd)
     {
@@ -136,7 +161,10 @@ void Executive::playGame(Grid* P1, Grid* P2)
             cin >> shotRow;
             
             is_Hit = game->isHit(shotRow, originCol, P2);//check if hit or miss
-            P2->setValue(shotRow, originCol, is_Hit);//update board
+            if (is_Hit)
+            {
+                p1HitsLeft--;
+            }
             gameEnd = game->getEndGame(p1HitsLeft);//check if game end
             turnCounter++;
         }
@@ -146,7 +174,7 @@ void Executive::playGame(Grid* P1, Grid* P2)
             P1->print_shots_Grid(); //print player ones shot grid
             P2->print_ships_Grid();//print player ones ship grid
 
-            cout << "Where would you like to take your shot Player 2 ?\nColumn (A-J):"; //get shot from player one
+            cout << "\nWhere would you like to take your shot Player 2 ?\nColumn (A-J):"; //get shot from player one
             char shotColumn;
             cin >> shotColumn;
             shotColumn = toupper(shotColumn);
@@ -159,12 +187,52 @@ void Executive::playGame(Grid* P1, Grid* P2)
             int shotRow;
             cin >> shotRow;
             is_Hit = game->isHit(shotRow, originCol, P1);//check if hit or miss
-            P1->setValue(shotRow, originCol, is_Hit);//update board
-            gameEnd = game->getEndGame(p1HitsLeft);//check if game end
+            if (is_Hit)
+            {
+                p2HitsLeft--;
+            }
+            gameEnd = game->getEndGame(p2HitsLeft);//check if game end
             turnCounter++;
         }
-    } 
+		
+		if (!gameEnd)
+			nextTurn(is_Hit);
+    }
+	
+	endTheGame();
 }
+
+void Executive::endTheGame()
+{
+	cout << "\nPlayer " << ((turnCounter - 1) % 2) + 1 << " wins!";
+	
+	cout << "\n\nThank you for playing our game. Goodbye!\n\n";
+}
+
+void Executive::nextTurn(bool is_hit)
+{
+	char c;
+	clearScreen();
+	
+	if (is_hit)
+		cout << "Hit!";
+	
+	else
+		cout << "Miss!";
+	
+	cout << "\n\nIs player " << (turnCounter % 2) + 1 << " ready? (Enter Y to continue): ";
+		
+	do
+	{
+		cin >> c;
+	
+		if (c != 'Y')
+			cout << "Invalid input! please enter Y when the next player is ready: ";
+	} while (c != 'Y');
+	
+}
+	
+	
 
 void Executive::clearScreen()
 {
