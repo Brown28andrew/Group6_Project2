@@ -101,7 +101,7 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
     }
 }
 
-void Executive::playGame()
+void Executive::playGame(Grid* P1, Grid* P2)
 {
     bool gameEnd = false;
     int turnCounter = 0;
@@ -111,8 +111,8 @@ void Executive::playGame()
         if (turnCounter % 2 == 0)
         {
             
-            player1->print_shots_Grid(); //print player ones shot grid
-            player1->print_ships_Grid();//print player ones ship grid
+            P1->print_shots_Grid(); //print player ones shot grid
+            P1->print_ships_Grid();//print player ones ship grid
 
             cout << "Where would you like to take your shot Player 1?\nColumn (A-J):"; //get shot from player one
             char shotColumn;
@@ -121,15 +121,15 @@ void Executive::playGame()
             int shotRow;
             cin >> shotRow;
             
-            is_Hit = game->isHit(shotRow, shotColumn, player1);//check if hit or miss
-            player1->setValue(shotRow, shotColumn, is_Hit);//update board
+            is_Hit = game->isHit(shotRow, shotColumn, P1);//check if hit or miss
+            P1->setValue(shotRow, shotColumn, is_Hit);//update board
             gameEnd = game->getEndGame(p1HitsLeft);//check if game end
             turnCounter++;
         }
         else
         {
-            player2->print_shots_Grid(); //print player ones shot grid
-            player2->print_ships_Grid();//print player ones ship grid
+            P2->print_shots_Grid(); //print player ones shot grid
+            P2->print_ships_Grid();//print player ones ship grid
 
             cout << "Where would you like to take your shot Player 2 ?\nColumn (A-J):"; //get shot from player one
             char shotColumn;
@@ -137,8 +137,8 @@ void Executive::playGame()
             cout << "Row (1-9): ";
             int shotRow;
             cin >> shotRow;
-            is_Hit = game->isHit(shotRow, shotColumn, player2);//check if hit or miss
-            player2->setValue(shotRow, shotColumn, is_Hit);//update board
+            is_Hit = game->isHit(shotRow, shotColumn, P2);//check if hit or miss
+            P2->setValue(shotRow, shotColumn, is_Hit);//update board
             gameEnd = game->getEndGame(p1HitsLeft);//check if game end
             turnCounter++;
         }

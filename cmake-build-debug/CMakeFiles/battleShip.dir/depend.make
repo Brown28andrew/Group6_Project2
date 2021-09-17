@@ -15,5 +15,6 @@ CMakeFiles/battleShip.dir/Grid.cpp.obj: \
  ../Grid.h
 CMakeFiles/battleShip.dir/main.cpp.obj: \
  ../Executive.h \
+ ../Game.h \
  ../Grid.h \
  ../main.cpp
