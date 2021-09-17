@@ -8,6 +8,26 @@ using namespace std;
 
 bool Game::isHit(int tRow, int tCol, Grid* tGrid)
 {		
+	while (tRow >= 10 || tRow <= 0 || tCol >= 11 || tCol <= 0)
+	{
+		cout << "Oops, the placement not in battlezone. Try again: " << endl;
+		char tColLetter = 'A';
+		char inLetter = ' ';	
+		tCol = 1;
+		cout << "\nWhat column would you like to fire at: ";
+		cin >> inLetter;
+			
+		while (tColLetter < inLetter)
+		{
+			tColLetter++;
+			tCol++;
+		}
+				
+		cout << "What row would you like to fire at: ";
+		cin >> tRow;
+		
+	}
+
 	while (tGrid->getValue(tRow, tCol) == 'H' || tGrid->getValue(tRow, tCol) == 'M')	
 	{	
 		char tColLetter = 'A';
