@@ -7,12 +7,11 @@ using namespace std;
 
 
 bool Game::isHit(int tRow, int tCol, Grid* tGrid)
-{
-	char tColLetter = 'A';
-	char inLetter = ' ';	
-		
+{		
 	while (tGrid->getValue(tRow, tCol) == 'H' || tGrid->getValue(tRow, tCol) == 'M')	
 	{	
+		char tColLetter = 'A';
+		char inLetter = ' ';	
 		tCol = 1;
 		cout << "\nThat location has already been fired at!\nwhat column would you like to fire at: ";
 		cin >> inLetter;
@@ -32,8 +31,15 @@ bool Game::isHit(int tRow, int tCol, Grid* tGrid)
 		tGrid -> setValue(tRow, tCol, true);
 		return true;
 	}
-	
-	tGrid -> setValue(tRow,tCol, false);
+	else if(tGrid->getValue(tRow, tCol) != '|' || tGrid->getValue(tRow, tCol) != '-')
+	{
+		tGrid -> setValue(tRow,tCol, false);
+	}
+	else
+	{
+		return isHit(tRow, tCol, tGrid);
+		cout << "Got here mama";
+	}
 	return false;
 }
 
