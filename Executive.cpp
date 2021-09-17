@@ -36,7 +36,8 @@ void Executive::BeginGame()
             cin >> numShips;
         }
     p1HitsLeft = game->setHitsLeft(numShips);
-    p2HitsLeft = game->setHitsLeft(numShips);    
+    p2HitsLeft = game->setHitsLeft(numShips);   
+    cout << "\nHits Left: " << p1HitsLeft; 
     char readiness;     
     player1->print_ships_Grid();
     placeShips(numShips, player1);
@@ -136,6 +137,10 @@ void Executive::playGame(Grid* P1, Grid* P2)
             cin >> shotRow;
             
             is_Hit = game->isHit(shotRow, originCol, P2);//check if hit or miss
+            if (is_Hit == true)
+            {
+                p1HitsLeft--;
+            }
             P2->setValue(shotRow, originCol, is_Hit);//update board
             gameEnd = game->getEndGame(p1HitsLeft);//check if game end
             turnCounter++;
@@ -159,6 +164,10 @@ void Executive::playGame(Grid* P1, Grid* P2)
             int shotRow;
             cin >> shotRow;
             is_Hit = game->isHit(shotRow, originCol, P1);//check if hit or miss
+            if (is_Hit == true)
+            {
+                p2HitsLeft--;
+            }
             P1->setValue(shotRow, originCol, is_Hit);//update board
             gameEnd = game->getEndGame(p1HitsLeft);//check if game end
             turnCounter++;
