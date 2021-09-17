@@ -113,37 +113,53 @@ void Executive::playGame(Grid* P1, Grid* P2)
     bool is_Hit = false;
     while (!gameEnd)
     {
+        originCol = 1;
+        colLetter = 'A';
+
         if (turnCounter % 2 == 0)
         {
-            
-            P1->print_shots_Grid(); //print player ones shot grid
+            clearScreen();
+            P2->print_shots_Grid(); //print player ones shot grid
             P1->print_ships_Grid();//print player ones ship grid
 
             cout << "Where would you like to take your shot Player 1?\nColumn (A-J):"; //get shot from player one
             char shotColumn;
             cin >> shotColumn;
+            shotColumn = toupper(shotColumn);
+            while (colLetter < shotColumn)//loop to turn letter for column into integer to place ship on grid
+            {
+                colLetter++;
+                originCol++;
+            }
             cout << "Row (1-9): ";
             int shotRow;
             cin >> shotRow;
             
-            is_Hit = game->isHit(shotRow, shotColumn, P1);//check if hit or miss
-            P1->setValue(shotRow, shotColumn, is_Hit);//update board
+            is_Hit = game->isHit(shotRow, originCol, P2);//check if hit or miss
+            P2->setValue(shotRow, originCol, is_Hit);//update board
             gameEnd = game->getEndGame(p1HitsLeft);//check if game end
             turnCounter++;
         }
         else
         {
-            P2->print_shots_Grid(); //print player ones shot grid
+            clearScreen();
+            P1->print_shots_Grid(); //print player ones shot grid
             P2->print_ships_Grid();//print player ones ship grid
 
             cout << "Where would you like to take your shot Player 2 ?\nColumn (A-J):"; //get shot from player one
             char shotColumn;
             cin >> shotColumn;
+            shotColumn = toupper(shotColumn);
+            while (colLetter < shotColumn)//loop to turn letter for column into integer to place ship on grid
+            {
+                colLetter++;
+                originCol++;
+            }
             cout << "Row (1-9): ";
             int shotRow;
             cin >> shotRow;
-            is_Hit = game->isHit(shotRow, shotColumn, P2);//check if hit or miss
-            P2->setValue(shotRow, shotColumn, is_Hit);//update board
+            is_Hit = game->isHit(shotRow, originCol, P1);//check if hit or miss
+            P1->setValue(shotRow, originCol, is_Hit);//update board
             gameEnd = game->getEndGame(p1HitsLeft);//check if game end
             turnCounter++;
         }
