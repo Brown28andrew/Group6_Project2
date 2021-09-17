@@ -2,6 +2,7 @@
 #include "Grid.h"
 #include "Game.h"
 #include <iostream>
+//#include <ctype.h>
 using namespace std;
 
 
@@ -30,12 +31,17 @@ void Executive::BeginGame()
     cout << "The symbol for when ships are hit: H\n";
     cout << "The symbol for when shots are missed: M\n";
     cout << "\nHow many ships would you like to have in the game?\nNumber of ships (1-6): ";
-    cin >> numShips;
-    while (numShips > 6 || numShips < 0)
-    {
-        cout << "Invalid number. How many ships do you want to place? (1-6) \n";
         cin >> numShips;
-    }
+        while (cin.fail() || numShips > 6 || numShips <= 0)
+        {
+            cout << "Invalid number of ships. Please try again. Number of ships (1-6): " ;
+            cin.clear();
+            cin.ignore(256,'\n');
+            cin >> numShips;
+        }
+        
+
+     
 		
     p1HitsLeft = game->setHitsLeft(numShips);
     p2HitsLeft = game->setHitsLeft(numShips);   
@@ -111,6 +117,10 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
         shipsize = i+1;
 		
 		isPlaced = playerGrid->setShip(originRow,originCol,direction,shipsize);
+        
+        if(isdigit(col)==true) {
+            isPlaced = false;
+        }
 		if (isPlaced == false)
 			cout << "\nInvalid placement! please try again.\n";
 		
