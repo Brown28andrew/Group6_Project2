@@ -28,20 +28,25 @@ void Executive::BeginGame()
     cout << "The symbol for ships: | or -\n";
     cout << "The symbol for when ships are hit: H\n";
     cout << "The symbol for when shots are missed: M\n";
-    cout << "\nHow many ships would you like to have in the game Player 1?\nNumber of ships (1-6): ";
+    cout << "\nHow many ships would you like to have in the game?\nNumber of ships (1-6): ";
     cin >> numShips;
-        while (numShips > 6 || numShips < 0)
-        {
-            cout << "Invalid number. How many ships do you want to place? (1-6) \n";
-            cin >> numShips;
-        }
+    while (numShips > 6 || numShips < 0)
+    {
+        cout << "Invalid number. How many ships do you want to place? (1-6) \n";
+        cin >> numShips;
+    }
+		
     p1HitsLeft = game->setHitsLeft(numShips);
     p2HitsLeft = game->setHitsLeft(numShips);   
-    cout << "\nHits Left: " << p1HitsLeft; 
-    char readiness;     
+
+    char readiness; 
+
+	cout << "\nPlayer 1 places their ships first.";
     player1->print_ships_Grid();
     placeShips(numShips, player1);
-    cout << "\nThanks Player1!\n";
+	
+	clearScreen();
+    cout << "\nAll ships placed for player 1!\n";
 	
 	do
 	{
@@ -51,13 +56,22 @@ void Executive::BeginGame()
 		if (readiness != 'Y')
 			cout << "\nInvalid input!\n\n";
 	}while (readiness != 'Y');
-
-	clearScreen();
-	
-    cout << "Player 2, its your turn to place your " << numShips << " ship(s)!\n";
         
     player2->print_ships_Grid();
     placeShips(numShips, player2);
+	
+	clearScreen();
+	cout << "\nAll ships placed for player 2!\n";
+	
+	do
+	{
+		cout << "\nPlayer 1, Are you ready to start the game? (enter Y to continue)\n";
+		cin >> readiness; 
+		
+		if (readiness != 'Y')
+			cout << "\nInvalid input!\n\n";
+	}while (readiness != 'Y');
+	
     playGame(player1, player2);
 }
 
@@ -206,8 +220,6 @@ void Executive::nextTurn(bool is_hit)
 		if (c != 'Y')
 			cout << "Invalid input! please enter Y when the next player is ready: ";
 	} while (c != 'Y');
-	
-	clearScreen();
 	
 }
 	
