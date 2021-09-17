@@ -32,6 +32,7 @@ Sep-12
 Sep-13
   -Yuri:         2:31
   -Michael:      5:00
+  -Anna:	 3:00
   -Meeting:      2:00
 
 Sep-14
@@ -42,3 +43,4 @@ Sep-15
   
 Sep-16
   -Yuri:         1:08
+  -Anna:	 1:30
