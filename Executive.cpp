@@ -154,7 +154,6 @@ void Executive::playGame(Grid* P1, Grid* P2)
             {
                 p1HitsLeft--;
             }
-            P2->setValue(shotRow, originCol, is_Hit);//update board
             gameEnd = game->getEndGame(p1HitsLeft);//check if game end
             turnCounter++;
         }
@@ -181,7 +180,6 @@ void Executive::playGame(Grid* P1, Grid* P2)
             {
                 p2HitsLeft--;
             }
-            P1->setValue(shotRow, originCol, is_Hit);//update board
             gameEnd = game->getEndGame(p2HitsLeft);//check if game end
             turnCounter++;
         }
