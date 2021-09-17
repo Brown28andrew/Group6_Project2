@@ -17,6 +17,8 @@ class Executive {
 	* @post: game's winner printed to terminal, program ends.
 	*/
 	void endTheGame();
+	
+	void nextTurn(bool is_hit);
 
     private:
     char col;
@@ -28,6 +30,7 @@ class Executive {
     int numShips;
     int p1HitsLeft;
     int p2HitsLeft;
+	int turnCounter = 0;
     Grid* player1;
     Grid* player2;
     Game* game;

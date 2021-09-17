@@ -110,7 +110,6 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
 void Executive::playGame(Grid* P1, Grid* P2)
 {
     bool gameEnd = false;
-    int turnCounter = 0;
     bool is_Hit = false;
     while (!gameEnd)
     {
@@ -137,7 +136,7 @@ void Executive::playGame(Grid* P1, Grid* P2)
             cin >> shotRow;
             
             is_Hit = game->isHit(shotRow, originCol, P2);//check if hit or miss
-            if (is_Hit == true)
+            if (is_Hit)
             {
                 p1HitsLeft--;
             }
@@ -151,7 +150,7 @@ void Executive::playGame(Grid* P1, Grid* P2)
             P1->print_shots_Grid(); //print player ones shot grid
             P2->print_ships_Grid();//print player ones ship grid
 
-            cout << "Where would you like to take your shot Player 2 ?\nColumn (A-J):"; //get shot from player one
+            cout << "\nWhere would you like to take your shot Player 2 ?\nColumn (A-J):"; //get shot from player one
             char shotColumn;
             cin >> shotColumn;
             shotColumn = toupper(shotColumn);
@@ -164,7 +163,7 @@ void Executive::playGame(Grid* P1, Grid* P2)
             int shotRow;
             cin >> shotRow;
             is_Hit = game->isHit(shotRow, originCol, P1);//check if hit or miss
-            if (is_Hit == true)
+            if (is_Hit)
             {
                 p2HitsLeft--;
             }
@@ -172,6 +171,9 @@ void Executive::playGame(Grid* P1, Grid* P2)
             gameEnd = game->getEndGame(p2HitsLeft);//check if game end
             turnCounter++;
         }
+		
+		if (!gameEnd)
+			nextTurn(is_Hit);
     }
 	
 	endTheGame();
@@ -179,14 +181,37 @@ void Executive::playGame(Grid* P1, Grid* P2)
 
 void Executive::endTheGame()
 {
-	if (p1HitsLeft == 0)
-		cout << "\n\nPlayer 1 wins!";
+	cout << "\nPlayer " << ((turnCounter - 1) % 2) + 1 << " wins!";
 	
-	else if (p2HitsLeft == 0)
-		cout << "\n\nPlayer 2 wins!";
-	
-	cout << "Thank you for playing our game. Goodbye!\n\n";
+	cout << "\n\nThank you for playing our game. Goodbye!\n\n";
 }
+
+void Executive::nextTurn(bool is_hit)
+{
+	char c;
+	clearScreen();
+	
+	if (is_hit)
+		cout << "Hit!";
+	
+	else
+		cout << "Miss!";
+	
+	cout << "\n\nIs player " << (turnCounter % 2) + 1 << " ready? (Enter Y to continue): ";
+		
+	do
+	{
+		cin >> c;
+	
+		if (c != 'Y')
+			cout << "Invalid input! please enter Y when the next player is ready: ";
+	} while (c != 'Y');
+	
+	clearScreen();
+	
+}
+	
+	
 
 void Executive::clearScreen()
 {
