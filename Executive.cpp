@@ -127,7 +127,7 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
 			cout << "\nInvalid placement! please try again.\n";
 		
         }while (isPlaced == false);
-           // cout << "Invalid location. Try again:\n";
+            //cout << "Invalid location. Try again:\n";
             //placeShips(numShips, playerGrid, i);
         
         playerGrid->print_ships_Grid();  
@@ -150,8 +150,10 @@ void Executive::playGame(Grid* P1, Grid* P2)
             P1->print_ships_Grid();//print player ones ship grid
 
             cout << "Where would you like to take your shot Player 1?\nColumn (A-J):"; //get shot from player one
+            string shotColStr;
             char shotColumn;
-            cin >> shotColumn;
+            cin >> shotColStr;
+            shotColumn = getUserLetter(shotColStr);
             shotColumn = toupper(shotColumn);
             while (colLetter < shotColumn)//loop to turn letter for column into integer to place ship on grid
             {
@@ -177,8 +179,10 @@ void Executive::playGame(Grid* P1, Grid* P2)
             P2->print_ships_Grid();//print player ones ship grid
 
             cout << "\nWhere would you like to take your shot Player 2 ?\nColumn (A-J):"; //get shot from player one
+            string shotColStr;
             char shotColumn;
-            cin >> shotColumn;
+            cin >> shotColStr;
+            shotColumn = getUserLetter(shotColStr);
             shotColumn = toupper(shotColumn);
             while (colLetter < shotColumn)//loop to turn letter for column into integer to place ship on grid
             {
