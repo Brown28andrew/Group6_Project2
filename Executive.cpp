@@ -2,6 +2,7 @@
 #include "Grid.h"
 #include "Game.h"
 #include <iostream>
+#include <string>
 //#include <ctype.h>
 using namespace std;
 
@@ -95,14 +96,15 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
         colLetter = 'A';
         
         cout << "\nWhere would you like to place the origin of ship "<< i+1 << "?\nColumn (A-J): ";
-        cin >> col;
+        string userCol;
+        cin >> userCol;
+        col = getUserLetter(userCol);
         col = toupper(col);
             while (colLetter < col)//loop to turn letter for column into integer to place ship on grid
             {
                 colLetter++;
                 originCol++;
             }
-
         cout << "Row (1-9): ";
         cin >> originRow;
 		if (i != 0)
@@ -238,4 +240,17 @@ void Executive::clearScreen()
 {
 	for (int i = 0; i < 10; i++)
 		cout << "\n\n\n\n\n\n";
+}
+
+char Executive::getUserLetter(string input)
+{
+    char col = ' ';
+    while (input.length() > 1)
+    {
+        cout << "Error: Please enter a valid column";
+        cin >> input;
+    }
+    col = input.at(0);
+    col = toupper(col);
+    return col;
 }
