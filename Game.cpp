@@ -31,13 +31,8 @@ bool Game::isHit(int tRow, int tCol, Grid* tGrid)
 	} while(validShot == false);
 	
 	if (tGrid->getValue(tRow, tCol) == '|' || tGrid->getValue(tRow, tCol) == '-')
-	{
-		tGrid->setValue(tRow, tCol, true);
-		hitsLeft--;
 		return true;
-	}
-		
-	tGrid->setValue(tRow, tCol, false);
+
 	return false;
 }
 
@@ -52,5 +47,5 @@ bool Game::getEndGame(int hitsLeft)
 
 int Game::setHitsLeft(int shipNum)
 {
-	return (hitsLeft = (shipNum * (shipNum + 1))/2);
+	return ((shipNum * (shipNum + 1))/2);
 }

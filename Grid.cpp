@@ -172,7 +172,7 @@ char Grid::getValue(int tRow, int tCol)
 //////////////////////////////////////////////////////////
 void Grid::print_ships_Grid()
 {
-	cout << "Here is your m_grid: "<<endl;
+	cout << "\nHere is your game board: "<<endl;
 	for(int i = 0; i < rows; i++)
     {
         for(int j = 0; j < cols; j++) //changed cols to columns to match member variable. -Yuri
@@ -186,16 +186,18 @@ void Grid::print_ships_Grid()
 
 void Grid::print_shots_Grid()
 {
-	cout << "Here's your opponent's grid:\n";
+	cout << "\nHere's your opponent's game board:\n";
 	for(int i = 0; i < rows; i++)
 	{
 		for(int j = 0; j < cols; j++)
 		{
-			if(m_grid[i][j] == '|' || '-')
+			if(m_grid[i][j] == '|' || m_grid[i][j] == '-')
 			{
-				m_grid[i][j] = '* ';
+				cout << "* ";
 			}
-			cout << m_grid[i][j];
+			
+			else
+				cout << m_grid[i][j] << ' ';
 		}
 		cout << endl;
 	}	
