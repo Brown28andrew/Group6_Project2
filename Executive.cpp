@@ -16,6 +16,7 @@ Executive::~Executive()
 {
 	delete player1;
     delete player2;
+	delete game;
 }
 
 void Executive::BeginGame()
