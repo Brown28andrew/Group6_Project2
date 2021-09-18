@@ -2,6 +2,7 @@
 #define EXECUTIVE_H
 #include "Grid.h"
 #include "Game.h"
+#include <string>
 
 class Executive {
     public:
@@ -11,6 +12,7 @@ class Executive {
     void playGame(Grid* P1, Grid* P2);
     void placeShips (int numShips, Grid* playerGrid);
 	void clearScreen();
+    char getUserLetter(std::string input);
 	
 	/**
 	* @pre: p1HitsLeft or p2HitsLeft = 0

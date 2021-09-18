@@ -2,6 +2,7 @@
 #include "Grid.h"
 #include "Game.h"
 #include <iostream>
+#include <string>
 //#include <ctype.h>
 using namespace std;
 
@@ -95,14 +96,15 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
         colLetter = 'A';
         
         cout << "\nWhere would you like to place the origin of ship "<< i+1 << "?\nColumn (A-J): ";
-        cin >> col;
+        string userCol;
+        cin >> userCol;
+        col = getUserLetter(userCol);
         col = toupper(col);
             while (colLetter < col)//loop to turn letter for column into integer to place ship on grid
             {
                 colLetter++;
                 originCol++;
             }
-
         cout << "Row (1-9): ";
         cin >> originRow;
 		if (i != 0)
@@ -125,7 +127,7 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
 			cout << "\nInvalid placement! please try again.\n";
 		
         }while (isPlaced == false);
-           // cout << "Invalid location. Try again:\n";
+            //cout << "Invalid location. Try again:\n";
             //placeShips(numShips, playerGrid, i);
         
         playerGrid->print_ships_Grid();  
@@ -148,8 +150,10 @@ void Executive::playGame(Grid* P1, Grid* P2)
             P1->print_ships_Grid();//print player ones ship grid
 
             cout << "Where would you like to take your shot Player 1?\nColumn (A-J):"; //get shot from player one
+            string shotColStr;
             char shotColumn;
-            cin >> shotColumn;
+            cin >> shotColStr;
+            shotColumn = getUserLetter(shotColStr);
             shotColumn = toupper(shotColumn);
             while (colLetter < shotColumn)//loop to turn letter for column into integer to place ship on grid
             {
@@ -175,8 +179,10 @@ void Executive::playGame(Grid* P1, Grid* P2)
             P2->print_ships_Grid();//print player ones ship grid
 
             cout << "\nWhere would you like to take your shot Player 2 ?\nColumn (A-J):"; //get shot from player one
+            string shotColStr;
             char shotColumn;
-            cin >> shotColumn;
+            cin >> shotColStr;
+            shotColumn = getUserLetter(shotColStr);
             shotColumn = toupper(shotColumn);
             while (colLetter < shotColumn)//loop to turn letter for column into integer to place ship on grid
             {
@@ -238,4 +244,17 @@ void Executive::clearScreen()
 {
 	for (int i = 0; i < 10; i++)
 		cout << "\n\n\n\n\n\n";
+}
+
+char Executive::getUserLetter(string input)
+{
+    char col = ' ';
+    while (input.length() > 1)
+    {
+        cout << "Error: Please enter a valid column";
+        cin >> input;
+    }
+    col = input.at(0);
+    col = toupper(col);
+    return col;
 }
