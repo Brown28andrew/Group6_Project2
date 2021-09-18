@@ -118,11 +118,9 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
 		
         shipsize = i+1;
 		
-		isPlaced = playerGrid->setShip(originRow,originCol,direction,shipsize);
-        
-        if(isdigit(col)==true) {
-            isPlaced = false;
-        }
+        if(!isdigit(col))
+			isPlaced = playerGrid->setShip(originRow,originCol,direction,shipsize);
+     
 		if (isPlaced == false)
 			cout << "\nInvalid placement! please try again.\n";
 		
