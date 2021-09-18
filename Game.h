@@ -1,7 +1,12 @@
 #ifndef GAME_H
 #define GAME_H
 #include "Grid.h"
-// This is what controls grid and gives it the commands 
+
+/**
+* @brief: this class handles all game rules, including setting the number of hits to win,
+*         checking if a player's shot input hits a ship, and if the game's win condition
+*         has been met.
+*/
 class Game {
     public:
 	
