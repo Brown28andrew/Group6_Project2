@@ -75,6 +75,14 @@ class Executive {
 	*/
 	void nextTurn(bool is_hit);
 
+	/**
+	* @brief takes in the input for where the user would like to shoot and returns if the spot is a hit or miss
+	* @param grid takes in the grid to check the shot in
+	* @param n takes in the player number
+	* @return bool whether the spot is a hit or miss
+	*/
+	bool getShot (Grid* grid, int n);
+
     private:
     char col; 
     int originRow;

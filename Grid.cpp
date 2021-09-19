@@ -71,7 +71,7 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 				}
         	}
 
-			if (dir == 'D' || dir == 'd')
+			else if (dir == 'D' || dir == 'd')
         	{
 				if(checkDown(tRow, tCol, size) == true) {
 					for ( int i = 0; i < size ; i++) {
@@ -84,7 +84,7 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 			}
 			
 
-        	if (dir == 'L' || dir == 'l')
+        	else if (dir == 'L' || dir == 'l')
         	{
 				if(checkLeft(tRow, tCol, size) == true) {
 					for ( int i = 0; i < size ; i++) 
@@ -98,7 +98,7 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 				}
         	}
 
-        	if (dir == 'R' || dir == 'r')
+        	else if (dir == 'R' || dir == 'r')
         	{
 				if(checkRight(tRow, tCol, size) == true) {
 					for ( int i = 0; i < size ; i++) {
@@ -111,6 +111,7 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 				}
             	
        		}
+			   
 	}
 
 	return (isPlaced);

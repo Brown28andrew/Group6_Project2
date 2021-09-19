@@ -41,6 +41,12 @@ class Game {
 	* @param shipNum the number of ships each player has placed.
 	*/
 	int setHitsLeft(int shipNum);
+
+	/**
+	* @brief called when the location is an invalid location and takes in a new column
+	* @return integer of column value
+	*/
+	int invalidInput ();
 	
 	
 	

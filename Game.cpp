@@ -10,18 +10,7 @@ bool Game::isHit(int tRow, int tCol, Grid* tGrid)
 {		
 	while (tRow >= 10 || tRow <= 0 || tCol >= 11 || tCol <= 0)
 	{
-		cout << "Oops, the placement not in battlezone. Try again: " << endl;
-		char tColLetter = 'A';
-		char inLetter = ' ';	
-		tCol = 1;
-		cout << "\nWhat column would you like to fire at: ";
-		cin >> inLetter;
-			
-		while (tColLetter < inLetter)
-		{
-			tColLetter++;
-			tCol++;
-		}
+		tCol = invalidInput();
 				
 		cout << "What row would you like to fire at: ";
 		cin >> tRow;
@@ -30,19 +19,9 @@ bool Game::isHit(int tRow, int tCol, Grid* tGrid)
 
 	while (tGrid->getValue(tRow, tCol) == 'H' || tGrid->getValue(tRow, tCol) == 'M')	
 	{	
-		char tColLetter = 'A';
-		char inLetter = ' ';	
-		tCol = 1;
-		cout << "\nThat location has already been fired at!\nwhat column would you like to fire at: ";
-		cin >> inLetter;
-			
-		while (tColLetter < inLetter)
-		{
-			tColLetter++;
-			tCol++;
-		}
+		tCol = invalidInput();
 				
-		cout << "what row would you like to fire at: ";
+		cout << "What row would you like to fire at: ";
 		cin >> tRow;
 	}
 	
@@ -51,16 +30,17 @@ bool Game::isHit(int tRow, int tCol, Grid* tGrid)
 		tGrid -> setValue(tRow, tCol, true);
 		return true;
 	}
-	else if(tGrid->getValue(tRow, tCol) != '|' || tGrid->getValue(tRow, tCol) != '-')
+	else //(tGrid->getValue(tRow, tCol) != '|' || tGrid->getValue(tRow, tCol) != '-')
 	{
 		tGrid -> setValue(tRow,tCol, false);
+		return false;
 	}
-	else
-	{
-		return isHit(tRow, tCol, tGrid);
-		cout << "Got here mama";
-	}
-	return false;
+	//else
+	//{
+	//	return isHit(tRow, tCol, tGrid);
+	//	cout << "Got here mama";
+	//}
+	
 }
 
 bool Game::getEndGame(int hitsLeft)
@@ -75,4 +55,21 @@ bool Game::getEndGame(int hitsLeft)
 int Game::setHitsLeft(int shipNum)
 {
 	return ((shipNum * (shipNum + 1))/2);
+}
+
+int Game::invalidInput()
+{
+		cout << "Invalid location. Try again: " << endl;
+		char tColLetter = 'A';
+		char inLetter = ' ';	
+		int tCol = 1;
+		cout << "\nWhat column would you like to fire at: ";
+		cin >> inLetter;
+			
+		while (tColLetter < inLetter)
+		{
+			tColLetter++;
+			tCol++;
+		}
+		return tCol;
 }
