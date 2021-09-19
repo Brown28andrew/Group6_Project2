@@ -13,7 +13,6 @@ bool Game::isHit(int tRow, int tCol, Grid* tGrid)
 		tCol = invalidInput();
 				
 		cout << "What row would you like to fire at: ";
-        sleep(2);
 		cin >> tRow;
 		
 	}
@@ -23,7 +22,6 @@ bool Game::isHit(int tRow, int tCol, Grid* tGrid)
 		tCol = invalidInput();
 				
 		cout << "What row would you like to fire at: ";
-        sleep(2);
 		cin >> tRow;
 	}
 	
@@ -62,13 +60,11 @@ int Game::setHitsLeft(int shipNum)
 int Game::invalidInput()
 {
 		cout << "Invalid location. Try again: " << endl;
-        sleep(2);
 		char tColLetter = 'A';
 		char inLetter = ' ';	
 		int tCol = 1;
-		cout << "\nWhat column would you like to fire at: ";
+		cout << "\nWhat column would you like to fire at (A-J): ";
 		cin >> inLetter;
-        sleep(2);
 			
 		while (tColLetter < inLetter)
 		{

@@ -64,7 +64,7 @@ void Executive::BeginGame()
 		readiness = getUserLetter(userInput);
 		
 		if (readiness != 'Y' && readiness != 'y')
-			cout << "\nError\n\n";
+			cout << "\nError, please enter 'Y' or 'y' to continue.\n";
 	}while (readiness != 'Y' && readiness != 'y');
         
     player2->print_ships_Grid();
@@ -81,7 +81,7 @@ void Executive::BeginGame()
 		readiness = getUserLetter(userInput);
 		
 		if (readiness != 'Y' && readiness != 'y')
-			cout << "\nInvalid input!\n\n";
+			cout << "\nError, please enter 'Y' or 'y' to continue.\n";
 	}while (readiness != 'Y' && readiness != 'y');
 	
     playGame(player1, player2);
@@ -90,6 +90,7 @@ void Executive::BeginGame()
 void Executive::placeShips(int numShips, Grid* playerGrid) 
 {
 	bool isPlaced = false;
+	string userInput;
 	
     for (int i = 0; i < numShips; i++)//loop to place ships on board
     {
@@ -110,11 +111,11 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
                     originCol++;
                 }
             cout << "Row (1-9): ";
-            cin >> originRow;
+            cin >> originRow; 
             while (cin.fail() || isalpha(originRow))
             {
-                cout << "Invalid placement! Please try again: " ;
-                sleep(2);
+                cout << "Invalid row input! please enter an integer between 1 and 9: " ;
+
                 cin.clear();
                 cin.ignore(256,'\n');
                 cin >> originRow;
@@ -123,7 +124,8 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
             if (i != 0)
             {
                 cout << "Ship " << i+1 << " will take up " << i+1 << " spaces, which direction would you like to orient the ship? (U, D, L, R)\nDirection: ";
-                cin >> direction;
+                cin >> userInput;
+				direction = getUserLetter(userInput);
             }
             
             else
