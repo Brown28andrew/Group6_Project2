@@ -61,7 +61,7 @@ void Executive::BeginGame()
 		readiness = getUserLetter(userInput);
 		
 		if (readiness != 'Y' && readiness != 'y')
-			cout << "\nInvalid input!\n\n";
+			cout << "\nError\n\n";
 	}while (readiness != 'Y' && readiness != 'y');
         
     player2->print_ships_Grid();
@@ -221,7 +221,7 @@ char Executive::getUserLetter(string input)
     char col = ' ';
     while (input.length() > 1 || isalpha(input.at(0)) == false)
     {
-        cout << "Error, please enter a valid column: ";
+        cout << "Error, please enter a valid input: ";
         cin >> input;
     }
     col = input.at(0);
