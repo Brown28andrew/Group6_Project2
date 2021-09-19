@@ -1,6 +1,7 @@
 #include <iomanip>
 #include <iostream>
 #include "Grid.h"
+#include <unistd.h>
 using namespace std;
 
 Grid::Grid()
@@ -167,6 +168,7 @@ bool Grid::checkForValidPlacedCoordinates(int tRow, int tCol, int size)
 
 	if (tRow >= rows || tRow <= 0 || tCol >= cols || tCol <= 0)
 	{
+        sleep(2);
 		cout << "Oops, the placement not in battlezone. Try again: " << endl;
 
 		return false;
