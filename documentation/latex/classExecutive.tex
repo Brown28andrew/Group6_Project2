@@ -1,0 +1,191 @@
+\hypertarget{classExecutive}{}\section{Executive Class Reference}
+\label{classExecutive}\index{Executive@{Executive}}
+
+
+This class handles all inputs and outputs to be passed to \hyperlink{classGame}{Game} or \hyperlink{classGrid}{Grid} classes.  
+
+
+
+
+{\ttfamily \#include $<$Executive.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classExecutive_ad870c1d741f1f313eb0c5a8336f8af6b}{Executive} ()
+\item 
+\hyperlink{classExecutive_a4ce80c499f7640b1770ade77cf56d965}{$\sim$\+Executive} ()
+\item 
+void \hyperlink{classExecutive_a1a5fd9d5a7357663b31bae642e0723d9}{Begin\+Game} ()
+\begin{DoxyCompactList}\small\item\em players are welcomed to the game and asked how many ships they would like to play with. \end{DoxyCompactList}\item 
+void \hyperlink{classExecutive_a671bfc107bd1a07b0a6b024778405282}{play\+Game} (\hyperlink{classGrid}{Grid} $\ast$P1, \hyperlink{classGrid}{Grid} $\ast$P2)
+\begin{DoxyCompactList}\small\item\em This function handles the game\textquotesingle{}s turns and player inputs per turn. \end{DoxyCompactList}\item 
+void \hyperlink{classExecutive_acff54f6827b9b21462c8c5d7fad93a13}{place\+Ships} (int num\+Ships, \hyperlink{classGrid}{Grid} $\ast$player\+Grid)
+\begin{DoxyCompactList}\small\item\em takes inputs and passes them to \hyperlink{classGrid}{Grid} class\textquotesingle{}s set\+Ship method in order to place one player\textquotesingle{}s ships. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExecutive_a6b52a0ec7783ffed51d117d60781c364}\label{classExecutive_a6b52a0ec7783ffed51d117d60781c364}} 
+void \hyperlink{classExecutive_a6b52a0ec7783ffed51d117d60781c364}{clear\+Screen} ()
+\begin{DoxyCompactList}\small\item\em \char`\"{}clears\char`\"{} the terminal screen by printing newlines. \end{DoxyCompactList}\item 
+char \hyperlink{classExecutive_afeb631927beaf50e17e5a0ee0b85895f}{get\+User\+Letter} (std\+::string input)
+\begin{DoxyCompactList}\small\item\em ensures that the player\textquotesingle{}s column input is one char and returns that char. \end{DoxyCompactList}\item 
+void \hyperlink{classExecutive_a7ecea33073bc684a8efdd3bd08f724e3}{end\+The\+Game} ()
+\begin{DoxyCompactList}\small\item\em handles the output to terminal when the game ends. \end{DoxyCompactList}\item 
+void \hyperlink{classExecutive_ad28543f2f3aff90f695b7cbe1cdaac3e}{next\+Turn} (bool is\+\_\+hit)
+\begin{DoxyCompactList}\small\item\em prints whether the current player\textquotesingle{}s shot was a hit or miss, then waits for next turn\textquotesingle{}s player\textquotesingle{}s input that they\textquotesingle{}re ready. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class handles all inputs and outputs to be passed to \hyperlink{classGame}{Game} or \hyperlink{classGrid}{Grid} classes. 
+
+\begin{DoxyAuthor}{Authors}
+Nifemi Fadahunsi, Michael Lane, Yuri Martinez, Anna Burns, Rokunuzjahan Rudro 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classExecutive_ad870c1d741f1f313eb0c5a8336f8af6b}\label{classExecutive_ad870c1d741f1f313eb0c5a8336f8af6b}} 
+\index{Executive@{Executive}!Executive@{Executive}}
+\index{Executive@{Executive}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{Executive()}{Executive()}}
+{\footnotesize\ttfamily Executive\+::\+Executive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+2 \hyperlink{classGrid}{Grid} object pointers (1 per player) and 1 \hyperlink{classGame}{Game} object pointers are initialized. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classExecutive_a4ce80c499f7640b1770ade77cf56d965}\label{classExecutive_a4ce80c499f7640b1770ade77cf56d965}} 
+\index{Executive@{Executive}!````~Executive@{$\sim$\+Executive}}
+\index{````~Executive@{$\sim$\+Executive}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{$\sim$\+Executive()}{~Executive()}}
+{\footnotesize\ttfamily Executive\+::$\sim$\+Executive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+All object pointers are deleted. 
+\end{DoxyPostcond}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classExecutive_a1a5fd9d5a7357663b31bae642e0723d9}\label{classExecutive_a1a5fd9d5a7357663b31bae642e0723d9}} 
+\index{Executive@{Executive}!Begin\+Game@{Begin\+Game}}
+\index{Begin\+Game@{Begin\+Game}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{Begin\+Game()}{BeginGame()}}
+{\footnotesize\ttfamily void Executive\+::\+Begin\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+players are welcomed to the game and asked how many ships they would like to play with. 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Number of ships established, both player\textquotesingle{}s ships are placed by calling place\+Ships method, play\+Game method is called. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classExecutive_a7ecea33073bc684a8efdd3bd08f724e3}\label{classExecutive_a7ecea33073bc684a8efdd3bd08f724e3}} 
+\index{Executive@{Executive}!end\+The\+Game@{end\+The\+Game}}
+\index{end\+The\+Game@{end\+The\+Game}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{end\+The\+Game()}{endTheGame()}}
+{\footnotesize\ttfamily void Executive\+::end\+The\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+handles the output to terminal when the game ends. 
+
+\begin{DoxyPrecond}{Precondition}
+p1\+Hits\+Left or p2\+Hits\+Left = 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+game\textquotesingle{}s winner printed to terminal, program ends. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classExecutive_afeb631927beaf50e17e5a0ee0b85895f}\label{classExecutive_afeb631927beaf50e17e5a0ee0b85895f}} 
+\index{Executive@{Executive}!get\+User\+Letter@{get\+User\+Letter}}
+\index{get\+User\+Letter@{get\+User\+Letter}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{get\+User\+Letter()}{getUserLetter()}}
+{\footnotesize\ttfamily char Executive\+::get\+User\+Letter (\begin{DoxyParamCaption}\item[{std\+::string}]{input }\end{DoxyParamCaption})}
+
+
+
+ensures that the player\textquotesingle{}s column input is one char and returns that char. 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+first char in input 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em input} & the string for player\textquotesingle{}s column input \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classExecutive_ad28543f2f3aff90f695b7cbe1cdaac3e}\label{classExecutive_ad28543f2f3aff90f695b7cbe1cdaac3e}} 
+\index{Executive@{Executive}!next\+Turn@{next\+Turn}}
+\index{next\+Turn@{next\+Turn}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{next\+Turn()}{nextTurn()}}
+{\footnotesize\ttfamily void Executive\+::next\+Turn (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+hit }\end{DoxyParamCaption})}
+
+
+
+prints whether the current player\textquotesingle{}s shot was a hit or miss, then waits for next turn\textquotesingle{}s player\textquotesingle{}s input that they\textquotesingle{}re ready. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+\_\+hit} & indicates whether current player\textquotesingle{}s shot was a hit(true) or a miss(false) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classExecutive_acff54f6827b9b21462c8c5d7fad93a13}\label{classExecutive_acff54f6827b9b21462c8c5d7fad93a13}} 
+\index{Executive@{Executive}!place\+Ships@{place\+Ships}}
+\index{place\+Ships@{place\+Ships}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{place\+Ships()}{placeShips()}}
+{\footnotesize\ttfamily void Executive\+::place\+Ships (\begin{DoxyParamCaption}\item[{int}]{num\+Ships,  }\item[{\hyperlink{classGrid}{Grid} $\ast$}]{player\+Grid }\end{DoxyParamCaption})}
+
+
+
+takes inputs and passes them to \hyperlink{classGrid}{Grid} class\textquotesingle{}s set\+Ship method in order to place one player\textquotesingle{}s ships. 
+
+\begin{DoxyPrecond}{Precondition}
+num\+Ships must be between 1 and 6 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+All ships are placed for one player. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Ships} & number of ships to be placed per player. \\
+\hline
+{\em player\+Grid} & pointer to one player\textquotesingle{}s \hyperlink{classGrid}{Grid} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classExecutive_a671bfc107bd1a07b0a6b024778405282}\label{classExecutive_a671bfc107bd1a07b0a6b024778405282}} 
+\index{Executive@{Executive}!play\+Game@{play\+Game}}
+\index{play\+Game@{play\+Game}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{play\+Game()}{playGame()}}
+{\footnotesize\ttfamily void Executive\+::play\+Game (\begin{DoxyParamCaption}\item[{\hyperlink{classGrid}{Grid} $\ast$}]{P1,  }\item[{\hyperlink{classGrid}{Grid} $\ast$}]{P2 }\end{DoxyParamCaption})}
+
+
+
+This function handles the game\textquotesingle{}s turns and player inputs per turn. 
+
+\begin{DoxyPrecond}{Precondition}
+P1 and P2 must be initialized, with ships already placed. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+p1\+Hits\+Left or p2\+Hits\+Left is reduced to 0, end\+The\+Game method is called. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em P1} & pointer to player 1\textquotesingle{}s \hyperlink{classGrid}{Grid} object \\
+\hline
+{\em P2} & pointer to player 2\textquotesingle{}s \hyperlink{classGrid}{Grid} object \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Executive.\+h\item 
+Executive.\+cpp\end{DoxyCompactItemize}

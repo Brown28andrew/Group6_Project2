@@ -1,0 +1,299 @@
+\hypertarget{classGrid}{}\section{Grid Class Reference}
+\label{classGrid}\index{Grid@{Grid}}
+
+
+Stores all information for one player\textquotesingle{}s game board.  
+
+
+
+
+{\ttfamily \#include $<$Grid.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGrid_a4ac9ff4f63552b4c61ff90fcb35ad66c}{Grid} ()
+\item 
+\hyperlink{classGrid_a3661d0a7f998caaaf8627d7a67072116}{$\sim$\+Grid} ()
+\item 
+bool \hyperlink{classGrid_ae1ab8719d4320fce79999814ebd03e18}{set\+Ship} (int t\+Row, int t\+Col, char dir, int size)
+\begin{DoxyCompactList}\small\item\em Verifies that the player\textquotesingle{}s inputs are valid, then places ship in their respective game board. \end{DoxyCompactList}\item 
+void \hyperlink{classGrid_a796dc2bc597170d3cba6c5c7ee0ef393}{set\+Value} (int t\+Row, int t\+Col, bool hit\+Or\+Miss)
+\begin{DoxyCompactList}\small\item\em Assigns hit or miss symbol to position (t\+Col, t\+Row) in m\+\_\+grid\textquotesingle{}s game board. \end{DoxyCompactList}\item 
+char \hyperlink{classGrid_a64f11b9d53d9a8706a6d1cc2c3054b57}{get\+Value} (int t\+Row, int t\+Col)
+\item 
+bool \hyperlink{classGrid_ae8e5adb59f1d2b5ada441a86949b4833}{check\+For\+Valid\+Placed\+Coordinates} (int t\+Row, int t\+Col, int size)
+\begin{DoxyCompactList}\small\item\em Verifies that the player\textquotesingle{}s inputted row and column are within m\+\_\+grid\textquotesingle{}s boundaries. \end{DoxyCompactList}\item 
+void \hyperlink{classGrid_a8ae0f29a39c8bb700a20d0e6e865b801}{print\+\_\+ships\+\_\+\+Grid} ()
+\item 
+void \hyperlink{classGrid_afddc50f6f34ad95f4f860c92fb7cf848}{print\+\_\+shots\+\_\+\+Grid} ()
+\item 
+bool \hyperlink{classGrid_a54f02f20686c6868a5083a2076af0c60}{check\+Up} (int t\+Row, int t\+Col, int size)
+\item 
+bool \hyperlink{classGrid_ad2eddab31788809b0a1d4a34f0410ddc}{check\+Down} (int t\+Row, int t\+Col, int size)
+\item 
+bool \hyperlink{classGrid_a89cf2bde3daca8d048a568e7ee6a9fa2}{check\+Right} (int t\+Row, int t\+Col, int size)
+\item 
+bool \hyperlink{classGrid_a92d3dec9998340992f02f26dbc5036df}{check\+Left} (int t\+Row, int t\+Col, int size)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Stores all information for one player\textquotesingle{}s game board. 
+
+\begin{DoxyAuthor}{Authors}
+Nifemi Fadahunsi, Michael Lane, Yuri Martinez, Anna Burns, Rokunuzjahan Rudro 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGrid_a4ac9ff4f63552b4c61ff90fcb35ad66c}\label{classGrid_a4ac9ff4f63552b4c61ff90fcb35ad66c}} 
+\index{Grid@{Grid}!Grid@{Grid}}
+\index{Grid@{Grid}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{Grid()}{Grid()}}
+{\footnotesize\ttfamily Grid\+::\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+m\+\_\+grid made with initial value \textquotesingle{}O\textquotesingle{} in each board position. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classGrid_a3661d0a7f998caaaf8627d7a67072116}\label{classGrid_a3661d0a7f998caaaf8627d7a67072116}} 
+\index{Grid@{Grid}!````~Grid@{$\sim$\+Grid}}
+\index{````~Grid@{$\sim$\+Grid}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{$\sim$\+Grid()}{~Grid()}}
+{\footnotesize\ttfamily Grid\+::$\sim$\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+m\+\_\+grid is deleted 
+\end{DoxyPostcond}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classGrid_ad2eddab31788809b0a1d4a34f0410ddc}\label{classGrid_ad2eddab31788809b0a1d4a34f0410ddc}} 
+\index{Grid@{Grid}!check\+Down@{check\+Down}}
+\index{check\+Down@{check\+Down}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{check\+Down()}{checkDown()}}
+{\footnotesize\ttfamily bool Grid\+::check\+Down (\begin{DoxyParamCaption}\item[{int}]{t\+Row,  }\item[{int}]{t\+Col,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+1 $<$= t\+Row $<$= 9, 1 $<$= t\+Col $<$= 10. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ship is placed and oriented below the origin location. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true if ship is placed, false if ship would overlap another or go off the board. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em t\+Row} & the target row the player is firing at. \\
+\hline
+{\em t\+Col} & the target column the player is firing at. \\
+\hline
+{\em size} & the number of spaces the ship will take up. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGrid_ae8e5adb59f1d2b5ada441a86949b4833}\label{classGrid_ae8e5adb59f1d2b5ada441a86949b4833}} 
+\index{Grid@{Grid}!check\+For\+Valid\+Placed\+Coordinates@{check\+For\+Valid\+Placed\+Coordinates}}
+\index{check\+For\+Valid\+Placed\+Coordinates@{check\+For\+Valid\+Placed\+Coordinates}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{check\+For\+Valid\+Placed\+Coordinates()}{checkForValidPlacedCoordinates()}}
+{\footnotesize\ttfamily bool Grid\+::check\+For\+Valid\+Placed\+Coordinates (\begin{DoxyParamCaption}\item[{int}]{t\+Row,  }\item[{int}]{t\+Col,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Verifies that the player\textquotesingle{}s inputted row and column are within m\+\_\+grid\textquotesingle{}s boundaries. 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+True if t\+Row and t\+Col represent a valid board position, false otherwises. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em t\+Row} & the target row the player is firing at. \\
+\hline
+{\em t\+Col} & the target column the player is firing at. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGrid_a92d3dec9998340992f02f26dbc5036df}\label{classGrid_a92d3dec9998340992f02f26dbc5036df}} 
+\index{Grid@{Grid}!check\+Left@{check\+Left}}
+\index{check\+Left@{check\+Left}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{check\+Left()}{checkLeft()}}
+{\footnotesize\ttfamily bool Grid\+::check\+Left (\begin{DoxyParamCaption}\item[{int}]{t\+Row,  }\item[{int}]{t\+Col,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+1 $<$= t\+Row $<$= 9, 1 $<$= t\+Col $<$= 10. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ship is placed and oriented to the left of the origin location. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true if ship is placed, false if ship would overlap another or go off the board. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em t\+Row} & the target row the player is firing at. \\
+\hline
+{\em t\+Col} & the target column the player is firing at. \\
+\hline
+{\em size} & the number of spaces the ship will take up. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGrid_a89cf2bde3daca8d048a568e7ee6a9fa2}\label{classGrid_a89cf2bde3daca8d048a568e7ee6a9fa2}} 
+\index{Grid@{Grid}!check\+Right@{check\+Right}}
+\index{check\+Right@{check\+Right}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{check\+Right()}{checkRight()}}
+{\footnotesize\ttfamily bool Grid\+::check\+Right (\begin{DoxyParamCaption}\item[{int}]{t\+Row,  }\item[{int}]{t\+Col,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+1 $<$= t\+Row $<$= 9, 1 $<$= t\+Col $<$= 10. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ship is placed and oriented to the right of the origin location. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true if ship is placed, false if ship would overlap another or go off the board. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em t\+Row} & the target row the player is firing at. \\
+\hline
+{\em t\+Col} & the target column the player is firing at. \\
+\hline
+{\em size} & the number of spaces the ship will take up. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGrid_a54f02f20686c6868a5083a2076af0c60}\label{classGrid_a54f02f20686c6868a5083a2076af0c60}} 
+\index{Grid@{Grid}!check\+Up@{check\+Up}}
+\index{check\+Up@{check\+Up}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{check\+Up()}{checkUp()}}
+{\footnotesize\ttfamily bool Grid\+::check\+Up (\begin{DoxyParamCaption}\item[{int}]{t\+Row,  }\item[{int}]{t\+Col,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+1 $<$= t\+Row $<$= 9, 1 $<$= t\+Col $<$= 10. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ship is placed and oriented above the origin location. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true if ship is placed, false if ship would overlap another or go off the board. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em t\+Row} & the target row the player is firing at. \\
+\hline
+{\em t\+Col} & the target column the player is firing at. \\
+\hline
+{\em size} & the number of spaces the ship will take up. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGrid_a64f11b9d53d9a8706a6d1cc2c3054b57}\label{classGrid_a64f11b9d53d9a8706a6d1cc2c3054b57}} 
+\index{Grid@{Grid}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}}
+{\footnotesize\ttfamily char Grid\+::get\+Value (\begin{DoxyParamCaption}\item[{int}]{t\+Row,  }\item[{int}]{t\+Col }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+1 $<$= t\+Row $<$= 9, 1 $<$= t\+Col $<$= 10 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+Value at m\+\_\+grid\mbox{[}t\+Row\mbox{]}\mbox{[}t\+Col\mbox{]} 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em t\+Row} & the target row the player is firing at. \\
+\hline
+{\em t\+Col} & the target column the player is firing at. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGrid_a8ae0f29a39c8bb700a20d0e6e865b801}\label{classGrid_a8ae0f29a39c8bb700a20d0e6e865b801}} 
+\index{Grid@{Grid}!print\+\_\+ships\+\_\+\+Grid@{print\+\_\+ships\+\_\+\+Grid}}
+\index{print\+\_\+ships\+\_\+\+Grid@{print\+\_\+ships\+\_\+\+Grid}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{print\+\_\+ships\+\_\+\+Grid()}{print\_ships\_Grid()}}
+{\footnotesize\ttfamily void Grid\+::print\+\_\+ships\+\_\+\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Current turn\textquotesingle{}s player\textquotesingle{}s board printed to terminal. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classGrid_afddc50f6f34ad95f4f860c92fb7cf848}\label{classGrid_afddc50f6f34ad95f4f860c92fb7cf848}} 
+\index{Grid@{Grid}!print\+\_\+shots\+\_\+\+Grid@{print\+\_\+shots\+\_\+\+Grid}}
+\index{print\+\_\+shots\+\_\+\+Grid@{print\+\_\+shots\+\_\+\+Grid}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{print\+\_\+shots\+\_\+\+Grid()}{print\_shots\_Grid()}}
+{\footnotesize\ttfamily void Grid\+::print\+\_\+shots\+\_\+\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+opponent\textquotesingle{}s board printed to terminal, where \textquotesingle{}$\vert$\textquotesingle{} and \textquotesingle{}-\/\textquotesingle{} are replaced with \textquotesingle{}$\ast$\textquotesingle{}. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classGrid_ae1ab8719d4320fce79999814ebd03e18}\label{classGrid_ae1ab8719d4320fce79999814ebd03e18}} 
+\index{Grid@{Grid}!set\+Ship@{set\+Ship}}
+\index{set\+Ship@{set\+Ship}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{set\+Ship()}{setShip()}}
+{\footnotesize\ttfamily bool Grid\+::set\+Ship (\begin{DoxyParamCaption}\item[{int}]{t\+Row,  }\item[{int}]{t\+Col,  }\item[{char}]{dir,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Verifies that the player\textquotesingle{}s inputs are valid, then places ship in their respective game board. 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\textquotesingle{}$\vert$\textquotesingle{} or \textquotesingle{}-\/\textquotesingle{} assigned to all game board positions the ship covers, depending on orientation of ship 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+True if ship is placed successfully, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em t\+Row} & the target row the player is firing at. \\
+\hline
+{\em t\+Col} & the target column the player is firing at. \\
+\hline
+{\em dir} & char value that specifies which direction from the ship\textquotesingle{}s origin to place the ship. \\
+\hline
+{\em size} & the number of board spaces the ship being placed will cover. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGrid_a796dc2bc597170d3cba6c5c7ee0ef393}\label{classGrid_a796dc2bc597170d3cba6c5c7ee0ef393}} 
+\index{Grid@{Grid}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{set\+Value()}{setValue()}}
+{\footnotesize\ttfamily void Grid\+::set\+Value (\begin{DoxyParamCaption}\item[{int}]{t\+Row,  }\item[{int}]{t\+Col,  }\item[{bool}]{hit\+Or\+Miss }\end{DoxyParamCaption})}
+
+
+
+Assigns hit or miss symbol to position (t\+Col, t\+Row) in m\+\_\+grid\textquotesingle{}s game board. 
+
+\begin{DoxyPrecond}{Precondition}
+1 $<$= t\+Row $<$= 9, 1 $<$= t\+Col $<$= 10, hit\+Or\+Miss = true or false if player\textquotesingle{}s shot was a hit or miss respectively. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+hit\+\_\+ship\textquotesingle{}s value assigned to m\+\_\+grid\mbox{[}t\+Row\mbox{]}\mbox{[}t\+Col\mbox{]} if hit\+Or\+Miss = true, miss\+\_\+ship\textquotesingle{}s value if hit\+Or\+Miss = false. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em t\+Row} & the target row the player is firing at. \\
+\hline
+{\em t\+Col} & the target column the player is firing at. \\
+\hline
+{\em hit\+Or\+Miss} & variable that signals if the player\textquotesingle{}s shot is a hit or a miss. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Grid.\+h\item 
+Grid.\+cpp\end{DoxyCompactItemize}

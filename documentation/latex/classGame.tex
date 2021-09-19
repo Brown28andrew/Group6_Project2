@@ -1,0 +1,103 @@
+\hypertarget{classGame}{}\section{Game Class Reference}
+\label{classGame}\index{Game@{Game}}
+
+
+this class handles all game rules related to Battleship, including setting the number of hits to win, checking if a player\textquotesingle{}s shot input hits a ship, and if the game\textquotesingle{}s win condition has been met.  
+
+
+
+
+{\ttfamily \#include $<$Game.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classGame_a44dd26e02329730028443a7ff28e1513}{is\+Hit} (int t\+Row, int t\+Col, \hyperlink{classGrid}{Grid} $\ast$t\+Grid)
+\begin{DoxyCompactList}\small\item\em verifies that player\textquotesingle{}s shot inputs are valid, then checks if the shot was a hit or miss. \end{DoxyCompactList}\item 
+bool \hyperlink{classGame_ad71f679248bf79e4edd5b93d5985b098}{get\+End\+Game} (int hits\+Left)
+\begin{DoxyCompactList}\small\item\em checks if the opponent has any more untouched ship spaces. \end{DoxyCompactList}\item 
+int \hyperlink{classGame_a6342beaca9d9388cb06025e2e577d41b}{set\+Hits\+Left} (int ship\+Num)
+\begin{DoxyCompactList}\small\item\em determines how many hits each player has to earn in order to win. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+this class handles all game rules related to Battleship, including setting the number of hits to win, checking if a player\textquotesingle{}s shot input hits a ship, and if the game\textquotesingle{}s win condition has been met. 
+
+\begin{DoxyAuthor}{Authors}
+Nifemi Fadahunsi, Michael Lane, Yuri Martinez, Anna Burns, Rokunuzjahan Rudro 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classGame_ad71f679248bf79e4edd5b93d5985b098}\label{classGame_ad71f679248bf79e4edd5b93d5985b098}} 
+\index{Game@{Game}!get\+End\+Game@{get\+End\+Game}}
+\index{get\+End\+Game@{get\+End\+Game}!Game@{Game}}
+\subsubsection{\texorpdfstring{get\+End\+Game()}{getEndGame()}}
+{\footnotesize\ttfamily bool Game\+::get\+End\+Game (\begin{DoxyParamCaption}\item[{int}]{hits\+Left }\end{DoxyParamCaption})}
+
+
+
+checks if the opponent has any more untouched ship spaces. 
+
+\begin{DoxyReturn}{Returns}
+true if hits\+Left = 0, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em hits\+Left} & the number of ship spaces that have not been hit yet. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGame_a44dd26e02329730028443a7ff28e1513}\label{classGame_a44dd26e02329730028443a7ff28e1513}} 
+\index{Game@{Game}!is\+Hit@{is\+Hit}}
+\index{is\+Hit@{is\+Hit}!Game@{Game}}
+\subsubsection{\texorpdfstring{is\+Hit()}{isHit()}}
+{\footnotesize\ttfamily bool Game\+::is\+Hit (\begin{DoxyParamCaption}\item[{int}]{t\+Row,  }\item[{int}]{t\+Col,  }\item[{\hyperlink{classGrid}{Grid} $\ast$}]{t\+Grid }\end{DoxyParamCaption})}
+
+
+
+verifies that player\textquotesingle{}s shot inputs are valid, then checks if the shot was a hit or miss. 
+
+This function first makes sure that t\+Row and t\+Col are within the boundaries of the board, then makes sure that the board location at (t\+Col, t\+Row) has not been fired at already. If the inputs are valid, the function then calls \hyperlink{classGrid}{Grid}\textquotesingle{}s set\+Value function to assign H (if it\textquotesingle{}s a hit) or M (if it\textquotesingle{}s a miss) at (t\+Col, t\+Row).
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+t\+Grid\textquotesingle{}s m\+\_\+grid\mbox{[}t\+Row\mbox{]}\mbox{[}t\+Col\mbox{]} is updated to H if hit, M if miss. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true if hit, false if miss. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em t\+Row} & the target row the player is firing at. \\
+\hline
+{\em t\+Col} & the target column the player is firing at. \\
+\hline
+{\em t\+Grid} & the game board being fired at. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGame_a6342beaca9d9388cb06025e2e577d41b}\label{classGame_a6342beaca9d9388cb06025e2e577d41b}} 
+\index{Game@{Game}!set\+Hits\+Left@{set\+Hits\+Left}}
+\index{set\+Hits\+Left@{set\+Hits\+Left}!Game@{Game}}
+\subsubsection{\texorpdfstring{set\+Hits\+Left()}{setHitsLeft()}}
+{\footnotesize\ttfamily int Game\+::set\+Hits\+Left (\begin{DoxyParamCaption}\item[{int}]{ship\+Num }\end{DoxyParamCaption})}
+
+
+
+determines how many hits each player has to earn in order to win. 
+
+\begin{DoxyReturn}{Returns}
+(ship\+Num(ship\+Num+1))/2 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em ship\+Num} & the number of ships each player has placed. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Game.\+h\item 
+Game.\+cpp\end{DoxyCompactItemize}

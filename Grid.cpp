@@ -3,11 +3,6 @@
 #include "Grid.h"
 using namespace std;
 
-/**
-* @pre: none
-* @post: m_grid made with initial value 'O' in each board position.
-*/
-
 Grid::Grid()
 {
     char rowNum = '1'; //char to increment row indicator
@@ -19,12 +14,9 @@ Grid::Grid()
             {
                 m_grid[i] = new char[cols];
             }
-	//m_grid = new char [rows][cols];
 
 	for (int i = 0; i < rows; i++) // loop to fill m_grid with row/col indicator and unused positions
-    {
-		//m_grid[i] = new char *[cols];
-		
+    {	
         for (int j = 0; j < cols; j++)
         {
             if (i == 0 && j == 0)
@@ -46,17 +38,8 @@ Grid::Grid()
                 m_grid[i][j] = '*';
 			}
 		}
-		
 	}
-	
-	
 }
-
-/**
-* @pre: none
-* @post: P1_array_m_grid is deleted
-*/
-// In the future needs to be edited to delete the constructor m_grid, P1's two m_grid and P2's m_grid.
 
 Grid::~Grid()
 {
@@ -67,19 +50,6 @@ Grid::~Grid()
 	delete[] m_grid;
 	
 }
-
-
-
-/**
-* @pre: Player inputs represent a valid location on the board.
-* @post: 'S' assigned to P1_array_m_grid[tRow][tCol] to denote ship location
-*/
-//removed the first argument variable since P1_array_m_grid is already a member variable. -Yuri
-// This can be discussed upon but I feel like passing the size of the ship into set ship would
-// help in being able to check if all of that ship slot is a valid position by making check for validplacedcoordinates
-// Check the whole ship not just a single spot - Nifemi.
-// If checkforvalidcoordinates checks to see if that position is valid then we shouldn't need " m_grid[tRow][tCol] == '*' " down the line - Nifemi.
-
 
 bool Grid::setShip(int tRow, int tCol, char dir, int size) 
 {
@@ -92,7 +62,6 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
         	{
 				
 				if(checkUp(tRow, tCol, size) == true) {
-					//m_grid[tRow][tCol] = '|';
 					for ( int i = 0; i < size ; i++) {
 						for(int j=0; j < i+1; j++) {
 							m_grid[tRow-j][tCol] = '|'; 
@@ -105,7 +74,6 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 			if (dir == 'D' || dir == 'd')
         	{
 				if(checkDown(tRow, tCol, size) == true) {
-					//m_grid[tRow][tCol] = '|';
 					for ( int i = 0; i < size ; i++) {
 						for(int j=0; j < i+1; j++) {
 							m_grid[tRow+j][tCol] = '|'; 
@@ -157,29 +125,19 @@ void Grid::setValue(int tRow, int tCol, bool hitOrMiss)
 		m_grid[tRow][tCol] = miss_ship;
 }
 
-/**
-* @pre: none
-* @return: value at P1_array_m_grid[tRow][tCol]
-*/
-
-// Would we need to change this method to know if we have to get from P1's m_grid or P2's m_grid. Right now i've just set it to get from m_grid
-// since we are working with one m_grid for now - Nifemi.
 char Grid::getValue(int tRow, int tCol)
 {
 	return (m_grid[tRow][tCol]);
 }
 
-//////////////////////////////////////////////////////////
 void Grid::print_ships_Grid()
 {
 	cout << "\nHere is your game board: "<<endl;
 	for(int i = 0; i < rows; i++)
     {
-        for(int j = 0; j < cols; j++) //changed cols to columns to match member variable. -Yuri
-        {
-            //cout<<setw(3)<<m_grid[i][j];     //show row in one line (changed m_grid[][] to P1_array_m_grid to match the member variable. -Yuri)
+        for(int j = 0; j < cols; j++)
 			cout << m_grid[i][j] << ' ';
-        }
+		
         cout<<endl;
     }
 }
@@ -202,12 +160,11 @@ void Grid::print_shots_Grid()
 		cout << endl;
 	}	
 }
-// I'm guessing this function would be adapted to no longer call set ship and would now take the size of the ship being checked
 
 bool Grid::checkForValidPlacedCoordinates(int tRow, int tCol, int size)
 {
 
-	if (tRow >= rows || tRow <= 0 || tCol >= cols || tCol <= 0) //changed cols to columns to match member variable. -Yuri
+	if (tRow >= rows || tRow <= 0 || tCol >= cols || tCol <= 0)
 	{
 		cout << "Oops, the placement not in battlezone. Try again: " << endl;
 
@@ -260,5 +217,3 @@ bool Grid::checkLeft(int tRow, int tCol, int size)
 	}
 	return(true);
 }
-
-///////////////////////////////////////////////////////////
