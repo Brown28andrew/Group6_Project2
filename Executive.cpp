@@ -125,8 +125,6 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
 			cout << "\nInvalid placement! please try again.\n";
 		
         }while (isPlaced == false);
-            //cout << "Invalid location. Try again:\n";
-            //placeShips(numShips, playerGrid, i);
         
         playerGrid->print_ships_Grid();  
     }
@@ -144,8 +142,8 @@ void Executive::playGame(Grid* P1, Grid* P2)
         if (turnCounter % 2 == 0)
         {
             clearScreen();
-            P2->print_shots_Grid(); //print player ones shot grid
-            P1->print_ships_Grid();//print player ones ship grid
+            P2->print_shots_Grid();
+            P1->print_ships_Grid();
 
             cout << "Where would you like to take your shot Player 1?\nColumn (A-J):"; //get shot from player one
             string shotColStr;
@@ -229,6 +227,7 @@ void Executive::nextTurn(bool is_hit)
 	do
 	{
 		cin >> c;
+		c = toupper(c);
 	
 		if (c != 'Y')
 			cout << "Invalid input! please enter Y when the next player is ready: ";
