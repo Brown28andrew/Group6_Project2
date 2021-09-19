@@ -106,6 +106,14 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
                 }
             cout << "Row (1-9): ";
             cin >> originRow;
+            while (cin.fail() || isalpha(originRow))
+            {
+                cout << "Invalid placement! Please try again: " ;
+                cin.clear();
+                cin.ignore(256,'\n');
+                cin >> originRow;
+            }
+            
             if (i != 0)
             {
                 cout << "Ship " << i+1 << " will take up " << i+1 << " spaces, which direction would you like to orient the ship? (U, D, L, R)\nDirection: ";
@@ -239,6 +247,13 @@ bool Executive::getShot(Grid* grid, int n) {
             cout << "Row (1-9): ";
             int shotRow;
             cin >> shotRow;
+            while (cin.fail() || isalpha(originRow))
+            {
+                cout << "Invalid placement! Please try again: " ;
+                cin.clear();
+                cin.ignore(256,'\n');
+                cin >> shotRow;
+            }
 
             
             is_Hit = game->isHit(shotRow, originCol, grid);//check if hit or miss
