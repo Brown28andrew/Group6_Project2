@@ -1,54 +1,62 @@
 #ifndef GRID_H
 #define GRID_H
 
+/**
+* @brief: Stores all information for one player's game board.
+* @authors: Nifemi Fadahunsi, Michael Lane, Yuri Martinez, Anna Burns, Rokunuzjahan Rudro
+*/
 class Grid {
     public:
 		/**
 		* @pre: none
-		* @post: P1_array_grid made with initial value 'O' in each board position.
+		* @post: m_grid made with initial value 'O' in each board position.
 		*/
         Grid();
 		
 		/**
 		* @pre: none
-		* @post: P1_array_grid is deleted
+		* @post: m_grid is deleted
 		*/
         ~Grid();
 		
 		/**
-		* @pre: Player inputs represent a valid location on the board.
-		* @post: 'S' assigned to P1_array_grid[tRow][tCol] to denote 1x1 ship location
-		* @return: true if 'S' assigned successfully, false otherwise.
+		* @brief: Verifies that the player's inputs are valid, then places ship in their respective game board.
+		* @pre: none
+		* @post: '|' or '-' assigned to all game board positions the ship covers, depending on orientation of ship
+		* @return: True if ship is placed successfully, false otherwise.
 		* @param: tRow and tCol, target row and column respectively
 		*/
 		bool setShip(int tRow, int tCol, char dir, int size);
 		
 		/**
-		* @pre: tRow and tCol represent a valid location on the game board. and m_grid[tRow][tCol]
-		* has not been fired on already.
-		* @post: 'H' assigned to m_grid[tRow][tCol] if hitOrMiss = true, 'M' if hitOrMiss = false.
+		* @brief: Assigns hit or miss symbol to position (tCol, tRow) in m_grid's game board.
+		* @pre: 1 <= tRow <= 9, 1 <= tCol <= 10, hitOrMiss = true or false if player's shot was a hit or miss
+		*       respectively.
+		* @post: hit_ship's value assigned to m_grid[tRow][tCol] if hitOrMiss = true, miss_ship's value if 
+		*        hitOrMiss = false.
 		* @param: tRow and tCol, target row and column respectively
 		* @param: hitOrMiss, variable that signals if the player's shot is a hit or a miss.
 		*/
 		void setValue(int tRow, int tCol, bool hitOrMiss);
 		
 		/**
-		* @pre: passed inputs represent valid location on the board.
-		* @return: value at P1_array_grid[tRow][tCol]
+		* @pre: 1 <= tRow <= 9, 1 <= tCol <= 10
+		* @return: Value at m_grid[tRow][tCol]
 		* @param: tRow and tCol, target row and column respectively
 		*/
 		char getValue(int tRow, int tCol);
 
 		/**
+		* @brief: Verifies that the player's inputted row and column are within m_grid's boundaries.
 		* @pre: none
-		* @return: true if tRow and tCol represent a valid board position, false otherwises.
+		* @return: True if tRow and tCol represent a valid board position, false otherwises.
 		* @param: tRow and tCol, target row and column respectively
 		*/
-		bool checkForValidPlacedCoordinates(int tRow, int tCol, int size);
+		bool checkForValidPlacedCoordinates(int tRow, int tCol, int size); //doesn't use size anymore - yuri
 
 		/**
 		* @pre: none
-		* @post: current turn's player's board printed to terminal
+		* @post: Current turn's player's board printed to terminal.
 		*/
 		void print_ships_Grid();
 		
@@ -60,8 +68,7 @@ class Grid {
 		void print_shots_Grid();
 		
 		/**
-		* @pre: 1 <= tRow <= 9, 1 <= tCol <= 10, and m_grid, and
-		* m_grid[tRow][tCol] == '*'.
+		* @pre: 1 <= tRow <= 9, 1 <= tCol <= 10.
 		* @post: ship is placed and oriented above the origin location.
 		* @return: true if ship is placed, false if ship would overlap another
 		* or go off the board.
@@ -71,8 +78,7 @@ class Grid {
 		bool checkUp(int tRow, int tCol, int size);
 		
 		/**
-		* @pre: 1 <= tRow <= 9, 1 <= tCol <= 10, and m_grid, and
-		* m_grid[tRow][tCol] == '*'.
+		* @pre: 1 <= tRow <= 9, 1 <= tCol <= 10.
 		* @post: ship is placed and oriented below the origin location.
 		* @return: true if ship is placed, false if ship would overlap another
 		* or go off the board.
@@ -82,8 +88,7 @@ class Grid {
 		bool checkDown(int tRow, int tCol, int size);
 		
 		/**
-		* @pre: 1 <= tRow <= 9, 1 <= tCol <= 10, and m_grid, and
-		* m_grid[tRow][tCol] == '*'.
+		* @pre: 1 <= tRow <= 9, 1 <= tCol <= 10.
 		* @post: ship is placed and oriented to the right of the origin location.
 		* @return: true if ship is placed, false if ship would overlap another
 		* or go off the board.
@@ -93,8 +98,7 @@ class Grid {
 		bool checkRight(int tRow, int tCol, int size);
 		
 		/**
-		* @pre: 1 <= tRow <= 9, 1 <= tCol <= 10, and m_grid, and
-		* m_grid[tRow][tCol] == '*'.
+		* @pre: 1 <= tRow <= 9, 1 <= tCol <= 10.
 		* @post: ship is placed and oriented to the left of the origin location.
 		* @return: true if ship is placed, false if ship would overlap another
 		* or go off the board.

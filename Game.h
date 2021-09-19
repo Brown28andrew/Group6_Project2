@@ -3,27 +3,41 @@
 #include "Grid.h"
 
 /**
-* @brief: this class handles all game rules, including setting the number of hits to win,
+* @brief: this class handles all game rules related to Battleship, including setting the number of hits to win,
 *         checking if a player's shot input hits a ship, and if the game's win condition
 *         has been met.
+* @authors: Nifemi Fadahunsi, Michael Lane, Yuri Martinez, Anna Burns, Rokunuzjahan Rudro
 */
 class Game {
     public:
 	
 	/**
-	* @pre: tRow and tCol are within the boundaries of the game board.
-	* @post: tGrid's m_grid[tRow][tCol] is updated to H if hit, M if miss, and hitsLeft is decremented if hit.
-	* @return: true if hit, false if miss
+	* @brief: verifies that player's shot inputs are valid, then checks if the shot was a hit or miss.
+	*
+	* This function first makes sure that tRow and tCol are within the boundaries of the board, then
+	* makes sure that the board location at (tCol, tRow) has not been fired at already. If the inputs are
+	* valid, the function then calls Grid's setValue function to assign H (if it's a hit) or M (if it's a miss)
+	* at (tCol, tRow).
+	*
+	* @pre: none
+	* @post: tGrid's m_grid[tRow][tCol] is updated to H if hit, M if miss.
+	* @return: true if hit, false if miss.
+	* @param: tRow and tCol, the target row and column fired at, respectively.
+	* @param: tGrid, the opponent's game board being fired at.
 	*/
 	bool isHit(int tRow, int tCol, Grid* tGrid);
 	
 	/**
-	* @return: true if hitsLeft = 0, false otherwise
+	* @brief: checks if the opponent has any more untouched ship spaces.
+	* @return: true if hitsLeft = 0, false otherwise.
+	* @param: hitsLeft, the number of ship spaces that have not been hit yet.
 	*/
 	bool getEndGame(int hitsLeft);
 	
 	/**
-	* @brief: assigns (n(n+1))/2 to hitsLeft, where n = number of ships per player.
+	* @brief: determines how many hits each player has to earn in order to win.
+	* @return: (shipNum(shipNum+1))/2
+	* @param: shipNum, the number of ships each player has placed.
 	*/
 	int setHitsLeft(int shipNum);
 	
