@@ -73,7 +73,8 @@ void Executive::BeginGame()
 	do
 	{
 		cout << "\nPlayer 1, Are you ready to start the game? (enter Y to continue)\n";
-		cin >> readiness; 
+		cin >> userInput;
+		readiness = getUserLetter(userInput);
 		
 		if (readiness != 'Y' && readiness != 'y')
 			cout << "\nInvalid input!\n\n";
@@ -185,6 +186,7 @@ void Executive::endTheGame()
 void Executive::nextTurn(bool is_hit)
 {
 	char c;
+	string userInput;
 	clearScreen();
 	
 	if (is_hit)
@@ -197,8 +199,8 @@ void Executive::nextTurn(bool is_hit)
 		
 	do
 	{
-		cin >> c;
-		c = toupper(c);
+		cin >> userInput;
+		c = getUserLetter(userInput);
 	
 		if (c != 'Y')
 			cout << "Invalid input! please enter Y when the next player is ready: ";
