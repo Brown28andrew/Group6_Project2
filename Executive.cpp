@@ -3,6 +3,8 @@
 #include "Game.h"
 #include <iostream>
 #include <string>
+#include <unistd.h>
+
 //#include <ctype.h>
 using namespace std;
 
@@ -26,6 +28,7 @@ void Executive::BeginGame()
     
     cout << "\n----------------------------------------------------------\n";
     cout << "WELCOME TO THE BATTLESHIP GAME BY TEAM-18\n";
+    sleep(2);
     cout << "----------------------------------------------------------\n";
     cout << "\nBelow are the some symbols which will be used during the game.\n";
     cout << "The symbol for ships: | or -\n";
@@ -67,6 +70,7 @@ void Executive::BeginGame()
 	
 	clearScreen();
 	cout << "\nAll ships placed for player 2!\n";
+    sleep(2);
 	
 	do
 	{
@@ -107,6 +111,7 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
             while (cin.fail() || isalpha(originRow))
             {
                 cout << "Invalid placement! Please try again: " ;
+                sleep(2);
                 cin.clear();
                 cin.ignore(256,'\n');
                 cin >> originRow;
@@ -176,6 +181,7 @@ void Executive::playGame(Grid* P1, Grid* P2)
 void Executive::endTheGame()
 {
 	cout << "\nPlayer " << ((turnCounter - 1) % 2) + 1 << " wins!";
+    sleep(2);
 	
 	cout << "\n\nThank you for playing our game. Goodbye!\n\n";
 }
@@ -230,6 +236,7 @@ bool Executive::getShot(Grid* grid, int n) {
             colLetter = 'A';
             bool is_Hit;
 
+            sleep(2);
             cout << "Where would you like to take your shot Player " << n << "?\nColumn (A-J):"; //get shot from player one
             string shotColStr;
             char shotColumn;
