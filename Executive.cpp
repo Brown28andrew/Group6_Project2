@@ -43,7 +43,8 @@ void Executive::BeginGame()
         
     p1HitsLeft = game->setHitsLeft(numShips);
     p2HitsLeft = game->setHitsLeft(numShips);   
-
+	
+	string userInput;
     char readiness; 
 
 	cout << "\nPlayer 1 places their ships first.";
@@ -56,7 +57,8 @@ void Executive::BeginGame()
 	do
 	{
 		cout << "\nPlayer 2, Are you ready to place your ships? (enter Y to continue)\n";
-		cin >> readiness; 
+		cin >> userInput; 
+		readiness = getUserLetter(userInput);
 		
 		if (readiness != 'Y' && readiness != 'y')
 			cout << "\nInvalid input!\n\n";
@@ -123,7 +125,7 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
 		
         }while (isPlaced == false);
         
-        playerGrid->print_ships_Grid();  
+        playerGrid->print_ships_Grid();
     }
 }
 
