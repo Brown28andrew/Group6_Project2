@@ -29,8 +29,10 @@ char \hyperlink{classExecutive_afeb631927beaf50e17e5a0ee0b85895f}{get\+User\+Let
 \begin{DoxyCompactList}\small\item\em ensures that the player\textquotesingle{}s column input is one char and returns that char. \end{DoxyCompactList}\item 
 void \hyperlink{classExecutive_a7ecea33073bc684a8efdd3bd08f724e3}{end\+The\+Game} ()
 \begin{DoxyCompactList}\small\item\em handles the output to terminal when the game ends. \end{DoxyCompactList}\item 
-void \hyperlink{classExecutive_ad28543f2f3aff90f695b7cbe1cdaac3e}{next\+Turn} (bool is\+\_\+hit)
-\begin{DoxyCompactList}\small\item\em prints whether the current player\textquotesingle{}s shot was a hit or miss, then waits for next turn\textquotesingle{}s player\textquotesingle{}s input that they\textquotesingle{}re ready. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \hyperlink{classExecutive_a7bdfcc2bf91bbd24f1b7d3642e3c8cfe}{next\+Turn} (bool is\+\_\+hit, bool is\+\_\+\+Sunk)
+\begin{DoxyCompactList}\small\item\em prints whether the current player\textquotesingle{}s shot was a hit or miss, then waits for next turn\textquotesingle{}s player\textquotesingle{}s input that they\textquotesingle{}re ready. \end{DoxyCompactList}\item 
+bool \hyperlink{classExecutive_af66dfa4b2bd996fdbcb7159d143a1d89}{get\+Shot} (\hyperlink{classGrid}{Grid} $\ast$grid, int n)
+\begin{DoxyCompactList}\small\item\em takes in the input for where the user would like to shoot and returns if the spot is a hit or miss \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -101,6 +103,26 @@ p1\+Hits\+Left or p2\+Hits\+Left = 0
 \begin{DoxyPostcond}{Postcondition}
 game\textquotesingle{}s winner printed to terminal, program ends. 
 \end{DoxyPostcond}
+\mbox{\Hypertarget{classExecutive_af66dfa4b2bd996fdbcb7159d143a1d89}\label{classExecutive_af66dfa4b2bd996fdbcb7159d143a1d89}} 
+\index{Executive@{Executive}!get\+Shot@{get\+Shot}}
+\index{get\+Shot@{get\+Shot}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{get\+Shot()}{getShot()}}
+{\footnotesize\ttfamily bool Executive\+::get\+Shot (\begin{DoxyParamCaption}\item[{\hyperlink{classGrid}{Grid} $\ast$}]{grid,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+takes in the input for where the user would like to shoot and returns if the spot is a hit or miss 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & takes in the grid to check the shot in \\
+\hline
+{\em n} & takes in the player number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool whether the spot is a hit or miss 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classExecutive_afeb631927beaf50e17e5a0ee0b85895f}\label{classExecutive_afeb631927beaf50e17e5a0ee0b85895f}} 
 \index{Executive@{Executive}!get\+User\+Letter@{get\+User\+Letter}}
 \index{get\+User\+Letter@{get\+User\+Letter}!Executive@{Executive}}
@@ -122,11 +144,11 @@ first char in input
 {\em input} & the string for player\textquotesingle{}s column input \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classExecutive_ad28543f2f3aff90f695b7cbe1cdaac3e}\label{classExecutive_ad28543f2f3aff90f695b7cbe1cdaac3e}} 
+\mbox{\Hypertarget{classExecutive_a7bdfcc2bf91bbd24f1b7d3642e3c8cfe}\label{classExecutive_a7bdfcc2bf91bbd24f1b7d3642e3c8cfe}} 
 \index{Executive@{Executive}!next\+Turn@{next\+Turn}}
 \index{next\+Turn@{next\+Turn}!Executive@{Executive}}
 \subsubsection{\texorpdfstring{next\+Turn()}{nextTurn()}}
-{\footnotesize\ttfamily void Executive\+::next\+Turn (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+hit }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Executive\+::next\+Turn (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+hit,  }\item[{bool}]{is\+\_\+\+Sunk }\end{DoxyParamCaption})}
 
 
 

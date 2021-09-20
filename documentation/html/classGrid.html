@@ -101,6 +101,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a89cf2bde3daca8d048a568e7ee6a9fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92d3dec9998340992f02f26dbc5036df"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrid.html#a92d3dec9998340992f02f26dbc5036df">checkLeft</a> (int tRow, int tCol, int size)</td></tr>
 <tr class="separator:a92d3dec9998340992f02f26dbc5036df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dd2b56c03c9a55f52cc7a4d3e305c4e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrid.html#a0dd2b56c03c9a55f52cc7a4d3e305c4e">checkShadow</a> (int num)</td></tr>
+<tr class="separator:a0dd2b56c03c9a55f52cc7a4d3e305c4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d7d6f2c79360af341ce1188ad70e390"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrid.html#a3d7d6f2c79360af341ce1188ad70e390">getShadow</a> (int tRow, int tCol)</td></tr>
+<tr class="separator:a3d7d6f2c79360af341ce1188ad70e390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab04f98c62f74cbf487a49e535c38c93d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrid.html#ab04f98c62f74cbf487a49e535c38c93d">setShadow</a> (int tRow, int tCol)</td></tr>
+<tr class="separator:ab04f98c62f74cbf487a49e535c38c93d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Stores all information for one player's game board. </p>
@@ -325,6 +331,32 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a0dd2b56c03c9a55f52cc7a4d3e305c4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dd2b56c03c9a55f52cc7a4d3e305c4e">&#9670;&nbsp;</a></span>checkShadow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Grid::checkShadow </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd>1 &lt;= tRow &lt;= 9, 1 &lt;= tCol &lt;= 10. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if ship number is on the grid, false if it is not </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>the ship number </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a54f02f20686c6868a5083a2076af0c60"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a54f02f20686c6868a5083a2076af0c60">&#9670;&nbsp;</a></span>checkUp()</h2>
 
@@ -364,6 +396,43 @@ Public Member Functions</h2></td></tr>
     <tr><td class="paramname">tRow</td><td>the target row the player is firing at. </td></tr>
     <tr><td class="paramname">tCol</td><td>the target column the player is firing at. </td></tr>
     <tr><td class="paramname">size</td><td>the number of spaces the ship will take up. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3d7d6f2c79360af341ce1188ad70e390"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d7d6f2c79360af341ce1188ad70e390">&#9670;&nbsp;</a></span>getShadow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Grid::getShadow </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tRow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tCol</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd>1 &lt;= tRow &lt;= 9, 1 &lt;= tCol &lt;= 10. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the number at the row and column of the shadow grid </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tRow</td><td>the row number </td></tr>
+    <tr><td class="paramname">tCol</td><td>the column number </td></tr>
   </table>
   </dd>
 </dl>
@@ -442,6 +511,43 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section pre"><dt>Precondition</dt><dd>none </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>opponent's board printed to terminal, where '|' and '-' are replaced with '*'. </dd></dl>
+
+</div>
+</div>
+<a id="ab04f98c62f74cbf487a49e535c38c93d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab04f98c62f74cbf487a49e535c38c93d">&#9670;&nbsp;</a></span>setShadow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Grid::setShadow </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tRow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tCol</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd>1 &lt;= tRow &lt;= 9, 1 &lt;= tCol &lt;= 10. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>the shadow grid is set to 0 at the given row and column </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tRow</td><td>the row number </td></tr>
+    <tr><td class="paramname">tCol</td><td>the column number </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

@@ -35,6 +35,12 @@ bool \hyperlink{classGrid_ad2eddab31788809b0a1d4a34f0410ddc}{check\+Down} (int t
 bool \hyperlink{classGrid_a89cf2bde3daca8d048a568e7ee6a9fa2}{check\+Right} (int t\+Row, int t\+Col, int size)
 \item 
 bool \hyperlink{classGrid_a92d3dec9998340992f02f26dbc5036df}{check\+Left} (int t\+Row, int t\+Col, int size)
+\item 
+bool \hyperlink{classGrid_a0dd2b56c03c9a55f52cc7a4d3e305c4e}{check\+Shadow} (int num)
+\item 
+int \hyperlink{classGrid_a3d7d6f2c79360af341ce1188ad70e390}{get\+Shadow} (int t\+Row, int t\+Col)
+\item 
+void \hyperlink{classGrid_ab04f98c62f74cbf487a49e535c38c93d}{set\+Shadow} (int t\+Row, int t\+Col)
 \end{DoxyCompactItemize}
 
 
@@ -169,6 +175,23 @@ true if ship is placed, false if ship would overlap another or go off the board.
 {\em size} & the number of spaces the ship will take up. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classGrid_a0dd2b56c03c9a55f52cc7a4d3e305c4e}\label{classGrid_a0dd2b56c03c9a55f52cc7a4d3e305c4e}} 
+\index{Grid@{Grid}!check\+Shadow@{check\+Shadow}}
+\index{check\+Shadow@{check\+Shadow}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{check\+Shadow()}{checkShadow()}}
+{\footnotesize\ttfamily bool Grid\+::check\+Shadow (\begin{DoxyParamCaption}\item[{int}]{num }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+1 $<$= t\+Row $<$= 9, 1 $<$= t\+Col $<$= 10. 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+true if ship number is on the grid, false if it is not 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em num} & the ship number \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classGrid_a54f02f20686c6868a5083a2076af0c60}\label{classGrid_a54f02f20686c6868a5083a2076af0c60}} 
 \index{Grid@{Grid}!check\+Up@{check\+Up}}
 \index{check\+Up@{check\+Up}!Grid@{Grid}}
@@ -191,6 +214,25 @@ true if ship is placed, false if ship would overlap another or go off the board.
 {\em t\+Col} & the target column the player is firing at. \\
 \hline
 {\em size} & the number of spaces the ship will take up. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGrid_a3d7d6f2c79360af341ce1188ad70e390}\label{classGrid_a3d7d6f2c79360af341ce1188ad70e390}} 
+\index{Grid@{Grid}!get\+Shadow@{get\+Shadow}}
+\index{get\+Shadow@{get\+Shadow}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{get\+Shadow()}{getShadow()}}
+{\footnotesize\ttfamily int Grid\+::get\+Shadow (\begin{DoxyParamCaption}\item[{int}]{t\+Row,  }\item[{int}]{t\+Col }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+1 $<$= t\+Row $<$= 9, 1 $<$= t\+Col $<$= 10. 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+the number at the row and column of the shadow grid 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em t\+Row} & the row number \\
+\hline
+{\em t\+Col} & the column number \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classGrid_a64f11b9d53d9a8706a6d1cc2c3054b57}\label{classGrid_a64f11b9d53d9a8706a6d1cc2c3054b57}} 
@@ -236,6 +278,25 @@ none
 \begin{DoxyPostcond}{Postcondition}
 opponent\textquotesingle{}s board printed to terminal, where \textquotesingle{}$\vert$\textquotesingle{} and \textquotesingle{}-\/\textquotesingle{} are replaced with \textquotesingle{}$\ast$\textquotesingle{}. 
 \end{DoxyPostcond}
+\mbox{\Hypertarget{classGrid_ab04f98c62f74cbf487a49e535c38c93d}\label{classGrid_ab04f98c62f74cbf487a49e535c38c93d}} 
+\index{Grid@{Grid}!set\+Shadow@{set\+Shadow}}
+\index{set\+Shadow@{set\+Shadow}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{set\+Shadow()}{setShadow()}}
+{\footnotesize\ttfamily void Grid\+::set\+Shadow (\begin{DoxyParamCaption}\item[{int}]{t\+Row,  }\item[{int}]{t\+Col }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+1 $<$= t\+Row $<$= 9, 1 $<$= t\+Col $<$= 10. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+the shadow grid is set to 0 at the given row and column 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em t\+Row} & the row number \\
+\hline
+{\em t\+Col} & the column number \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classGrid_ae1ab8719d4320fce79999814ebd03e18}\label{classGrid_ae1ab8719d4320fce79999814ebd03e18}} 
 \index{Grid@{Grid}!set\+Ship@{set\+Ship}}
 \index{set\+Ship@{set\+Ship}!Grid@{Grid}}

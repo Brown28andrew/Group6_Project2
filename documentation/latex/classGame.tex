@@ -17,7 +17,13 @@ bool \hyperlink{classGame_a44dd26e02329730028443a7ff28e1513}{is\+Hit} (int t\+Ro
 bool \hyperlink{classGame_ad71f679248bf79e4edd5b93d5985b098}{get\+End\+Game} (int hits\+Left)
 \begin{DoxyCompactList}\small\item\em checks if the opponent has any more untouched ship spaces. \end{DoxyCompactList}\item 
 int \hyperlink{classGame_a6342beaca9d9388cb06025e2e577d41b}{set\+Hits\+Left} (int ship\+Num)
-\begin{DoxyCompactList}\small\item\em determines how many hits each player has to earn in order to win. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em determines how many hits each player has to earn in order to win. \end{DoxyCompactList}\item 
+int \hyperlink{classGame_a964a5b6a1a7f69d7ad461b9ca7ff18fc}{invalid\+Input} ()
+\begin{DoxyCompactList}\small\item\em called when the location is an invalid location and takes in a new column \end{DoxyCompactList}\item 
+char \hyperlink{classGame_a53e176256e6d4962a37e0f22d6731fce}{get\+Column\+Letter} (std\+::string input)
+\begin{DoxyCompactList}\small\item\em ensures that the player\textquotesingle{}s column input is one char and returns that char. \end{DoxyCompactList}\item 
+bool \hyperlink{classGame_ac1e0a9a0ab9253e5b31e32e86e824458}{check\+Sunk} (\hyperlink{classGrid}{Grid} $\ast$player\+Grid, int n)
+\begin{DoxyCompactList}\small\item\em checks if the boat on the shadow grid is present \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -29,6 +35,47 @@ Nifemi Fadahunsi, Michael Lane, Yuri Martinez, Anna Burns, Rokunuzjahan Rudro
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classGame_ac1e0a9a0ab9253e5b31e32e86e824458}\label{classGame_ac1e0a9a0ab9253e5b31e32e86e824458}} 
+\index{Game@{Game}!check\+Sunk@{check\+Sunk}}
+\index{check\+Sunk@{check\+Sunk}!Game@{Game}}
+\subsubsection{\texorpdfstring{check\+Sunk()}{checkSunk()}}
+{\footnotesize\ttfamily bool Game\+::check\+Sunk (\begin{DoxyParamCaption}\item[{\hyperlink{classGrid}{Grid} $\ast$}]{player\+Grid,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+checks if the boat on the shadow grid is present 
+
+\begin{DoxyReturn}{Returns}
+true if the number is in the shadow grid, false if it is not 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Grid} & the grid that is being checked \\
+\hline
+{\em n} & the number that is being checked for in the grid \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGame_a53e176256e6d4962a37e0f22d6731fce}\label{classGame_a53e176256e6d4962a37e0f22d6731fce}} 
+\index{Game@{Game}!get\+Column\+Letter@{get\+Column\+Letter}}
+\index{get\+Column\+Letter@{get\+Column\+Letter}!Game@{Game}}
+\subsubsection{\texorpdfstring{get\+Column\+Letter()}{getColumnLetter()}}
+{\footnotesize\ttfamily char Game\+::get\+Column\+Letter (\begin{DoxyParamCaption}\item[{std\+::string}]{input }\end{DoxyParamCaption})}
+
+
+
+ensures that the player\textquotesingle{}s column input is one char and returns that char. 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+first char in input 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em input} & the string for player\textquotesingle{}s column input \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classGame_ad71f679248bf79e4edd5b93d5985b098}\label{classGame_ad71f679248bf79e4edd5b93d5985b098}} 
 \index{Game@{Game}!get\+End\+Game@{get\+End\+Game}}
 \index{get\+End\+Game@{get\+End\+Game}!Game@{Game}}
@@ -47,6 +94,19 @@ true if hits\+Left = 0, false otherwise.
 {\em hits\+Left} & the number of ship spaces that have not been hit yet. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classGame_a964a5b6a1a7f69d7ad461b9ca7ff18fc}\label{classGame_a964a5b6a1a7f69d7ad461b9ca7ff18fc}} 
+\index{Game@{Game}!invalid\+Input@{invalid\+Input}}
+\index{invalid\+Input@{invalid\+Input}!Game@{Game}}
+\subsubsection{\texorpdfstring{invalid\+Input()}{invalidInput()}}
+{\footnotesize\ttfamily int Game\+::invalid\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+called when the location is an invalid location and takes in a new column 
+
+\begin{DoxyReturn}{Returns}
+integer of column value 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classGame_a44dd26e02329730028443a7ff28e1513}\label{classGame_a44dd26e02329730028443a7ff28e1513}} 
 \index{Game@{Game}!is\+Hit@{is\+Hit}}
 \index{is\+Hit@{is\+Hit}!Game@{Game}}

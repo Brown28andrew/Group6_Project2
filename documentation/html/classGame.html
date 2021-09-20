@@ -83,11 +83,86 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6342beaca9d9388cb06025e2e577d41b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a6342beaca9d9388cb06025e2e577d41b">setHitsLeft</a> (int shipNum)</td></tr>
 <tr class="memdesc:a6342beaca9d9388cb06025e2e577d41b"><td class="mdescLeft">&#160;</td><td class="mdescRight">determines how many hits each player has to earn in order to win.  <a href="#a6342beaca9d9388cb06025e2e577d41b">More...</a><br /></td></tr>
 <tr class="separator:a6342beaca9d9388cb06025e2e577d41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a964a5b6a1a7f69d7ad461b9ca7ff18fc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a964a5b6a1a7f69d7ad461b9ca7ff18fc">invalidInput</a> ()</td></tr>
+<tr class="memdesc:a964a5b6a1a7f69d7ad461b9ca7ff18fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">called when the location is an invalid location and takes in a new column  <a href="#a964a5b6a1a7f69d7ad461b9ca7ff18fc">More...</a><br /></td></tr>
+<tr class="separator:a964a5b6a1a7f69d7ad461b9ca7ff18fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53e176256e6d4962a37e0f22d6731fce"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a53e176256e6d4962a37e0f22d6731fce">getColumnLetter</a> (std::string input)</td></tr>
+<tr class="memdesc:a53e176256e6d4962a37e0f22d6731fce"><td class="mdescLeft">&#160;</td><td class="mdescRight">ensures that the player's column input is one char and returns that char.  <a href="#a53e176256e6d4962a37e0f22d6731fce">More...</a><br /></td></tr>
+<tr class="separator:a53e176256e6d4962a37e0f22d6731fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1e0a9a0ab9253e5b31e32e86e824458"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#ac1e0a9a0ab9253e5b31e32e86e824458">checkSunk</a> (<a class="el" href="classGrid.html">Grid</a> *playerGrid, int n)</td></tr>
+<tr class="memdesc:ac1e0a9a0ab9253e5b31e32e86e824458"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if the boat on the shadow grid is present  <a href="#ac1e0a9a0ab9253e5b31e32e86e824458">More...</a><br /></td></tr>
+<tr class="separator:ac1e0a9a0ab9253e5b31e32e86e824458"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>this class handles all game rules related to Battleship, including setting the number of hits to win, checking if a player's shot input hits a ship, and if the game's win condition has been met. </p>
 <dl class="section author"><dt>Authors</dt><dd>Nifemi Fadahunsi, Michael Lane, Yuri Martinez, Anna Burns, Rokunuzjahan Rudro </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac1e0a9a0ab9253e5b31e32e86e824458"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1e0a9a0ab9253e5b31e32e86e824458">&#9670;&nbsp;</a></span>checkSunk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Game::checkSunk </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGrid.html">Grid</a> *&#160;</td>
+          <td class="paramname"><em>playerGrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>checks if the boat on the shadow grid is present </p>
+<dl class="section return"><dt>Returns</dt><dd>true if the number is in the shadow grid, false if it is not </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerGrid</td><td>the grid that is being checked </td></tr>
+    <tr><td class="paramname">n</td><td>the number that is being checked for in the grid </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a53e176256e6d4962a37e0f22d6731fce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53e176256e6d4962a37e0f22d6731fce">&#9670;&nbsp;</a></span>getColumnLetter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char Game::getColumnLetter </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ensures that the player's column input is one char and returns that char. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>none </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>first char in input </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>the string for player's column input </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ad71f679248bf79e4edd5b93d5985b098"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad71f679248bf79e4edd5b93d5985b098">&#9670;&nbsp;</a></span>getEndGame()</h2>
 
@@ -112,6 +187,26 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a964a5b6a1a7f69d7ad461b9ca7ff18fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a964a5b6a1a7f69d7ad461b9ca7ff18fc">&#9670;&nbsp;</a></span>invalidInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Game::invalidInput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>called when the location is an invalid location and takes in a new column </p>
+<dl class="section return"><dt>Returns</dt><dd>integer of column value </dd></dl>
 
 </div>
 </div>

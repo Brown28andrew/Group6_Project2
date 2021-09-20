@@ -97,9 +97,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a7ecea33073bc684a8efdd3bd08f724e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExecutive.html#a7ecea33073bc684a8efdd3bd08f724e3">endTheGame</a> ()</td></tr>
 <tr class="memdesc:a7ecea33073bc684a8efdd3bd08f724e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">handles the output to terminal when the game ends.  <a href="#a7ecea33073bc684a8efdd3bd08f724e3">More...</a><br /></td></tr>
 <tr class="separator:a7ecea33073bc684a8efdd3bd08f724e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad28543f2f3aff90f695b7cbe1cdaac3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExecutive.html#ad28543f2f3aff90f695b7cbe1cdaac3e">nextTurn</a> (bool is_hit)</td></tr>
-<tr class="memdesc:ad28543f2f3aff90f695b7cbe1cdaac3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">prints whether the current player's shot was a hit or miss, then waits for next turn's player's input that they're ready.  <a href="#ad28543f2f3aff90f695b7cbe1cdaac3e">More...</a><br /></td></tr>
-<tr class="separator:ad28543f2f3aff90f695b7cbe1cdaac3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bdfcc2bf91bbd24f1b7d3642e3c8cfe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExecutive.html#a7bdfcc2bf91bbd24f1b7d3642e3c8cfe">nextTurn</a> (bool is_hit, bool is_Sunk)</td></tr>
+<tr class="memdesc:a7bdfcc2bf91bbd24f1b7d3642e3c8cfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">prints whether the current player's shot was a hit or miss, then waits for next turn's player's input that they're ready.  <a href="#a7bdfcc2bf91bbd24f1b7d3642e3c8cfe">More...</a><br /></td></tr>
+<tr class="separator:a7bdfcc2bf91bbd24f1b7d3642e3c8cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af66dfa4b2bd996fdbcb7159d143a1d89"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExecutive.html#af66dfa4b2bd996fdbcb7159d143a1d89">getShot</a> (<a class="el" href="classGrid.html">Grid</a> *grid, int n)</td></tr>
+<tr class="memdesc:af66dfa4b2bd996fdbcb7159d143a1d89"><td class="mdescLeft">&#160;</td><td class="mdescRight">takes in the input for where the user would like to shoot and returns if the spot is a hit or miss  <a href="#af66dfa4b2bd996fdbcb7159d143a1d89">More...</a><br /></td></tr>
+<tr class="separator:af66dfa4b2bd996fdbcb7159d143a1d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class handles all inputs and outputs to be passed to <a class="el" href="classGame.html" title="this class handles all game rules related to Battleship, including setting the number of hits to win...">Game</a> or <a class="el" href="classGrid.html" title="Stores all information for one player&#39;s game board. ">Grid</a> classes. </p>
@@ -186,6 +189,44 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<a id="af66dfa4b2bd996fdbcb7159d143a1d89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af66dfa4b2bd996fdbcb7159d143a1d89">&#9670;&nbsp;</a></span>getShot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Executive::getShot </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGrid.html">Grid</a> *&#160;</td>
+          <td class="paramname"><em>grid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>takes in the input for where the user would like to shoot and returns if the spot is a hit or miss </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">grid</td><td>takes in the grid to check the shot in </td></tr>
+    <tr><td class="paramname">n</td><td>takes in the player number </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool whether the spot is a hit or miss </dd></dl>
+
+</div>
+</div>
 <a id="afeb631927beaf50e17e5a0ee0b85895f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afeb631927beaf50e17e5a0ee0b85895f">&#9670;&nbsp;</a></span>getUserLetter()</h2>
 
@@ -214,8 +255,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a id="ad28543f2f3aff90f695b7cbe1cdaac3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad28543f2f3aff90f695b7cbe1cdaac3e">&#9670;&nbsp;</a></span>nextTurn()</h2>
+<a id="a7bdfcc2bf91bbd24f1b7d3642e3c8cfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bdfcc2bf91bbd24f1b7d3642e3c8cfe">&#9670;&nbsp;</a></span>nextTurn()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -224,8 +265,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
           <td class="memname">void Executive::nextTurn </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>is_hit</em></td><td>)</td>
+          <td class="paramname"><em>is_hit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>is_Sunk</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
