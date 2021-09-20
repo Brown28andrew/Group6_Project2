@@ -117,10 +117,27 @@ class Grid {
 		*/
 		bool checkLeft(int tRow, int tCol, int size);
 
+		/**
+		* @pre 1 <= tRow <= 9, 1 <= tCol <= 10.
+		* @return true if ship number is on the grid, false if it is not
+		* @param num the ship number
+		*/
 		bool checkShadow (int num);
 
+		/**
+		* @pre 1 <= tRow <= 9, 1 <= tCol <= 10.
+		* @return the number at the row and column of the shadow grid
+		* @param tRow the row number
+		* @param tCol the column number
+		*/
 		int getShadow (int tRow, int tCol);
 
+		/**
+		* @pre 1 <= tRow <= 9, 1 <= tCol <= 10.
+		* @post the shadow grid is set to 0 at the given row and column
+		* @param tRow the row number
+		* @param tCol the column number
+		*/
 		void setShadow(int tRow, int tCol);
 
     private:

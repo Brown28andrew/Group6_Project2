@@ -58,6 +58,12 @@ class Game {
 	*/
 	char getColumnLetter(std::string input);
 
+	/**
+	* @brief checks if the boat on the shadow grid is present
+	* @return true if the number is in the shadow grid, false if it is not
+	* @param playerGrid the grid that is being checked
+	* @param n the number that is being checked for in the grid
+	*/
 	bool checkSunk (Grid* playerGrid, int n);
 	
     private:
