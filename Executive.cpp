@@ -20,6 +20,7 @@ Executive::~Executive()
 {
 	delete player1;
     delete player2;
+	delete game;
 }
 
 void Executive::BeginGame()
@@ -285,7 +286,8 @@ bool Executive::getShot(Grid* grid, int n) {
                 cin.ignore(256,'\n');
                 cin >> shotRow;
             }
-            num = grid->getShadow(shotRow, originCol);
+			if (shotRow <= 9 && shotRow >= 1)
+				num = grid->getShadow(shotRow, originCol);
             
             is_Hit = game->isHit(shotRow, originCol, grid);//check if hit or miss
             
