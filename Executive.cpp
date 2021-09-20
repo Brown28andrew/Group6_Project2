@@ -160,7 +160,11 @@ void Executive::playGame(Grid* P1, Grid* P2)
             P1->print_ships_Grid();
 
             is_Hit = getShot(P2, 1);
-
+			
+            if (is_Hit)
+            {
+                p2HitsLeft--;
+            }
             gameEnd = game->getEndGame(p1HitsLeft);//check if game end
             turnCounter++;
         }
@@ -171,6 +175,7 @@ void Executive::playGame(Grid* P1, Grid* P2)
             P2->print_ships_Grid();//print player ones ship grid
 
             is_Hit = getShot(P1, 2);
+
 
             gameEnd = game->getEndGame(p2HitsLeft);//check if game end
             turnCounter++;
@@ -269,10 +274,16 @@ bool Executive::getShot(Grid* grid, int n) {
             
             is_Hit = game->isHit(shotRow, originCol, grid);//check if hit or miss
             
-            if (is_Hit)
+			if (is_Hit && n == 1)
             {
                 p1HitsLeft--;
             }
+			
+			if (is_Hit && n == 2)
+            {
+                p2HitsLeft--;
+            }
+
 
             return is_Hit;
 }
