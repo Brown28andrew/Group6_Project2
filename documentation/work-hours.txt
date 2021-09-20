@@ -54,5 +54,6 @@ Sep-18
   -Rudro:        1:00
 
 Sep-19
-  -Anna:         1:00
+  -Anna:         3:00
+  -Team Meeting: 2:00
   
