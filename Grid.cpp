@@ -10,10 +10,12 @@ Grid::Grid()
     char colLetter = 'A'; //char to increment column indicator
 	
 	m_grid = new char*[rows]; //creates the m_grid
+	m_shadowGrid = new int*[rows]; //creates shadow
 
 	for (int i = 0; i < rows; i++)
             {
                 m_grid[i] = new char[cols];
+				m_shadowGrid[i] = new int[cols];
             }
 
 	for (int i = 0; i < rows; i++) // loop to fill m_grid with row/col indicator and unused positions
@@ -40,15 +42,25 @@ Grid::Grid()
 			}
 		}
 	}
+
+	for (int i = 0; i< rows; i++)
+	{
+		for (int j=0; j< cols; j++)
+		{
+			m_shadowGrid[i][j] = 0;
+		}
+	}
 }
 
 Grid::~Grid()
 {
 	
-	for (int i = 0; i < rows; i++)
+	for (int i = 0; i < rows; i++) {
 		delete[] m_grid[i];
+		delete[] m_shadowGrid[i]; }
 
 	delete[] m_grid;
+	delete[] m_shadowGrid;
 	
 }
 
@@ -66,6 +78,7 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 					for ( int i = 0; i < size ; i++) {
 						for(int j=0; j < i+1; j++) {
 							m_grid[tRow-j][tCol] = '|'; 
+							m_shadowGrid[tRow-j][tCol] = size;
 							}
 						}
 					isPlaced = true;
@@ -77,7 +90,8 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 				if(checkDown(tRow, tCol, size) == true) {
 					for ( int i = 0; i < size ; i++) {
 						for(int j=0; j < i+1; j++) {
-							m_grid[tRow+j][tCol] = '|'; 
+							m_grid[tRow+j][tCol] = '|';
+							m_shadowGrid[tRow+j][tCol] = size; 
 							}
 						}
 					isPlaced = true;
@@ -93,6 +107,7 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 					for(int j=0; j < i+1; j++)
 						{
 							m_grid[tRow][tCol-j] = '-'; 
+							m_shadowGrid[tRow][tCol-j] = size;
 						}
 					}
 				isPlaced = true;
@@ -105,7 +120,8 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 					for ( int i = 0; i < size ; i++) {
 					for(int j=0; j < i+1; j++)
 					{
-                		m_grid[tRow][tCol+j] = '-'; 
+                		m_grid[tRow][tCol+j] = '-';
+						m_shadowGrid[tRow][tCol+j] = size; 
             		}	
 				}
 				isPlaced = true;
@@ -120,9 +136,10 @@ bool Grid::setShip(int tRow, int tCol, char dir, int size)
 
 void Grid::setValue(int tRow, int tCol, bool hitOrMiss)
 {
-	if (hitOrMiss == true)
+	if (hitOrMiss == true) {
 		m_grid[tRow][tCol] = hit_ship;
-	
+		m_shadowGrid[tRow][tCol] = 0;
+	}
 	else
 		m_grid[tRow][tCol] = miss_ship;
 }
@@ -218,4 +235,28 @@ bool Grid::checkLeft(int tRow, int tCol, int size)
 		}
 	}
 	return(true);
+}
+
+bool Grid::checkShadow(int num) {
+	
+	for (int i = 0; i< rows; i++)
+	{
+		for (int j=0; j< cols; j++)
+		{
+			if (m_shadowGrid[i][j] == num) {
+				return (false);
+			}
+		}
+	}
+	return(true);
+}
+
+int Grid::getShadow(int tRow, int tCol) {
+	int n;
+	n = m_shadowGrid[tRow][tCol];
+	return n;
+}
+
+void Grid::setShadow(int tRow, int tCol) {
+	m_shadowGrid[tRow][tCol] = 0;
 }

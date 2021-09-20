@@ -20,7 +20,6 @@ Executive::~Executive()
 {
 	delete player1;
     delete player2;
-	delete game;
 }
 
 void Executive::BeginGame()
@@ -190,7 +189,7 @@ void Executive::playGame(Grid* P1, Grid* P2)
         }
 		
 		if (!gameEnd)
-			nextTurn(is_Hit);
+			nextTurn(is_Hit, isSunk);
     }
 	
 	endTheGame();
@@ -204,17 +203,20 @@ void Executive::endTheGame()
 	cout << "\n\nThank you for playing our game. Goodbye!\n\n";
 }
 
-void Executive::nextTurn(bool is_hit)
+void Executive::nextTurn(bool is_hit, bool is_Sunk)
 {
 	char c;
 	string userInput;
 	clearScreen();
 	
-	if (is_hit)
-		cout << "Hit!";
+	if (isSunk)
+		{cout << "Hit, sunk!";}
+
+    else if (is_hit)
+        {cout << "Hit!";}
 	
 	else
-		cout << "Miss!";
+		{cout << "Miss!";}
 	
 	cin.ignore(256, '\n');
 	
@@ -256,6 +258,8 @@ bool Executive::getShot(Grid* grid, int n) {
             originCol = 1;
             colLetter = 'A';
             bool is_Hit;
+            isSunk = false;
+            int num;
 
             sleep(2);
             cout << "Where would you like to take your shot Player " << n << "?\nColumn (A-J):"; //get shot from player one
@@ -281,11 +285,14 @@ bool Executive::getShot(Grid* grid, int n) {
                 cin.ignore(256,'\n');
                 cin >> shotRow;
             }
-
+            num = grid->getShadow(shotRow, originCol);
             
             is_Hit = game->isHit(shotRow, originCol, grid);//check if hit or miss
             
-			
+			if (is_Hit)
+            {
+                isSunk = game->checkSunk(grid, num);
+            }
 
 
             return is_Hit;

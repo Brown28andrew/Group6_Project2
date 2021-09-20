@@ -57,6 +57,8 @@ class Game {
 	* @param input the string for player's column input
 	*/
 	char getColumnLetter(std::string input);
+
+	bool checkSunk (Grid* playerGrid, int n);
 	
     private:
 

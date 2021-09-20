@@ -52,6 +52,7 @@ bool Game::isHit(int tRow, int tCol, Grid* tGrid)
 	if (tGrid->getValue(tRow, tCol) == '|' || tGrid->getValue(tRow, tCol) == '-')
 	{
 		tGrid -> setValue(tRow, tCol, true);
+		tGrid->setShadow(tRow, tCol);
 		return true;
 	}
 	else //(tGrid->getValue(tRow, tCol) != '|' || tGrid->getValue(tRow, tCol) != '-')
@@ -110,5 +111,9 @@ int Game::invalidInput()
 			tCol++;
 		}
 		return tCol;
+}
+
+bool Game::checkSunk (Grid* playerGrid, int n) {
+	return(playerGrid->checkShadow(n));
 }
 

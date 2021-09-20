@@ -117,10 +117,17 @@ class Grid {
 		*/
 		bool checkLeft(int tRow, int tCol, int size);
 
+		bool checkShadow (int num);
+
+		int getShadow (int tRow, int tCol);
+
+		void setShadow(int tRow, int tCol);
+
     private:
 		
 		//game board for one player (each Grid object represents one player's board)
         char** m_grid;
+		int** m_shadowGrid;
 		const int rows = 10;
         const int cols = 11;
         char hit_ship = 'H';

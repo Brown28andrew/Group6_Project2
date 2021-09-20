@@ -73,7 +73,7 @@ class Executive {
 	* @param is_hit indicates whether current player's shot was a hit(true)
 	*         or a miss(false)
 	*/
-	void nextTurn(bool is_hit);
+	void nextTurn(bool is_hit, bool is_Sunk);
 
 	/**
 	* @brief takes in the input for where the user would like to shoot and returns if the spot is a hit or miss
@@ -94,6 +94,7 @@ class Executive {
     int p1HitsLeft;
     int p2HitsLeft;
 	int turnCounter = 0;
+	bool isSunk = false;
     Grid* player1; //
     Grid* player2;
     Game* game;
