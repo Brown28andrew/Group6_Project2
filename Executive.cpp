@@ -169,7 +169,7 @@ void Executive::playGame(Grid* P1, Grid* P2)
             {
                 p2HitsLeft--;
             }
-            gameEnd = game->getEndGame(p1HitsLeft);//check if game end
+            gameEnd = game->getEndGame(p2HitsLeft);//check if game end
             turnCounter++;
         }
         else
@@ -180,8 +180,12 @@ void Executive::playGame(Grid* P1, Grid* P2)
 
             is_Hit = getShot(P1, 2);
 
+            if (is_Hit)
+            {
+                p1HitsLeft--;
+            }
 
-            gameEnd = game->getEndGame(p2HitsLeft);//check if game end
+            gameEnd = game->getEndGame(p1HitsLeft);//check if game end
             turnCounter++;
         }
 		
@@ -281,15 +285,7 @@ bool Executive::getShot(Grid* grid, int n) {
             
             is_Hit = game->isHit(shotRow, originCol, grid);//check if hit or miss
             
-			if (is_Hit && n == 1)
-            {
-                p1HitsLeft--;
-            }
 			
-			if (is_Hit && n == 2)
-            {
-                p2HitsLeft--;
-            }
 
 
             return is_Hit;
