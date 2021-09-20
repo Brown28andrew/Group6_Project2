@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/18728754/checking-cin-input-stream-produces-an-integer
