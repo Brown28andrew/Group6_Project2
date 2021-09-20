@@ -57,6 +57,8 @@ void Executive::BeginGame()
 	clearScreen();
     cout << "\nAll ships placed for player 1!\n";
 	
+	cin.ignore(256, '\n');
+	
 	do
 	{
 		cout << "\nPlayer 2, Are you ready to place your ships? (enter Y to continue)\n";
@@ -73,6 +75,8 @@ void Executive::BeginGame()
 	clearScreen();
 	cout << "\nAll ships placed for player 2!\n";
     sleep(2);
+	
+	cin.ignore(256, '\n');
 	
 	do
 	{
@@ -208,6 +212,8 @@ void Executive::nextTurn(bool is_hit)
 	else
 		cout << "Miss!";
 	
+	cin.ignore(256, '\n');
+	
 	cout << "\n\nIs player " << (turnCounter % 2) + 1 << " ready? (Enter Y to continue): ";
 		
 	do
@@ -265,7 +271,8 @@ bool Executive::getShot(Grid* grid, int n) {
             cin >> shotRow;
             while (cin.fail() || isalpha(originRow))
             {
-                cout << "Invalid placement! Please try again: " ;
+                cout << "Invalid row input! please enter an integer between 1 and 9: " ;
+
                 cin.clear();
                 cin.ignore(256,'\n');
                 cin >> shotRow;

@@ -2,6 +2,8 @@
 #define GAME_H
 #include "Grid.h"
 
+#include <string>
+
 /**
 * @brief this class handles all game rules related to Battleship, including setting the number of hits to win,
 *         checking if a player's shot input hits a ship, and if the game's win condition
@@ -48,7 +50,13 @@ class Game {
 	*/
 	int invalidInput ();
 	
-	
+	/**
+	* @brief ensures that the player's column input is one char and returns that char.
+	* @pre none
+	* @return first char in input
+	* @param input the string for player's column input
+	*/
+	char getColumnLetter(std::string input);
 	
     private:
 
