@@ -46,6 +46,14 @@ class Executive {
 	* @param playerGrid pointer to one player's Grid object.
 	*/
     void placeShips (int numShips, Grid* playerGrid);
+
+	/**
+	* @brief takes inputs and passes them to Grid class's setShip method in order to place one player's ships.
+	* @pre numShips must be between 1 and 6
+	* @post All ships are placed for one player.
+	* @param numShips number of ships to be placed per player.
+	*/
+    void botShips(int numShips);
 	
 	/**
 	* @brief "clears" the terminal screen by printing newlines.
@@ -95,6 +103,7 @@ class Executive {
     int p2HitsLeft;
 	int turnCounter = 0;
 	bool isSunk = false;
+	bool player2Bot = false;
     Grid* player1; //
     Grid* player2;
     Game* game;
