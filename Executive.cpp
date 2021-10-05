@@ -27,7 +27,7 @@ Executive::~Executive()
 
 void Executive::BeginGame()
 {
-    
+
     cout << "\n----------------------------------------------------------\n";
     cout << "WELCOME TO THE BATTLESHIP GAME BY TEAM-18\n";
     cout << "And expanded by Zach Sambol, Raj Nara, Truman Klenklen, Andrew Brown, and Drew Fink!" << endl;
@@ -38,18 +38,26 @@ void Executive::BeginGame()
     cout << "The symbol for when ships are hit: H\n";
     cout << "The symbol for when shots are missed: M\n";
 
-    string botQ;
-    bool validAns = false;
+
 
     do
 	{
 		cout << "\nDo you want to play against a bot? (y/n): ";
 		std::cin >> botQ;
-		
+
 		if (botQ == "Y" || botQ == "y")
         {
             player2Bot = true;
             validAns = true;
+            do{
+              cout << "\nSelect Difficulty (Easy: 1 , Medium: 2, Hard: 3): ";
+              cin >> difficulty;
+              if(difficulty > 3 || difficulty < 1){
+                cout << "\nThat difficulty doesn't exist" << endl;
+              }else{
+                validDif = true;
+              }
+            }while(validDif != true);
         }
         else if (botQ == "N" || botQ == "n")
         {
@@ -71,41 +79,41 @@ void Executive::BeginGame()
         std::cin.ignore(256,'\n');
         std::cin >> numShips;
     }
-        
+
     p1HitsLeft = game->setHitsLeft(numShips);
-    p2HitsLeft = game->setHitsLeft(numShips);   
-	
+    p2HitsLeft = game->setHitsLeft(numShips);
+
 	string userInput;
-    char readiness; 
+    char readiness;
 
 	cout << "\nPlayer 1 places their ships first.";
     player1->print_ships_Grid();
     placeShips(numShips, player1);
-	
+
 	clearScreen();
     cout << "\nAll ships placed for player 1!\n";
-	
+
 	std::cin.ignore(256, '\n');
-	
+
     if(!player2Bot)
     {
         do
         {
             cout << "\nPlayer 2, are you ready to place your ships? (enter Y to continue)\n";
-            std::cin >> userInput; 
+            std::cin >> userInput;
             readiness = getUserLetter(userInput);
-            
+
             if (readiness != 'Y' && readiness != 'y')
                 cout << "\nError, please enter 'Y' or 'y' to continue.\n";
         }while (readiness != 'Y' && readiness != 'y');
-            
+
         player2->print_ships_Grid();
         placeShips(numShips, player2);
-        
+
         clearScreen();
         cout << "\nAll ships placed for player 2!\n";
         sleep(2);
-        
+
         std::cin.ignore(256, '\n');
     }
     else
@@ -113,33 +121,33 @@ void Executive::BeginGame()
         botShips(numShips);
         cout << "\nThe bot has placed its ships!\n";
     }
-	
+
 	do
 	{
 		cout << "\nPlayer 1, are you ready to start the game? (enter Y to continue)\n";
 		std::cin >> userInput;
 		readiness = getUserLetter(userInput);
-		
+
 		if (readiness != 'Y' && readiness != 'y')
 			cout << "\nError, please enter 'Y' or 'y' to continue.\n";
 	}while (readiness != 'Y' && readiness != 'y');
-	
+
     playGame(player1, player2);
 }
 
-void Executive::placeShips(int numShips, Grid* playerGrid) 
+void Executive::placeShips(int numShips, Grid* playerGrid)
 {
 	bool isPlaced = false;
 	string userInput;
-	
+
     for (int i = 0; i < numShips; i++)//loop to place ships on board
     {
 		isPlaced = false;
-		
+
         do {
             originCol = 1;
             colLetter = 'A';
-            
+
             cout << "\nWhere would you like to place the origin of ship "<< i+1 << "?\nColumn (A-J): ";
             string userCol;
             std::cin >> userCol;
@@ -151,7 +159,7 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
                     originCol++;
                 }
             cout << "Row (1-9): ";
-            std::cin >> originRow; 
+            std::cin >> originRow;
             while (std::cin.fail() || isalpha(originRow))
             {
                 cout << "Invalid row input! please enter an integer between 1 and 9: " ;
@@ -160,46 +168,46 @@ void Executive::placeShips(int numShips, Grid* playerGrid)
                 std::cin.ignore(256,'\n');
                 std::cin >> originRow;
             }
-            
+
             if (i != 0)
             {
                 cout << "Ship " << i+1 << " will take up " << i+1 << " spaces, which direction would you like to orient the ship? (U, D, L, R)\nDirection: ";
                 std::cin >> userInput;
 				direction = getUserLetter(userInput);
             }
-            
+
             else
                 direction = 'U';
-            
+
             shipsize = i+1;
-            
+
             if(isalpha(col))
                 isPlaced = playerGrid->setShip(originRow,originCol,direction,shipsize);
-            
+
             if (isPlaced == false)
                 cout << "\nInvalid placement! Please try again.\n";
-		
+
         }while (isPlaced == false);
-        
+
         playerGrid->print_ships_Grid();
     }
 }
 
-void Executive::botShips(int numShips) 
+void Executive::botShips(int numShips)
 {
 	bool isPlaced = false;
 	string userInput;
-	
+
     for (int i = 0; i < numShips; i++)//loop to place ships on board
     {
         char columns[10] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
         char cardinalDir[4] = {'U', 'D', 'L', 'R'};
 		isPlaced = false;
-		
+
         do {
             originCol = 1;
             colLetter = 'A';
-            
+
             srand(time(NULL)); // This is necessary because your rand() is always the same unless you do this or restart the program. We base our random seed off the time.
             int selection = rand() % 10;
             col = columns[selection];
@@ -212,22 +220,22 @@ void Executive::botShips(int numShips)
 
             srand(time(NULL)); // We can't exactly restart the program so we regenerate the random seed.
             originRow = (rand() % 10);
-            
+
             if (i != 0)
             {
                 srand(time(NULL));
                 int dirSelect = rand() % 4;
 				direction = cardinalDir[dirSelect];
             }
-            
+
             else
                 direction = 'U';
-            
+
             shipsize = i+1;
-            
+
             if(isalpha(col))
                 isPlaced = player2->setShip(originRow,originCol,direction,shipsize);
-		
+
         }while (isPlaced == false);
     }
 }
@@ -238,7 +246,7 @@ void Executive::playGame(Grid* P1, Grid* P2)
     bool is_Hit = false;
     while (!gameEnd)
     {
-        
+
 
         if (turnCounter % 2 == 0)
         {
@@ -247,7 +255,7 @@ void Executive::playGame(Grid* P1, Grid* P2)
             P1->print_ships_Grid();
 
             is_Hit = getShot(P2, 1);
-			
+
             if (is_Hit)
             {
                 p2HitsLeft--;
@@ -257,6 +265,7 @@ void Executive::playGame(Grid* P1, Grid* P2)
         }
         else if (player2Bot)
         {
+            playerBotShoot(difficulty);
             gameEnd = game->getEndGame(p1HitsLeft);//check if game end
             turnCounter++;
         }
@@ -276,11 +285,11 @@ void Executive::playGame(Grid* P1, Grid* P2)
             gameEnd = game->getEndGame(p1HitsLeft);//check if game end
             turnCounter++;
         }
-		
+
 		if (!gameEnd)
 			nextTurn(is_Hit, isSunk);
     }
-	
+
 	endTheGame();
 }
 
@@ -288,7 +297,7 @@ void Executive::endTheGame()
 {
 	cout << "\nPlayer " << ((turnCounter - 1) % 2) + 1 << " wins!";
     sleep(2);
-	
+
 	cout << "\n\nThank you for playing our game. Goodbye!\n\n";
 }
 
@@ -297,32 +306,32 @@ void Executive::nextTurn(bool is_hit, bool is_Sunk)
 	char c;
 	string userInput;
 	clearScreen();
-	
+
 	if (isSunk)
 		{cout << "Hit, sunk!";}
 
     else if (is_hit)
         {cout << "Hit!";}
-	
+
 	else
 		{cout << "Miss!";}
-	
+
 	std::cin.ignore(256, '\n');
-	
+
 	cout << "\n\nIs player " << (turnCounter % 2) + 1 << " ready? (Enter Y to continue): ";
-		
+
 	do
 	{
 		std::cin >> userInput;
 		c = getUserLetter(userInput);
-	
+
 		if (c != 'Y')
 			cout << "Invalid input! please enter Y when the next player is ready: ";
 	} while (c != 'Y');
-	
+
 }
-	
-	
+
+
 
 void Executive::clearScreen()
 {
@@ -357,7 +366,7 @@ bool Executive::getShot(Grid* grid, int n) {
             std::cin >> shotColStr;
             shotColumn = getUserLetter(shotColStr);
             shotColumn = toupper(shotColumn);
-            
+
             while (colLetter < shotColumn)//loop to turn letter for column into integer to place ship on grid
             {
                 colLetter++;
@@ -376,9 +385,9 @@ bool Executive::getShot(Grid* grid, int n) {
             }
 			if (shotRow <= 9 && shotRow >= 1)
 				num = grid->getShadow(shotRow, originCol);
-            
+
             is_Hit = game->isHit(shotRow, originCol, grid);//check if hit or miss
-            
+
 			if (is_Hit)
             {
                 isSunk = game->checkSunk(grid, num);
@@ -387,3 +396,42 @@ bool Executive::getShot(Grid* grid, int n) {
 
             return is_Hit;
 }
+
+void Executive::playerBotShoot(int dif){
+  if(dif == 1){
+      string botCol;
+      int botColInt;
+      int botRow;
+      int num;
+      bool is_Hit;
+      is_Sunk = false;
+      originCol = 1;
+      colLetter = 'A';
+
+      botColInt = rand() % 9; //Selects a random number between 0-8
+      botCol = 'a' + botColInt; //Adds the value to 'a' to get the column selected
+      botCol = toupper(botCol);
+
+      while(colLetter < botCol){
+        colLetter++;
+        originCol++;
+      }
+
+      botRow = rand() % 9;
+
+      num = P2->getShadow(botRow, originCol);
+      is_Hit = game->isHit(botRow, originCol, P1);
+      if(is_Hit == true){
+        is_Sunk = game->checkSunk(P1, num);
+        p1HitsLeft--;
+      }
+
+  }else if(dif == 2){
+
+  }else if(dif == 3){
+
+  }
+
+  return;
+}
+
