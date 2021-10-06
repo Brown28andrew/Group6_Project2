@@ -96,7 +96,7 @@ class Executive {
   *@param dif takes in the difficulty of the bot to see if it shoot random, only hits, or tactically when it gets a hit
   *@post Updates is_hit if the shot hit or not
   */
-  void playerBotShoot (int dif);
+  bool playerBotShoot (int dif);
 
     private:
     char col;
@@ -114,7 +114,7 @@ class Executive {
     Grid* player1; //
     Grid* player2;
     Game* game;
-    string botQ;
+    char botQ;
     bool validAns = false;
     int difficulty = 0;
     bool validDif = false;
