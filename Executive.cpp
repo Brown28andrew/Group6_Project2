@@ -45,7 +45,7 @@ void Executive::BeginGame()
 		cout << "\nDo you want to play against a bot? (y/n): ";
 		std::cin >> botQ;
 
-		if (botQ == "Y" || botQ == "y")
+		if (botQ == 'Y' || botQ == 'y')
         {
             player2Bot = true;
             validAns = true;
@@ -59,7 +59,7 @@ void Executive::BeginGame()
               }
             }while(validDif != true);
         }
-        else if (botQ == "N" || botQ == "n")
+        else if (botQ == 'N' || botQ == 'n')
         {
             player2Bot = false;
             validAns = true;
@@ -265,7 +265,7 @@ void Executive::playGame(Grid* P1, Grid* P2)
         }
         else if (player2Bot)
         {
-            playerBotShoot(difficulty);
+            is_Hit = playerBotShoot(difficulty);
             gameEnd = game->getEndGame(p1HitsLeft);//check if game end
             turnCounter++;
         }
@@ -325,9 +325,9 @@ void Executive::nextTurn(bool is_hit, bool is_Sunk)
 		std::cin >> userInput;
 		c = getUserLetter(userInput);
 
-		if (c != 'Y')
+		if (c != 'Y' || c!= 'y')
 			cout << "Invalid input! please enter Y when the next player is ready: ";
-	} while (c != 'Y');
+	} while (c != 'Y' || c!= 'y');
 
 }
 
@@ -397,18 +397,19 @@ bool Executive::getShot(Grid* grid, int n) {
             return is_Hit;
 }
 
-void Executive::playerBotShoot(int dif){
+bool Executive::playerBotShoot(int dif){
+  char botCol;
+  int botColInt;
+  int botRow;
+  int num;
+  bool is_Hit;
+  isSunk = false;
+  originCol = 1;
+  colLetter = 'A';
   if(dif == 1){
-      string botCol;
-      int botColInt;
-      int botRow;
-      int num;
-      bool is_Hit;
-      is_Sunk = false;
-      originCol = 1;
-      colLetter = 'A';
 
-      botColInt = rand() % 9; //Selects a random number between 0-8
+
+      botColInt = rand() % 10; //Selects a random number between 0-9
       botCol = 'a' + botColInt; //Adds the value to 'a' to get the column selected
       botCol = toupper(botCol);
 
@@ -418,11 +419,12 @@ void Executive::playerBotShoot(int dif){
       }
 
       botRow = rand() % 9;
+      botRow++;
 
-      num = P2->getShadow(botRow, originCol);
-      is_Hit = game->isHit(botRow, originCol, P1);
+      num = player1->getShadow(botRow, originCol);
+      is_Hit = game->isHit(botRow, originCol, player1);
       if(is_Hit == true){
-        is_Sunk = game->checkSunk(P1, num);
+        isSunk = game->checkSunk(player1, num);
         p1HitsLeft--;
       }
 
@@ -432,6 +434,5 @@ void Executive::playerBotShoot(int dif){
 
   }
 
-  return;
+  return is_Hit;
 }
-
