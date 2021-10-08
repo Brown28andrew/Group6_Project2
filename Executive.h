@@ -14,7 +14,7 @@ class Executive {
 	* @pre none
 	* @post 2 Grid object pointers (1 per player) and 1 Game object pointers are initialized.
 	*/
-    Executive();
+    Executive(int* gState);
 
 	/**
 	* @pre none
@@ -114,10 +114,7 @@ class Executive {
     Grid* player1; //
     Grid* player2;
     Game* game;
-    char botQ;
-    bool validAns = false;
-    int difficulty = 0;
-    bool validDif = false;
+	int* gameState;
 
 
 };

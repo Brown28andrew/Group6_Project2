@@ -11,11 +11,12 @@
 using namespace std;
 
 
-Executive::Executive()
+Executive::Executive(int* gState)
 {
 	player1 = new Grid;
     player2 = new Grid;
     game = new Game;
+	gameState = gState;
 }
 
 Executive::~Executive()
@@ -27,48 +28,6 @@ Executive::~Executive()
 
 void Executive::BeginGame()
 {
-
-    cout << "\n----------------------------------------------------------\n";
-    cout << "WELCOME TO THE BATTLESHIP GAME BY TEAM-18\n";
-    cout << "And expanded by Zach Sambol, Raj Nara, Truman Klenklen, Andrew Brown, and Drew Fink!" << endl;
-    sleep(2);
-    cout << "----------------------------------------------------------\n";
-    cout << "\nBelow are the some symbols which will be used during the game.\n";
-    cout << "The symbol for ships: | or -\n";
-    cout << "The symbol for when ships are hit: H\n";
-    cout << "The symbol for when shots are missed: M\n";
-
-
-
-    do
-	{
-		cout << "\nDo you want to play against a bot? (y/n): ";
-		std::cin >> botQ;
-
-		if (botQ == 'Y' || botQ == 'y')
-        {
-            player2Bot = true;
-            validAns = true;
-            do{
-              cout << "\nSelect Difficulty (Easy: 1 , Medium: 2, Hard: 3): ";
-              cin >> difficulty;
-              if(difficulty > 3 || difficulty < 1){
-                cout << "\nThat difficulty doesn't exist" << endl;
-              }else{
-                validDif = true;
-              }
-            }while(validDif != true);
-        }
-        else if (botQ == 'N' || botQ == 'n')
-        {
-            player2Bot = false;
-            validAns = true;
-        }
-        else
-        {
-            cout << "Come on, this really isn't a tough question..." << endl;
-        }
-	}while (!validAns);
 
     cout << "\nHow many ships would you like to have in the game?\nNumber of ships (1-6): ";
     std::cin >> numShips;
@@ -95,7 +54,7 @@ void Executive::BeginGame()
 
 	std::cin.ignore(256, '\n');
 
-    if(!player2Bot)
+    if(gameState[1] == 0)
     {
         do
         {
@@ -263,9 +222,9 @@ void Executive::playGame(Grid* P1, Grid* P2)
             gameEnd = game->getEndGame(p2HitsLeft);//check if game end
             turnCounter++;
         }
-        else if (player2Bot)
+        else if (gameState[1] != 0)
         {
-            is_Hit = playerBotShoot(difficulty);
+            is_Hit = playerBotShoot(gameState[1]);
             gameEnd = game->getEndGame(p1HitsLeft);//check if game end
             turnCounter++;
         }
@@ -295,10 +254,16 @@ void Executive::playGame(Grid* P1, Grid* P2)
 
 void Executive::endTheGame()
 {
-	cout << "\nPlayer " << ((turnCounter - 1) % 2) + 1 << " wins!";
-    sleep(2);
+	int winner = ((turnCounter - 1) % 2) + 1;
+	cout << "\nPlayer " << winner << " wins!";
+	sleep(3);
 
-	cout << "\n\nThank you for playing our game. Goodbye!\n\n";
+	if(winner == 1) {
+		gameState[3]++;
+	}
+	else {
+		gameState[4]++;
+	}
 }
 
 void Executive::nextTurn(bool is_hit, bool is_Sunk)
