@@ -1,0 +1,14 @@
+Design Paradigm:
+
+I think Team 18 used the Top-Down Functional Decomposition design paradigm. Because they used C++, an object-oriented programming language,
+it is very easy to add functions and make them work together. Once a flowchart has been created, coding may begin as work on the most basic 
+components first and then build out an application. The rubric on how the project was to be graded laid out the game requirements, so it was 
+easy to start with the big picture. All the requirements were stated in the rubric, and the big picture was laid out. From there, they broke 
+down the classes and functions, and used Executive.cpp & Executive.h, just like EECS 268 labs. This added to their modularity and ease of use.
+After figuring out how files they required, it was time to figure out how many functions were required. I believe this part was performed as 
+they coded, and they really didn't have a preset amount of functions. This way, if the code required any new functionalities, they could just
+add a new function in a file and have it perform any function the game required, without changing a lot of already written code. Whenever the 
+code required a new functions, this group added it. Furthermore, from viewing the Notes_And_Classes.txt file, we can see how this team used 
+Top-Down functional decomposition. Here, they mapped out what they needed to add, i.e. what function needed to perform what, and whatever 
+questions they had. It describes the 3 main classes, Executive.cpp, Game.cpp and Grid.cpp. So, based on all this, I believe this team used 
+Top-Down Functional Decomposition as their main design paradigm.

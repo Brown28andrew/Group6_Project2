@@ -1,0 +1,14 @@
+Estimate of Work Hours: 40 hours
+
+We came at this number using the Lines of Code approach. We decided that we would add around 800 - 1000 new lines of code for Project 2.                     
+To add 25 lines per hour seemed reasonable, and we knew that not every line would take the same amount of time, so we took into account
+the research and Googling that would go behind it as well. That brings us to 36 hours of just coding and researching, and the remaining 
+4 hours would be spent meeting up over Zoom or in person to work on the project together. 
+
+
+Time Sheet:
+
+Raj Nara:
+
+
+
