@@ -7,12 +7,22 @@ using namespace std;
 
 int main()
 {
+  //Initializes an array to store the users options
+  //gameState[0] represents the number of games the user wants to play
+  //gameState[1] represents whether or not the user wants to play with a bot
+  //gameState[2] represents which game in your n-series you're currently playing
+  //gameState[3] represents the number of wins player 1 has in your n-series of games
+  //gameState[4] represents the number of wins player 2 has in your n-series of games
+  //This array is passed to the Executive class where each of these states represents an option that determines the setup of your game.
+  //In order for the user's game of battleship to begin, the user must answer each of these options.
     int* gameState = new int[5];		//[Wanted # of Games, Bot?, CurGame, P1Wins, P2Wins]
 										//Bot? 0 = No bot, 1-3 = difficulty
 										//CurGame starts at 1, Both players' wins start at 0
 	gameState[2] = 1;
 	gameState[3] = 0;
 	gameState[4] = 0;
+
+  //Displaying menu for users, along with a legend for symbols used in the game.
 
 	cout << "\n----------------------------------------------------------\n";
     cout << "WELCOME TO THE BATTLESHIP GAME BY TEAM-18\n";
@@ -24,8 +34,17 @@ int main()
     cout << "The symbol for when ships are hit: H\n";
     cout << "The symbol for when shots are missed: M\n";
 
+  //Variable used to determine valid input from the user
+  //as long as validAns is false, the user will be prompted for input
+  //input is prompted for playing a bot, the difficulty of the bot, and asking the user if they want to play multiple games.
 	bool validAns = false;
 
+//loop that won't stop until the user gives a valid answer to pre-game question
+//Prompts the user if they want to play against a bot
+//if user answers "y" or "Y" indicating yes, they will be prompted to select a difficulty
+//when prompted with difficulty, user must enter an integer between 1-3
+//game will only continue once a valid difficulty for the bot has been selected
+//if user answers "n" or "N" indicating no, loop will exit and continue to the next prompt
     do
 	{
 		char botQ;
@@ -63,6 +82,8 @@ int main()
 	}while (!validAns);
 
 	validAns = false;
+
+  //loop that won't stop until the user gives a valid answer to pre-game question
 
 	do
 	{
