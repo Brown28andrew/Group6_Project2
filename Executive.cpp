@@ -38,8 +38,6 @@ void Executive::BeginGame()
     cout << "The symbol for when ships are hit: H\n";
     cout << "The symbol for when shots are missed: M\n";
 
-
-
     do
 	{
 		cout << "\nDo you want to play against a bot? (y/n): ";
@@ -224,7 +222,7 @@ void Executive::botShips(int numShips)
             if (i != 0)
             {
                 srand(time(NULL));
-                int dirSelect = rand() % 4;
+                int dirSelect = rand() % 4; // There are four directions.
 				direction = cardinalDir[dirSelect];
             }
 
@@ -325,9 +323,9 @@ void Executive::nextTurn(bool is_hit, bool is_Sunk)
 		std::cin >> userInput;
 		c = getUserLetter(userInput);
 
-		if (c != 'Y' || c!= 'y')
+		if (c != 'Y' && c != 'y')
 			cout << "Invalid input! please enter Y when the next player is ready: ";
-	} while (c != 'Y' || c!= 'y');
+	} while (c != 'Y' && c!= 'y');
 
 }
 
@@ -377,7 +375,7 @@ bool Executive::getShot(Grid* grid, int n) {
             std::cin >> shotRow;
             while (std::cin.fail() || isalpha(originRow))
             {
-                cout << "Invalid row input! please enter an integer between 1 and 9: " ;
+                cout << "invalid row input! please enter an integer between 1 and 9: " ;
 
                 std::cin.clear();
                 std::cin.ignore(256,'\n');
@@ -397,42 +395,143 @@ bool Executive::getShot(Grid* grid, int n) {
             return is_Hit;
 }
 
-bool Executive::playerBotShoot(int dif){
-  char botCol;
-  int botColInt;
-  int botRow;
-  int num;
-  bool is_Hit;
-  isSunk = false;
-  originCol = 1;
-  colLetter = 'A';
-  if(dif == 1){
+bool Executive::playerBotShoot(int dif)
+{
+    char botCol;
+    int botColInt;
+    int botRow;
+    int num;
+    bool is_Hit;
+    isSunk = false;
+    originCol = 1;
+    colLetter = 'A';
 
+    if(dif == 1)
+    {
+        do
+        {
+            srand(time(NULL));
+            botColInt = rand() % 10; //Selects a random number between 0-9
+            botCol = 'a' + botColInt; //Adds the value to 'a' to get the column selected
+            botCol = toupper(botCol);
 
-      botColInt = rand() % 10; //Selects a random number between 0-9
-      botCol = 'a' + botColInt; //Adds the value to 'a' to get the column selected
-      botCol = toupper(botCol);
+            while(colLetter < botCol){
+                colLetter++;
+                originCol++;
+            }
 
-      while(colLetter < botCol){
-        colLetter++;
-        originCol++;
-      }
+            srand(time(NULL));
+            botRow = rand() % 9;
+            botRow++;
+            }while (player1->getValue(botRow, originCol) == 'M' || player1->getValue(botRow, originCol) == 'H'); // Ensure the bot doesn't strike anywhere it hasn't already
 
-      botRow = rand() % 9;
-      botRow++;
+        num = player1->getShadow(botRow, originCol);
+        is_Hit = game->isHit(botRow, originCol, player1);
+        if(is_Hit == true)
+        {
+            isSunk = game->checkSunk(player1, num);
+            p1HitsLeft--;
+        }
+    }
+    
+    else if(dif == 2)
+    {
+        int failCounter = 0; // To try and avoid the bot getting stuck, this is a counter of invalid moves it's tried to make.
+        do
+        {
+            if(failCounter >= 25) // The worst has happened: the bot has gotten stuck. We will get it unstuck by taking it back to the first found block.
+            {
+                currentRow = failsafeRow;
+                currentCol = failsafeCol;
+                failCounter = 0;
+            }
 
-      num = player1->getShadow(botRow, originCol);
-      is_Hit = game->isHit(botRow, originCol, player1);
-      if(is_Hit == true){
-        isSunk = game->checkSunk(player1, num);
-        p1HitsLeft--;
-      }
+            botRow = currentRow; // This is necessary for our if statements below.
+            if(botFoundShip)
+            {
+                char cardinalDir[4] = {'U', 'D', 'L', 'R'};
+                srand(time(NULL));
+                int dirSelect = rand() % 4; // There are four directions. We choose one to go in.
 
-  }else if(dif == 2){
+				if(cardinalDir[dirSelect] == 'U' && currentRow > 0)
+                {
+                    botRow = currentRow - 1;
+                    originCol = currentCol;
+                }
+                else if(cardinalDir[dirSelect] == 'L' && originCol > 0)
+                {
+                    originCol = currentCol - 1;
+                    botRow = currentRow;
+                }
+                else if(cardinalDir[dirSelect] == 'R' && originCol < 10)
+                {
+                    originCol = currentCol + 1;
+                    botRow = currentRow;
+                }
+                else if(cardinalDir[dirSelect] == 'D' && currentRow < 10)
+                {
+                    botRow = currentRow + 1;
+                    originCol = currentCol;
+                }
+            }
+            else // If we haven't found a place, we just randomly guess
+            {
+                srand(time(NULL));
+                botColInt = rand() % 10; //Selects a random number between 0-9
+                botCol = 'a' + botColInt; //Adds the value to 'a' to get the column selected
+                botCol = toupper(botCol);
 
-  }else if(dif == 3){
+                while(colLetter < botCol){
+                    colLetter++;
+                    originCol++;
+                }
 
-  }
+                srand(time(NULL));
+                botRow = rand() % 9;
+                botRow++;
+            }
+        }while (player1->getValue(botRow, originCol) == 'M' || player1->getValue(botRow, originCol) == 'H'); // Ensure the bot doesn't strike anywhere it has already
 
-  return is_Hit;
+        num = player1->getShadow(botRow, originCol);
+        is_Hit = game->isHit(botRow, originCol, player1);
+        if(is_Hit == true)
+        {
+            isSunk = game->checkSunk(player1, num);
+            if(!isSunk)
+            {
+                if(failsafeCol == 0) // Set the failsafes up just once in case the bot backs itself into a corner
+                {
+                    failsafeCol = foundCol;
+                }
+                if(failsafeRow == 'Z')
+                {
+                    failsafeRow = foundRow;
+                }
+                botFoundShip = true;
+                foundCol = originCol;
+                foundRow = botRow;
+                currentCol = originCol;
+                currentRow = botRow;
+            }
+            else // If we just sunk a ship, we reset everything.
+            {
+                botFoundShip = false;
+                failsafeRow = 0;
+                failsafeCol = 'Z';
+            }
+            p1HitsLeft--;
+        }
+        else if (botFoundShip && !is_Hit) // If we miss, we take a step back to figure out where we went wrong.
+        {
+            currentCol = foundCol;
+            currentRow = foundRow;
+        }
+    }
+    
+    else if(dif == 3)
+    {
+        
+    }
+
+    return is_Hit;
 }

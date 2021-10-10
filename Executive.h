@@ -119,6 +119,14 @@ class Executive {
     int difficulty = 0;
     bool validDif = false;
 
-
+	bool botFoundShip = false;
+	int failsafeCol = 0;
+	char failsafeRow = 'Z';
+	int foundCol = 0;
+	char foundRow = 'Z';
+	int currentCol = 0;
+	char currentRow = 'Z';
+	char dirsTried[4] = {};
+	bool sunkFoundShip = false;
 };
 #endif
