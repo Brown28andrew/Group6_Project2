@@ -530,7 +530,28 @@ bool Executive::playerBotShoot(int dif)
     
     else if(dif == 3)
     {
-        
+     	for(int i= d3Rerow; i < 10; i++)
+		{
+		for(int j= d3Recol; j < 11; j++)
+			{
+				if(player1->getShadow(i, j)!= 0)
+				{
+					is_Hit= true;
+					p1HitsLeft--;
+					if(j+1== 11)
+					{
+						d3Rerow= i+1;
+						d3Recol= 0;
+					}
+					else 
+					{
+						d3Rerow= i;
+						d3Recol= j+1;
+					}
+					break;
+				}
+			}
+		}
     }
 
     return is_Hit;

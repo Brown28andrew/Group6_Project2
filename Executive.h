@@ -128,5 +128,8 @@ class Executive {
 	char currentRow = 'Z';
 	char dirsTried[4] = {};
 	bool sunkFoundShip = false;
+	
+	int d3Rerow= 0;
+	int d3Recol= 0;
 };
 #endif
