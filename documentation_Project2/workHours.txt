@@ -20,3 +20,13 @@ Oct 4: 1 hr
 Oct 6: 1.5 hr
 -Debugging the easy difficulty of the bot so it is fully playable
 
+Drew Fink:
+Sept. 28: 45 mins
+    - We had a group meeting in which we voted on a custom idea and floated ideas for how to implement it.
+
+Sept. 30: 3 hours
+    - Implemented random ship placement for the AI opponent.
+
+Oct. 9: 5 hours
+    - Implemented medium difficulty level.
+    - Fixed bug in hard difficulty level.
