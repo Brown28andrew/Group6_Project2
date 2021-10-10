@@ -27,6 +27,9 @@ Sept. 28: 45 mins
 Sept. 30: 3 hours
     - Implemented random ship placement for the AI opponent.
 
+Oct. 7: 30 minutes
+    - Brainstormed ways to implement medium difficulty level and attempted to visualize ways to do it.
+
 Oct. 9: 5 hours
     - Implemented medium difficulty level.
     - Fixed bug in hard difficulty level.
