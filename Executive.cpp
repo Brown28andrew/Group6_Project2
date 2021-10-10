@@ -530,28 +530,25 @@ bool Executive::playerBotShoot(int dif)
     
     else if(dif == 3)
     {
-     	for(int i= d3Rerow; i < 10; i++)
-		{
-		for(int j= d3Recol; j < 11; j++)
+        do
+        {
+            if(d3Recol == 11)
+            {
+                ++d3Rerow;
+                d3Recol = 0;
+            }
+            if(player1->getShadow(d3Rerow, d3Recol) != 0)
 			{
-				if(player1->getShadow(i, j)!= 0)
-				{
-					is_Hit= true;
-					p1HitsLeft--;
-					if(j+1== 11)
-					{
-						d3Rerow= i+1;
-						d3Recol= 0;
-					}
-					else 
-					{
-						d3Rerow= i;
-						d3Recol= j+1;
-					}
-					break;
-				}
+                num = player1->getShadow(d3Rerow, d3Recol);
+				is_Hit = game->isHit(d3Rerow, d3Recol, player1);
+                if(is_Hit == true)
+                {
+                    isSunk = game->checkSunk(player1, num);
+                    p1HitsLeft--;
+                }
 			}
-		}
+            d3Recol++;
+        } while (!is_Hit);
     }
 
     return is_Hit;
