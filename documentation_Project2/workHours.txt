@@ -10,5 +10,13 @@ Time Sheet:
 
 Raj Nara:
 
+Andrew Brown:
+Sep 28: 0.75 hr
+-Group meeting going over custom addition and ideas for working on bot
 
+Oct 4: 1 hr
+-Created difficulty prompt, playerBotShoot function and call inside the turn function, and the easy mode difficulty for the playerBotShoot
+
+Oct 6: 1.5 hr
+-Debugging the easy difficulty of the bot so it is fully playable
 
