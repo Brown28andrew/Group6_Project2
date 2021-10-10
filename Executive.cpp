@@ -372,7 +372,7 @@ bool Executive::playerBotShoot(int dif)
     originCol = 1;
     colLetter = 'A';
 
-    if(dif == 1)
+    if(dif == 1) //This is the easy difficulty.
     {
         do
         {
@@ -400,7 +400,7 @@ bool Executive::playerBotShoot(int dif)
         }
     }
     
-    else if(dif == 2)
+    else if(dif == 2) // This is the medium difficulty.
     {
         int failCounter = 0; // To try and avoid the bot getting stuck, this is a counter of invalid moves it's tried to make.
         do
@@ -494,7 +494,7 @@ bool Executive::playerBotShoot(int dif)
         }
     }
     
-    else if(dif == 3)
+    else if(dif == 3) //This is the hard difficulty.
     {
         do
         {
@@ -506,7 +506,7 @@ bool Executive::playerBotShoot(int dif)
             if(player1->getShadow(d3Rerow, d3Recol) != 0)
 			{
                 num = player1->getShadow(d3Rerow, d3Recol);
-				is_Hit = game->isHit(d3Rerow, d3Recol, player1);
+				is_Hit = game->isHit(d3Rerow, d3Recol, player1); //Hits only the places where the ships are present. 
                 if(is_Hit == true)
                 {
                     isSunk = game->checkSunk(player1, num);

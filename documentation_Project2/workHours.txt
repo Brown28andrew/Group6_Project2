@@ -9,6 +9,15 @@ the research and Googling that would go behind it as well. That brings us to 36 
 Time Sheet:
 
 Raj Nara:
+Sept. 28: 45 min
+    - Group meeting over Zoom about custom addition and how to split time up.
+
+October 8: 2 hrs 
+    - Added time sheet, work hours and design paradigm files.
+
+October 10: 1 hr
+    - Added necessary documentation + finding bugs in the code.
+
 
 Andrew Brown:
 Sep 28: 0.75 hr
@@ -19,6 +28,7 @@ Oct 4: 1 hr
 
 Oct 6: 1.5 hr
 -Debugging the easy difficulty of the bot so it is fully playable
+
 
 Drew Fink:
 Sept. 28: 45 mins
@@ -33,3 +43,9 @@ Oct. 7: 30 minutes
 Oct. 9: 5 hours
     - Implemented medium difficulty level.
     - Fixed bug in hard difficulty level.
+
+Truman Klenklen:
+
+
+Zachary Sambol:
+

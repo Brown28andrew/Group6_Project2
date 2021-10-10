@@ -9,8 +9,6 @@ using namespace std;
 
 bool Game::isHit(int tRow, int tCol, Grid* tGrid)
 {		
-	
-	
 	while (tRow >= 10 || tRow <= 0 || tCol >= 11 || tCol <= 0)
 	{
 		tCol = invalidInput();
@@ -55,17 +53,11 @@ bool Game::isHit(int tRow, int tCol, Grid* tGrid)
 		tGrid->setShadow(tRow, tCol);
 		return true;
 	}
-	else //(tGrid->getValue(tRow, tCol) != '|' || tGrid->getValue(tRow, tCol) != '-')
+	else 
 	{
 		tGrid -> setValue(tRow,tCol, false);
 		return false;
 	}
-	//else
-	//{
-	//	return isHit(tRow, tCol, tGrid);
-	//	cout << "Got here mama";
-	//}
-	
 }
 
 bool Game::getEndGame(int hitsLeft)
@@ -94,6 +86,7 @@ char Game::getColumnLetter(string input)
     col = toupper(col);
     return col;
 }
+
 int Game::invalidInput()
 {
 		cout << "Invalid location. Try again: " << endl;
@@ -114,6 +107,6 @@ int Game::invalidInput()
 }
 
 bool Game::checkSunk (Grid* playerGrid, int n) {
-	return(playerGrid->checkShadow(n));
+	return(playerGrid->checkShadow(n)); //Checks if the ship at that particular position is sunk or not.
 }
 
