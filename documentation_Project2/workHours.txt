@@ -52,4 +52,10 @@ Truman Klenklen:
 
 
 Zachary Sambol:
+Sept. 28: 45 Min
+	- Group meeting to decide on custom addition
 
+Oct. 8: 2.5 Hours
+	- Thought about best way to implement "Best of N" feature with existing code
+	- Implemented "Best of N"
+	
