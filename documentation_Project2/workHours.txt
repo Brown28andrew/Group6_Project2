@@ -44,6 +44,10 @@ Oct. 9: 5 hours
     - Implemented medium difficulty level.
     - Fixed bug in hard difficulty level.
 
+Oct. 10: 1 hour
+    - Making stylistic refinements to the code.
+    - Bug-hunting.
+
 Truman Klenklen:
 
 

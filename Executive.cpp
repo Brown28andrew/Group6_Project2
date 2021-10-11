@@ -49,7 +49,14 @@ void Executive::BeginGame()
     placeShips(numShips, player1);
 
 	clearScreen();
-    cout << "\nAll ships placed for player 1!\n";
+    if(gameState[1] == 0)
+    {
+        cout << "\nAll ships placed for player 1!\n";
+    }
+    else
+    {
+        cout << "\nAll ships placed for player 1! Please wait while the bot places its ships...\n"; // Sometimes, this takes a second.
+    }
 
 	std::cin.ignore(256, '\n');
 
@@ -258,10 +265,10 @@ void Executive::endTheGame()
 	sleep(3);
 
 	if(winner == 1) {
-		gameState[3]++;
+		gameState[3]++; // If player 1 is the winner, gameState[3] keeps track of their wins.
 	}
 	else {
-		gameState[4]++;
+		gameState[4]++; // If player 2 is the winner, gameState[4] keeps track of their wins.
 	}
 }
 
@@ -324,7 +331,7 @@ bool Executive::getShot(Grid* grid, int n) {
             int num;
 
             sleep(2);
-            cout << "Where would you like to take your shot Player " << n << "?\nColumn (A-J):"; //get shot from player one
+            cout << "Where would you like to take your shot Player " << n << "?\nColumn (A-J): "; //get shot from player one
             string shotColStr;
             char shotColumn;
             std::cin >> shotColStr;
